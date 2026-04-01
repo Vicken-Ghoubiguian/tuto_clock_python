@@ -7,5 +7,5 @@ pip install -r requirements.txt
 ```
 
 ```bash
-python main.py --timezone="Europe/Paris"
+python main.py --timezone="<timezone>"
 ```
