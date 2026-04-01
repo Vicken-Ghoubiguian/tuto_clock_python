@@ -1,2 +1,2 @@
 # tuto_clock_python
-Tutorial project to learn Python and programming to adults
+Tutorial project to make learn Python and programming to adults
