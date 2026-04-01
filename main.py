@@ -1,5 +1,6 @@
 #
 import pytz
+import datetime
 
 #
 def get_all_timezones():
@@ -14,7 +15,10 @@ def get_datetime_for_particular_timezone(destination_timezone):
     if destination_timezone in pytz.all_timezones :
     
          #
-         return 0
+         dtz = pytz.timezone(destination_timezone)
+         
+         #
+         return datetime.datetime.now(dtz)
     
     #
     else :
