@@ -1,6 +1,7 @@
-#
+# import the needed Python modules
 import pytz
 import datetime
+import argparse
 
 #
 def get_all_timezones():
@@ -30,5 +31,19 @@ def get_datetime_for_particular_timezone(destination_timezone):
 if __name__ == "__main__":
 
     #
+    parser = argparse.ArgumentParser(description="Simple app with timezones")
+
+    #
+    parser.add_argument('--timezone', action="store", dest='timezone', default=0)
+    
+    #
+    args = parser.parse_args()
+
+    #
     print(get_all_timezones())
-    print("Pacific/Auckland" + " : " + get_datetime_for_particular_timezone("Pacific/Auckland").strftime("%Y:%m:%d %H:%M:%S"))
+    
+    #
+    if get_datetime_for_particular_timezone(args.timezone) != -1 :
+    
+         #
+         print(args.timezone + " : " + get_datetime_for_particular_timezone(args.timezone).strftime("%Y:%m:%d %H:%M:%S"))
