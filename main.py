@@ -31,4 +31,4 @@ if __name__ == "__main__":
 
     #
     print(get_all_timezones())
-    print(get_datetime_for_particular_timezone("Europe/Berlin"))
+    print(get_datetime_for_particular_timezone("Pacific/Auckland").strftime("%Y:%m:%d %H:%M:%S"))
