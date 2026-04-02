@@ -16,7 +16,7 @@ class Clock(tkinter.Tk) :
           self.title("Clock")
 
           #
-          self.iconbitmap("clock.ico")
+          self.iconbitmap("images/clock.ico")
 
           #
           self.resizable(False, False)
