@@ -1,12 +1,13 @@
 import dt_management
 import tkinter
 import tkinter.ttk
+import argparse
 
 #
 class Clock(tkinter.Tk) :
      
      #
-     def __init__(self):
+     def __init__(self, timezone):
           
           #
           tkinter.Tk.__init__(self)
@@ -30,13 +31,22 @@ class Clock(tkinter.Tk) :
           clock_label.pack(anchor="center")
 
           #
-          clock_time("Europe/Paris")
+          clock_time(timezone)
 
 #
 if __name__ == "__main__" :
      
      #
-     clock = Clock()
+    parser = argparse.ArgumentParser(description="Simple app with timezones")
 
-     #
-     clock.mainloop()
+    #
+    parser.add_argument('--timezone', action="store", dest='timezone', default=0)
+    
+    #
+    args = parser.parse_args()
+     
+    #
+    clock = Clock(args.timezone)
+
+    #
+    clock.mainloop()
