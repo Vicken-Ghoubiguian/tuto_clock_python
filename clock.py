@@ -16,6 +16,9 @@ class Clock(tkinter.Tk) :
           self.title("Clock")
 
           #
+          self.resizable(False, False)
+
+          #
           def clock_time(timezone) :
                
                #
@@ -44,9 +47,18 @@ if __name__ == "__main__" :
     
     #
     args = parser.parse_args()
-     
+
     #
-    clock = Clock(args.timezone)
+    if dt_management.get_datetime_for_particular_timezone(args.timezone) != -1 :
+
+         #
+         clock = Clock(args.timezone)
+
+    #
+    else :
+         
+         #
+         raise Exception("Timezone unknown !")
 
     #
     clock.mainloop()

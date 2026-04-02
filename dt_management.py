@@ -47,3 +47,9 @@ if __name__ == "__main__":
     
          #
          print(args.timezone + " : " + get_datetime_for_particular_timezone(args.timezone).strftime("%Y:%m:%d %H:%M:%S"))
+
+    #
+    else :
+         
+         #
+         raise Exception("Timezone unknown !")
