@@ -9,9 +9,3 @@ class TimeZoneException(Exception) :
         
         #
         self.error_code = error_code
-
-     #
-     def __str__(self):
-
-        #
-        return "{self.message} (Error Code: {self.error_code})"
