@@ -1,4 +1,5 @@
 import dt_management
+import TimeZoneException
 import tkinter
 import tkinter.ttk
 import argparse
@@ -61,7 +62,7 @@ if __name__ == "__main__" :
     else :
          
          #
-         raise Exception("Timezone unknown !")
+         raise TimeZoneException.TimeZoneException("Timezone unknown !", 400)
 
     #
     clock.mainloop()

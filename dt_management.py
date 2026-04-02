@@ -2,6 +2,7 @@
 import pytz
 import datetime
 import argparse
+import TimeZoneException
 
 #
 def get_all_timezones():
@@ -52,4 +53,4 @@ if __name__ == "__main__":
     else :
          
          #
-         raise Exception("Timezone unknown !")
+         raise TimeZoneException.TimeZoneException("Timezone unknown !", 400)
