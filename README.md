@@ -6,6 +6,10 @@ Tutorial project to make learn Python and programming to adults
 pip install -r requirements.txt
 ```
 
+## How to test each file ?
 ```bash
-python main.py --timezone="<timezone>"
+python dt_management.py --timezone="<timezone>"
+```
+```bash
+python clock.py --timezone="<timezone>"
 ```
