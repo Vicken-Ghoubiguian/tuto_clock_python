@@ -15,13 +15,13 @@ class Clock(tkinter.Tk) :
           self.title("Clock")
 
           #
-          def clock_time() :
+          def clock_time(timezone) :
                
                #
-               clock_label.config(text=dt_management.get_datetime_for_particular_timezone("Europe/Paris").strftime("%Y-%m-%d %H:%M:%S"))
+               clock_label.config(text=dt_management.get_datetime_for_particular_timezone(timezone).strftime(timezone + " : %Y-%m-%d %H:%M:%S"))
 
                #
-               clock_label.after(1000, clock_time)
+               clock_label.after(1000, clock_time, timezone)
 
           #
           clock_label = tkinter.Label(self, font=('calibri', 40, 'bold'), background='blue', foreground='yellow')
@@ -30,7 +30,7 @@ class Clock(tkinter.Tk) :
           clock_label.pack(anchor="center")
 
           #
-          clock_time()
+          clock_time("Europe/Paris")
 
 #
 if __name__ == "__main__" :
