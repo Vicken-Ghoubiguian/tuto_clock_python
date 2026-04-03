@@ -29,6 +29,9 @@ class Clock(tkinter.Tk) :
           self.timezone = timezone
 
           #
+          self.datetime_format = "%Y-%m-%d %H:%M:%S"
+
+          #
           all_timezones = dt_management.get_all_timezones()
 
           #
@@ -92,7 +95,7 @@ class Clock(tkinter.Tk) :
      def clock_time(self) :
                
           #
-          self.clock_label.config(text=dt_management.get_datetime_for_particular_timezone(self.timezone).strftime(self.timezone + " : %Y-%m-%d %H:%M:%S"))
+          self.clock_label.config(text=dt_management.get_datetime_for_particular_timezone(self.timezone).strftime(self.timezone + " : " + self.datetime_format))
 
           #
           self.clock_label.after(1000, self.clock_time)
