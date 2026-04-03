@@ -85,13 +85,11 @@ class Clock(tkinter.Tk) :
      #
      def change_timezone(self, wished_timezone):
 
-          print(wished_timezone)
+          #
+          self.timezone = wished_timezone
 
           #
-          #self.timezone = "Europe/Paris"
-
-          #
-          #self.clock_time()
+          self.clock_time()
 
      #
      def clock_time(self) :
