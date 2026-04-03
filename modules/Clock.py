@@ -1,4 +1,4 @@
-import dt_management
+import modules.dt_management as dt_management
 import TimeZoneException
 import tkinter
 import tkinter.ttk
