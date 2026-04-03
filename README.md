@@ -2,6 +2,9 @@
 
 Tutorial project to make learn Python and programming to adults
 
+## Contents
+
+## How to install all of the requirements ?
 ```bash
 pip install -r requirements.txt
 ```
