@@ -40,6 +40,32 @@ class Clock(tkinter.Tk) :
           #
           clock_time(timezone)
 
+          #
+          menubar = tkinter.Menu(self)
+
+          #
+          self.config(menu = menubar)
+
+          #
+          file_menu = tkinter.Menu(menubar)
+
+          #
+          all_timezones = dt_management.get_all_timezones()
+
+          #
+          for current_timezone in all_timezones :
+
+               #
+               file_menu.add_command(
+                    label=current_timezone,
+                    command=self.destroy
+               )
+
+          menubar.add_cascade(
+               label="timezones",
+               menu=file_menu
+          )
+
 #
 if __name__ == "__main__" :
      
