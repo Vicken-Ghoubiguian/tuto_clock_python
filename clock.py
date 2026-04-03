@@ -53,31 +53,25 @@ class Clock(tkinter.Tk) :
           self.clock_time()
 
           #
-          #menubar = tkinter.Menu(self)
+          menubar = tkinter.Menu(self)
 
           #
-          #self.config(menu = menubar)
+          self.config(menu = menubar)
 
           #
-          #timezone_menu = tkinter.Menu(menubar)
+          timezone_menu = tkinter.Menu(menubar)
 
           #
-          #all_timezones = dt_management.get_all_timezones()
+          timezone_menu.add_command(
+               label="Exit",
+               command=self.destroy
+          )
 
           #
-          #for current_timezone in all_timezones :
-
-               #
-          #     timezone_menu.add_command(
-          #          label=current_timezone,
-          #          command=self.destroy
-          #     )
-
-          #
-          # menubar.add_cascade(
-          #     label="timezones",
-          #     menu=timezone_menu
-          #)
+          menubar.add_cascade(
+               label="menu",
+               menu=timezone_menu
+          )
 
      #
      def get_Selected_Item(self, eventObject) :
