@@ -16,6 +16,9 @@ class Clock(tkinter.Tk) :
           #
           self.title("Clock")
 
+          # Instruction that disables the ‘X’ (close) button in the top-right corner of the window.
+          self.protocol('WM_DELETE_WINDOW', 'break')
+
           #
           self.iconbitmap("images/clock.ico")
 
