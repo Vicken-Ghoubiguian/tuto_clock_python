@@ -22,6 +22,23 @@ class Clock(tkinter.Tk) :
           #
           self.resizable(False, False)
 
+          #
+          self.timezone = timezone
+
+          #
+          all_timezones = dt_management.get_all_timezones()
+
+          #
+          selected_tz = tkinter.StringVar()
+
+          #
+          tz_comboBox = tkinter.ttk.Combobox(self, textvariable = selected_tz, width = 110, values = all_timezones, state = "readonly")
+
+          #
+          tz_comboBox.set(timezone)
+
+          #
+          tz_comboBox.pack()
 
           #
           self.clock_label = tkinter.Label(self, font=('calibri', 40, 'bold'), background='blue', foreground='yellow')
@@ -30,37 +47,34 @@ class Clock(tkinter.Tk) :
           self.clock_label.pack(anchor="center")
 
           #
-          self.timezone = timezone
-
-          #
           self.clock_time()
 
           #
-          menubar = tkinter.Menu(self)
+          #menubar = tkinter.Menu(self)
 
           #
-          self.config(menu = menubar)
+          #self.config(menu = menubar)
 
           #
-          timezone_menu = tkinter.Menu(menubar)
+          #timezone_menu = tkinter.Menu(menubar)
 
           #
-          all_timezones = dt_management.get_all_timezones()
+          #all_timezones = dt_management.get_all_timezones()
 
           #
-          for current_timezone in all_timezones :
+          #for current_timezone in all_timezones :
 
                #
-               timezone_menu.add_command(
-                    label=current_timezone,
-                    command=self.destroy
-               )
+          #     timezone_menu.add_command(
+          #          label=current_timezone,
+          #          command=self.destroy
+          #     )
 
           #
-          menubar.add_cascade(
-               label="timezones",
-               menu=timezone_menu
-          )
+          # menubar.add_cascade(
+          #     label="timezones",
+          #     menu=timezone_menu
+          #)
 
      #
      def change_timezone(self, wished_timezone):
