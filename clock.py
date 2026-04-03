@@ -30,7 +30,10 @@ class Clock(tkinter.Tk) :
           self.clock_label.pack(anchor="center")
 
           #
-          self.clock_time(timezone)
+          self.timezone = timezone
+
+          #
+          self.clock_time()
 
           #
           menubar = tkinter.Menu(self)
@@ -39,7 +42,7 @@ class Clock(tkinter.Tk) :
           self.config(menu = menubar)
 
           #
-          file_menu = tkinter.Menu(menubar)
+          timezone_menu = tkinter.Menu(menubar)
 
           #
           all_timezones = dt_management.get_all_timezones()
@@ -48,7 +51,7 @@ class Clock(tkinter.Tk) :
           for current_timezone in all_timezones :
 
                #
-               file_menu.add_command(
+               timezone_menu.add_command(
                     label=current_timezone,
                     command=self.destroy
                )
@@ -56,17 +59,26 @@ class Clock(tkinter.Tk) :
           #
           menubar.add_cascade(
                label="timezones",
-               menu=file_menu
+               menu=timezone_menu
           )
 
      #
-     def clock_time(self, timezone) :
-               
-          #
-          self.clock_label.config(text=dt_management.get_datetime_for_particular_timezone(timezone).strftime(timezone + " : %Y-%m-%d %H:%M:%S"))
+     def change_timezone(self, wished_timezone):
 
           #
-          self.clock_label.after(1000, self.clock_time, timezone)
+          self.timezone = wished_timezone
+
+          #
+          self.clock_time()
+
+     #
+     def clock_time(self) :
+               
+          #
+          self.clock_label.config(text=dt_management.get_datetime_for_particular_timezone(self.timezone).strftime(self.timezone + " : %Y-%m-%d %H:%M:%S"))
+
+          #
+          self.clock_label.after(1000, self.clock_time)
 
 #
 if __name__ == "__main__" :
