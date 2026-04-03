@@ -22,14 +22,6 @@ class Clock(tkinter.Tk) :
           #
           self.resizable(False, False)
 
-          #
-          def clock_time(timezone) :
-               
-               #
-               self.clock_label.config(text=dt_management.get_datetime_for_particular_timezone(timezone).strftime(timezone + " : %Y-%m-%d %H:%M:%S"))
-
-               #
-               self.clock_label.after(1000, clock_time, timezone)
 
           #
           self.clock_label = tkinter.Label(self, font=('calibri', 40, 'bold'), background='blue', foreground='yellow')
@@ -38,7 +30,7 @@ class Clock(tkinter.Tk) :
           self.clock_label.pack(anchor="center")
 
           #
-          clock_time(timezone)
+          self.clock_time(timezone)
 
           #
           menubar = tkinter.Menu(self)
@@ -66,6 +58,15 @@ class Clock(tkinter.Tk) :
                label="timezones",
                menu=file_menu
           )
+
+     #
+     def clock_time(self, timezone) :
+               
+          #
+          self.clock_label.config(text=dt_management.get_datetime_for_particular_timezone(timezone).strftime(timezone + " : %Y-%m-%d %H:%M:%S"))
+
+          #
+          self.clock_label.after(1000, self.clock_time, timezone)
 
 #
 if __name__ == "__main__" :
