@@ -61,6 +61,7 @@ class Clock(tkinter.Tk) :
                     command=self.destroy
                )
 
+          #
           menubar.add_cascade(
                label="timezones",
                menu=file_menu
