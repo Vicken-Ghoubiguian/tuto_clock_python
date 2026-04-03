@@ -6,7 +6,7 @@ import argparse
 
 #
 class Clock(tkinter.Tk) :
-     
+
      #
      def __init__(self, timezone):
           
@@ -26,16 +26,16 @@ class Clock(tkinter.Tk) :
           def clock_time(timezone) :
                
                #
-               clock_label.config(text=dt_management.get_datetime_for_particular_timezone(timezone).strftime(timezone + " : %Y-%m-%d %H:%M:%S"))
+               self.clock_label.config(text=dt_management.get_datetime_for_particular_timezone(timezone).strftime(timezone + " : %Y-%m-%d %H:%M:%S"))
 
                #
-               clock_label.after(1000, clock_time, timezone)
+               self.clock_label.after(1000, clock_time, timezone)
 
           #
-          clock_label = tkinter.Label(self, font=('calibri', 40, 'bold'), background='blue', foreground='yellow')
+          self.clock_label = tkinter.Label(self, font=('calibri', 40, 'bold'), background='blue', foreground='yellow')
 
           #
-          clock_label.pack(anchor="center")
+          self.clock_label.pack(anchor="center")
 
           #
           clock_time(timezone)
