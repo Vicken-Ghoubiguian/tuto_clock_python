@@ -29,13 +29,10 @@ class Clock(tkinter.Tk) :
           all_timezones = dt_management.get_all_timezones()
 
           #
-          selected_tz = tkinter.StringVar()
+          tz_comboBox = tkinter.ttk.Combobox(self, width = 110, values = all_timezones, state = "readonly")
 
           #
-          tz_comboBox = tkinter.ttk.Combobox(self, textvariable = selected_tz, width = 110, values = all_timezones, state = "readonly")
-
-          #
-          tz_comboBox.set(timezone)
+          tz_comboBox.set(self.timezone)
 
           #
           tz_comboBox.pack()
