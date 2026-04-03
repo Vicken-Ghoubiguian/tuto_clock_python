@@ -29,13 +29,16 @@ class Clock(tkinter.Tk) :
           all_timezones = dt_management.get_all_timezones()
 
           #
-          tz_comboBox = tkinter.ttk.Combobox(self, width = 110, values = all_timezones, state = "readonly")
+          self.tz_comboBox = tkinter.ttk.Combobox(self, width = 110, values = all_timezones, state = "readonly")
 
           #
-          tz_comboBox.set(self.timezone)
+          self.tz_comboBox.set(self.timezone)
 
           #
-          tz_comboBox.pack()
+          self.tz_comboBox.bind('<<ComboboxSelected>>', self.get_Selected_Item)
+
+          #
+          self.tz_comboBox.pack()
 
           #
           self.clock_label = tkinter.Label(self, font=('calibri', 40, 'bold'), background='blue', foreground='yellow')
@@ -74,13 +77,21 @@ class Clock(tkinter.Tk) :
           #)
 
      #
+     def get_Selected_Item(self, eventObject) :
+
+          #
+          self.change_timezone(self.tz_comboBox.get())
+
+     #
      def change_timezone(self, wished_timezone):
 
-          #
-          self.timezone = wished_timezone
+          print(wished_timezone)
 
           #
-          self.clock_time()
+          #self.timezone = "Europe/Paris"
+
+          #
+          #self.clock_time()
 
      #
      def clock_time(self) :
