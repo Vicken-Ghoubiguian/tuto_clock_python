@@ -9,6 +9,12 @@ def get_all_timezones():
 
     #
     return pytz.all_timezones
+
+#
+def get_all_common_timezones():
+
+     #
+     return pytz.common_timezones
 	
 #
 def get_datetime_for_particular_timezone(destination_timezone):
@@ -42,6 +48,9 @@ if __name__ == "__main__":
 
     #
     print(get_all_timezones())
+
+    #
+    print(get_all_common_timezones())
     
     #
     if get_datetime_for_particular_timezone(args.timezone) != -1 :
