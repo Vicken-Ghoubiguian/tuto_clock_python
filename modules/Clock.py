@@ -10,16 +10,16 @@ class Clock(tkinter.Tk) :
      # Definition of the 'Clock' class constructor
      def __init__(self, timezone):
           
-          #
+          # Definition of the main GUI
           tkinter.Tk.__init__(self)
 
-          #
+          # Definition of the main GUI title
           self.title("Clock")
 
           # Instruction that disables the ‘X’ (close) button in the top-right corner of the window.
           self.protocol('WM_DELETE_WINDOW', 'break')
 
-          #
+          # Definition of the main GUI image
           self.iconbitmap("../images/clock.ico")
 
           #
