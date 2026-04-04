@@ -4,10 +4,10 @@ import tkinter
 import tkinter.ttk
 import argparse
 
-#
+# Definition of the 'Clock' class
 class Clock(tkinter.Tk) :
 
-     #
+     # Definition of the 'Clock' class constructor
      def __init__(self, timezone):
           
           #
