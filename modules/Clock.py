@@ -42,7 +42,7 @@ class Clock(tkinter.Tk) :
           self.tz_comboBox.set(self.timezone)
 
           #
-          self.tz_comboBox.bind('<<ComboboxSelected>>', self.get_Selected_Item)
+          self.tz_comboBox.bind('<<ComboboxSelected>>', self.get_Selected_Timezone)
 
           #
           self.tz_comboBox.pack()
@@ -52,6 +52,9 @@ class Clock(tkinter.Tk) :
 
           #
           self.dt_format_comboBox.set(self.datetime_format)
+
+          #
+          self.dt_format_comboBox.bind('<<ComboboxSelected>>', self.get_Selected_Datetime_format)
 
           #
           self.dt_format_comboBox.pack()
@@ -87,7 +90,16 @@ class Clock(tkinter.Tk) :
           )
 
      #
-     def get_Selected_Item(self, eventObject) :
+     def get_Selected_Datetime_format(self, eventObject) :
+
+          #
+          self.datetime_format = self.dt_format_comboBox.get()
+
+          #
+          self.clock_time()
+
+     #
+     def get_Selected_Timezone(self, eventObject) :
 
           #
           self.change_timezone(self.tz_comboBox.get())
