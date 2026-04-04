@@ -2,7 +2,7 @@
 import pytz
 import datetime
 import argparse
-import modules.TimeZoneException as TimeZoneException
+import TimeZoneException as TimeZoneException
 
 #
 def get_all_timezones():

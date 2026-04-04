@@ -1,5 +1,5 @@
-import modules.dt_management as dt_management
-import modules.TimeZoneException as TimeZoneException
+import dt_management as dt_management
+import TimeZoneException as TimeZoneException
 import tkinter
 import tkinter.ttk
 import argparse
@@ -20,7 +20,7 @@ class Clock(tkinter.Tk) :
           self.protocol('WM_DELETE_WINDOW', 'break')
 
           #
-          self.iconbitmap("images/clock.ico")
+          self.iconbitmap("../images/clock.ico")
 
           #
           self.resizable(False, False)
