@@ -47,7 +47,7 @@ class Clock(tkinter.Tk) :
           self.tz_comboBox.pack()
 
           #
-          self.dt_format_comboBox = tkinter.ttk.Combobox(self, width = 110, values = ["%A %B %d %Y %H:%M:%S", "%Y-%m-%d %H:%M:%S", "%d-%m-%Y %H:%M:%S", "%d/%m/%Y %H:%M:%S"], state = "readonly")
+          self.dt_format_comboBox = tkinter.ttk.Combobox(self, width = 110, values = ["%A %B %d %Y %H:%M:%S", "%Y-%m-%d %H:%M:%S", "%d-%m-%Y %H:%M:%S", "%d/%m/%Y %H:%M:%S", "%m %d %Y %H:%M:%S"], state = "readonly")
 
           #
           self.dt_format_comboBox.set(self.datetime_format)
