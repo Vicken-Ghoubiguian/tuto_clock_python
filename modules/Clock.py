@@ -102,13 +102,7 @@ class Clock(tkinter.Tk) :
      def get_Selected_Timezone(self, eventObject) :
 
           #
-          self.change_timezone(self.tz_comboBox.get())
-
-     #
-     def change_timezone(self, wished_timezone):
-
-          #
-          self.timezone = wished_timezone
+          self.timezone = self.tz_comboBox.get()
 
           #
           self.clock_time()
