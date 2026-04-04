@@ -1,5 +1,5 @@
 import modules.dt_management as dt_management
-import TimeZoneException
+import modules.TimeZoneException as TimeZoneException
 import tkinter
 import tkinter.ttk
 import argparse
