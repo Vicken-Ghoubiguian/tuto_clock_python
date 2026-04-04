@@ -29,7 +29,8 @@ class Clock(tkinter.Tk) :
           self.timezone = timezone
 
           #
-          self.datetime_format = "%Y-%m-%d %H:%M:%S"
+          #self.datetime_format = "%Y-%m-%d %H:%M:%S"
+          self.datetime_format = "%A %B %d %Y %H:%M:%S"
 
           #
           all_timezones = dt_management.get_all_timezones()
@@ -45,6 +46,15 @@ class Clock(tkinter.Tk) :
 
           #
           self.tz_comboBox.pack()
+
+          #
+          self.dt_format_comboBox = tkinter.ttk.Combobox(self, width = 110, values = ["%A %B %d %Y %H:%M:%S", "%Y-%m-%d %H:%M:%S"], state = "readonly")
+
+          #
+          self.dt_format_comboBox.set(self.datetime_format)
+
+          #
+          self.dt_format_comboBox.pack()
 
           #
           self.clock_label = tkinter.Label(self, font=('calibri', 40, 'bold'), background='blue', foreground='yellow')
