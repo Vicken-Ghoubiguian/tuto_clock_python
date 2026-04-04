@@ -29,8 +29,7 @@ class Clock(tkinter.Tk) :
           self.timezone = timezone
 
           #
-          #self.datetime_format = "%Y-%m-%d %H:%M:%S"
-          self.datetime_format = "%A %B %d %Y %H:%M:%S"
+          self.datetime_format = "%Y-%m-%d %H:%M:%S"
 
           #
           all_timezones = dt_management.get_all_timezones()
