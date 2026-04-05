@@ -67,16 +67,13 @@ if __name__ == "__main__":
     print(get_all_timezones())
 
     #
-    print(get_countrycode_of_timezone(args.timezone))
-
-    #
     print(get_all_common_timezones())
     
     #
     if get_datetime_for_particular_timezone(args.timezone) != -1 :
     
          #
-         print(args.timezone + " : " + get_datetime_for_particular_timezone(args.timezone).strftime("%Y:%m:%d %H:%M:%S"))
+         print(args.timezone + " (" + get_countrycode_of_timezone(args.timezone) + ") : " + get_datetime_for_particular_timezone(args.timezone).strftime("%Y:%m:%d %H:%M:%S"))
 
     #
     else :
