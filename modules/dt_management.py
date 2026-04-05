@@ -67,7 +67,7 @@ if __name__ == "__main__":
     print(get_all_timezones())
 
     #
-    print(get_countrycode_of_timezone("Europe/Paris"))
+    print(get_countrycode_of_timezone(args.timezone))
 
     #
     print(get_all_common_timezones())
