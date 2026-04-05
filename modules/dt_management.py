@@ -5,6 +5,23 @@ import argparse
 import TimeZoneException as TimeZoneException
 
 #
+def get_countrycode_of_timezone(wished_timezone):
+
+     #
+     for countrycode in pytz.country_timezones:
+
+          timezones = pytz.country_timezones[countrycode]
+
+          #
+          for timezone in timezones:
+ 
+               #
+               if timezone == wished_timezone :
+
+                    #
+                    return countrycode
+
+#
 def get_all_timezones():
 
     #
@@ -48,6 +65,9 @@ if __name__ == "__main__":
 
     #
     print(get_all_timezones())
+
+    #
+    print(get_countrycode_of_timezone("Europe/Paris"))
 
     #
     print(get_all_common_timezones())
