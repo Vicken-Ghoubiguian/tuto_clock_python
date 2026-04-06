@@ -30,16 +30,16 @@ def get_countrycode_of_timezone(wished_timezone):
      #
      return foundCountryCode
 
-#
+# Definition of a function to get all timezones
 def get_all_timezones():
 
-    #
+    # Returning a list of all timezones
     return pytz.all_timezones
 
-#
+# Definition of a function to get all common timezones
 def get_all_common_timezones():
 
-     #
+     # Returning a list of all common timezones
      return pytz.common_timezones
 	
 #
