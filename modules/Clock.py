@@ -110,7 +110,7 @@ class Clock(tkinter.Tk) :
      def clock_time(self) :
                
           #
-          self.clock_label.config(text=dt_management.get_datetime_for_particular_timezone(self.timezone).strftime(self.timezone + " : " + self.datetime_format))
+          self.clock_label.config(text=dt_management.get_datetime_for_particular_timezone(self.timezone).strftime(self.timezone + " (" + dt_management.get_countrycode_of_timezone(self.timezone) + ") : " + self.datetime_format))
 
           #
           self.clock_label.after(1000, self.clock_time)
