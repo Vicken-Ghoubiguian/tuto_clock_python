@@ -8,7 +8,7 @@ import TimeZoneException as TimeZoneException
 def get_countrycode_of_timezone(wished_timezone):
 
      #
-     foundCountryCode = "None"
+     foundCountryCode = None
 
      #
      for countrycode in pytz.country_timezones:
