@@ -58,7 +58,7 @@ def get_datetime_for_particular_timezone(destination_timezone):
     else :
     
          #
-         return -1
+         return None
     
 #
 if __name__ == "__main__":
@@ -82,10 +82,18 @@ if __name__ == "__main__":
     print(get_all_common_timezones())
     
     #
-    if get_datetime_for_particular_timezone(args.timezone) != -1 :
-
+    if get_datetime_for_particular_timezone(args.timezone) != None :
+         
          #
-         print(args.timezone + " (" + get_countrycode_of_timezone(args.timezone) + ") : " + get_datetime_for_particular_timezone(args.timezone).strftime("" + args.dt_format))
+         if get_countrycode_of_timezone(args.timezone) != None :
+              
+              #
+              print(args.timezone + " (" + get_countrycode_of_timezone(args.timezone) + ") : " + get_datetime_for_particular_timezone(args.timezone).strftime(args.dt_format))
+         #
+         else :
+
+              #
+              print(args.timezone + " : " + get_datetime_for_particular_timezone(args.timezone).strftime(args.dt_format))
 
     #
     else :
