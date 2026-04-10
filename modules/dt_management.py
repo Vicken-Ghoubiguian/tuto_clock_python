@@ -4,6 +4,7 @@ import datetime
 import argparse
 import platform
 import TimeZoneException as TimeZoneException
+import subprocess
 
 # from the needed Python modules import needed components
 from tzlocal.windows_tz import win_tz
@@ -77,7 +78,7 @@ if __name__ == "__main__":
     elif platform.system() == "Linux" :
 
          #
-         iana_tz = "Europe/Paris"
+         iana_tz = subprocess.check_output("cat /etc/timezone", shell=True, text=True).replace("\n", "")
 
     #
     else :
