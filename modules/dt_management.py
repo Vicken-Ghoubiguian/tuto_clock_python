@@ -4,6 +4,8 @@ import datetime
 import argparse
 import TimeZoneException as TimeZoneException
 
+from tzlocal.windows_tz import win_tz
+
 #
 def get_countrycode_of_timezone(wished_timezone):
 
@@ -62,12 +64,15 @@ def get_datetime_for_particular_timezone(destination_timezone):
     
 #
 if __name__ == "__main__":
+    
+    #
+    iana_tz = win_tz.get("Romance Standard Time")
 
     #
     parser = argparse.ArgumentParser(description="Simple app with timezones")
 
     #
-    parser.add_argument('--timezone', action="store", dest='timezone', default=0)
+    parser.add_argument('--timezone', action="store", dest='timezone', default=iana_tz)
 
     #
     parser.add_argument('--dt_format', action="store", dest='dt_format', default='%Y:%m:%d %H:%M:%S')
