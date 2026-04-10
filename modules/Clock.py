@@ -137,7 +137,7 @@ if __name__ == "__main__" :
     args = parser.parse_args()
 
     #
-    if dt_management.get_datetime_for_particular_timezone(args.timezone) != -1 :
+    if dt_management.get_datetime_for_particular_timezone(args.timezone) != None :
 
          #
          clock = Clock(args.timezone)
