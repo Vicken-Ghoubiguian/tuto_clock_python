@@ -1,8 +1,12 @@
+# import the needed Python modules
 import dt_management as dt_management
 import TimeZoneException as TimeZoneException
 import tkinter
 import tkinter.ttk
 import argparse
+
+# from the needed Python modules import needed components
+from tzlocal.windows_tz import win_tz
 
 # Definition of the 'Clock' class
 class Clock(tkinter.Tk) :
@@ -126,12 +130,15 @@ class Clock(tkinter.Tk) :
 
 #
 if __name__ == "__main__" :
+    
+    #
+    iana_tz = win_tz.get("Romance Standard Time")
      
      #
     parser = argparse.ArgumentParser(description="Simple app with timezones")
 
     #
-    parser.add_argument('--timezone', action="store", dest='timezone', default=0)
+    parser.add_argument('--timezone', action="store", dest='timezone', default=iana_tz)
     
     #
     args = parser.parse_args()
