@@ -2,6 +2,7 @@
 import pytz
 import datetime
 import argparse
+import platform
 import TimeZoneException as TimeZoneException
 
 # from the needed Python modules import needed components
@@ -67,7 +68,22 @@ def get_datetime_for_particular_timezone(destination_timezone):
 if __name__ == "__main__":
     
     #
-    iana_tz = win_tz.get("Romance Standard Time")
+    if platform.system() == "Windows" :
+    
+         #
+         iana_tz = win_tz.get("Romance Standard Time")
+
+    #
+    elif platform.system() == "Linux" :
+
+         #
+         iana_tz = "Europe/Paris"
+
+    #
+    else :
+         
+         #
+         iana_tz = "Europe/Paris"
 
     #
     parser = argparse.ArgumentParser(description="Simple app with timezones")
