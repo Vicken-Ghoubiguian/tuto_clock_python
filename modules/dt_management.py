@@ -68,6 +68,9 @@ if __name__ == "__main__":
 
     #
     parser.add_argument('--timezone', action="store", dest='timezone', default=0)
+
+    #
+    parser.add_argument('--dt_format', action="store", dest='dt_format', default='%Y:%m:%d %H:%M:%S')
     
     #
     args = parser.parse_args()
@@ -80,9 +83,9 @@ if __name__ == "__main__":
     
     #
     if get_datetime_for_particular_timezone(args.timezone) != -1 :
-    
+
          #
-         print(args.timezone + " (" + get_countrycode_of_timezone(args.timezone) + ") : " + get_datetime_for_particular_timezone(args.timezone).strftime("%Y:%m:%d %H:%M:%S"))
+         print(args.timezone + " (" + get_countrycode_of_timezone(args.timezone) + ") : " + get_datetime_for_particular_timezone(args.timezone).strftime("" + args.dt_format))
 
     #
     else :
