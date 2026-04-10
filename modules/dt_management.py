@@ -93,7 +93,7 @@ if __name__ == "__main__":
     parser.add_argument('--timezone', action="store", dest='timezone', default=iana_tz)
 
     #
-    parser.add_argument('--dt_format', action="store", dest='dt_format', default='%Y:%m:%d %H:%M:%S')
+    parser.add_argument('--dt_format', action="store", dest='dt_format', default='%Y-%m-%d %H:%M:%S')
     
     #
     args = parser.parse_args()
