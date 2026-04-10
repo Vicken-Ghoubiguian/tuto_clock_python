@@ -28,19 +28,19 @@ class Clock(tkinter.Tk) :
           # Definition of the main GUI image
           self.iconbitmap("../images/clock.ico")
 
-          #
+          # Set the window not resizable
           self.resizable(False, False)
 
-          #
+          # Set the current timezone the same as filled in argument
           self.timezone = timezone
 
-          #
+          # Set the current datetime format as "%Y-%m-%d %H:%M:%S"
           self.datetime_format = "%Y-%m-%d %H:%M:%S"
 
-          #
+          # Get all available timezones into the 'all_timezones' variable
           all_timezones = dt_management.get_all_timezones()
 
-          #
+          # Definition of the 'tz_comboBox' combobox which is the combobox of all timezones
           self.tz_comboBox = tkinter.ttk.Combobox(self, width = 110, values = all_timezones, state = "readonly")
 
           #
