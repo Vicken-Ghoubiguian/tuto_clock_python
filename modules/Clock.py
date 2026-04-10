@@ -4,6 +4,8 @@ import TimeZoneException as TimeZoneException
 import tkinter
 import tkinter.ttk
 import argparse
+import platform
+import subprocess
 
 # from the needed Python modules import needed components
 from tzlocal.windows_tz import win_tz
@@ -132,8 +134,23 @@ class Clock(tkinter.Tk) :
 if __name__ == "__main__" :
     
     #
-    iana_tz = win_tz.get("Romance Standard Time")
-     
+    if platform.system() == "Windows" :
+    
+        #
+        iana_tz = win_tz.get("Romance Standard Time")
+
+    #
+    elif platform.system() == "Linux" :
+         
+         #
+         iana_tz = subprocess.check_output("cat /etc/timezone", shell=True, text=True).replace("\n", "")
+
+    #
+    else :
+         
+         #
+         iana_tz = "Europe/Paris"
+
      #
     parser = argparse.ArgumentParser(description="Simple app with timezones")
 
