@@ -15,7 +15,7 @@ from tzlocal.windows_tz import win_tz
 class Clock(tkinter.Tk) :
 
      # Definition of the 'Clock' class constructor
-     def __init__(self, timezone):
+     def __init__(self, timezone, dt_format):
           
           # Definition of the main GUI
           tkinter.Tk.__init__(self)
@@ -35,8 +35,11 @@ class Clock(tkinter.Tk) :
           # Set the current timezone the same as filled in argument
           self.timezone = timezone
 
-          # Set the current datetime format as "%Y-%m-%d %H:%M:%S"
-          self.datetime_format = "%Y-%m-%d %H:%M:%S"
+          # Set the initial datetime format
+          self.initial_datetime_format = dt_format
+
+          # Set the current datetime format as the initial one
+          self.datetime_format = self.initial_datetime_format
 
           # Get all available timezones into the 'all_timezones' variable
           all_timezones = dt_management.get_all_timezones()
@@ -147,7 +150,7 @@ class Clock(tkinter.Tk) :
                except :
 
                     #
-                    self.datetime_format = "%Y-%m-%d %H:%M:%S"
+                    self.datetime_format = self.initial_datetime_format
 
                     #
                     self.clock_label.config(text=dt_management.get_datetime_for_particular_timezone(self.timezone).strftime(self.timezone + " (" + dt_management.get_countrycode_of_timezone(self.timezone) + ") : " + self.datetime_format))
@@ -187,6 +190,9 @@ if __name__ == "__main__" :
 
     #
     parser.add_argument('--timezone', action="store", dest='timezone', default=iana_tz)
+
+    #
+    parser.add_argument('--dt_format', action="store", dest='dt_format', default='%Y-%m-%d %H:%M:%S')
     
     #
     args = parser.parse_args()
@@ -195,7 +201,7 @@ if __name__ == "__main__" :
     if dt_management.get_datetime_for_particular_timezone(args.timezone) != None :
 
          #
-         clock = Clock(args.timezone)
+         clock = Clock(args.timezone, args.dt_format)
 
     #
     else :
