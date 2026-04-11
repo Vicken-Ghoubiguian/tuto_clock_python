@@ -84,6 +84,23 @@ class Clock(tkinter.Tk) :
 
           #
           timezone_menu.add_command(
+               label="Weather",
+               command=self.destroy
+          )
+
+          timezone_menu.add_command(
+               label="Datetime formats",
+               command=self.destroy
+          )
+
+          #
+          timezone_menu.add_command(
+               label="User guide",
+               command=self.destroy
+          )
+
+          #
+          timezone_menu.add_command(
                label="Exit",
                command=self.destroy
           )
