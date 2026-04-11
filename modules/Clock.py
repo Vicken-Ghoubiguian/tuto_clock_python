@@ -142,7 +142,19 @@ class Clock(tkinter.Tk) :
           if dt_management.get_countrycode_of_timezone(self.timezone) != None :
                
                #
-               self.clock_label.config(text=dt_management.get_datetime_for_particular_timezone(self.timezone).strftime(self.timezone + " (" + dt_management.get_countrycode_of_timezone(self.timezone) + ") : " + self.datetime_format))
+               try :
+
+                    #
+                    self.clock_label.config(text=dt_management.get_datetime_for_particular_timezone(self.timezone).strftime(self.timezone + " (" + dt_management.get_countrycode_of_timezone(self.timezone) + ") : " + self.datetime_format))
+
+               #
+               except :
+
+                    #
+                    self.datetime_format = "%Y-%m-%d %H:%M:%S"
+
+                    #
+                    self.clock_label.config(text=dt_management.get_datetime_for_particular_timezone(self.timezone).strftime(self.timezone + " (" + dt_management.get_countrycode_of_timezone(self.timezone) + ") : " + self.datetime_format))
 
           #
           else :
