@@ -14,5 +14,5 @@ pip install -r requirements.txt
 python dt_management.py --timezone="<timezone>" --dt_format="<datetime_format>"
 ```
 ```bash
-python clock.py --timezone="<timezone>"
+python clock.py --timezone="<timezone>" --dt_format="<datetime_format>"
 ```
