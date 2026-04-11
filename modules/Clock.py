@@ -82,24 +82,25 @@ class Clock(tkinter.Tk) :
           #
           timezone_menu = tkinter.Menu(menubar)
 
-          #
+          # Definition of the 'Weather' menu command to display weather of the current timezone location
           timezone_menu.add_command(
                label="Weather",
                command=self.destroy
           )
 
+          # Definition of the 'Datetime formats' menu command to inform the user about the datetime formats that could be use in the application
           timezone_menu.add_command(
                label="Datetime formats",
                command=self.destroy
           )
 
-          #
+          # Definition of the 'User guide' menu command to guide the user on the application features
           timezone_menu.add_command(
                label="User guide",
                command=self.destroy
           )
 
-          #
+          # Definition of the 'Exit' menu command to exit the application
           timezone_menu.add_command(
                label="Exit",
                command=self.destroy
