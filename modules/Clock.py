@@ -6,6 +6,7 @@ import tkinter.ttk
 import argparse
 import platform
 import subprocess
+import os
 
 # from the needed Python modules import needed components
 from tzlocal.windows_tz import win_tz
@@ -26,7 +27,7 @@ class Clock(tkinter.Tk) :
           self.protocol('WM_DELETE_WINDOW', 'break')
 
           # Definition of the main GUI image
-          self.iconbitmap("../images/clock.ico")
+          self.iconbitmap(os.path.join("..", "images", "clock.ico"))
 
           # Set the window not resizable
           self.resizable(False, False)
