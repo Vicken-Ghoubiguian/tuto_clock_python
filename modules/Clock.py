@@ -110,7 +110,7 @@ class Clock(tkinter.Tk) :
                command=self.destroy
           )
 
-          #
+          # Definition of the 'menu' menu
           menubar.add_cascade(
                label="menu",
                menu=timezone_menu
