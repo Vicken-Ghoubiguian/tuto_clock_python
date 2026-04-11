@@ -54,7 +54,7 @@ class Clock(tkinter.Tk) :
           self.tz_comboBox.pack()
 
           #
-          self.dt_format_entry = tkinter.Entry(self, width = 110,)
+          self.dt_format_entry = tkinter.Entry(self, width = 113)
 
           #
           self.dt_format_entry.insert(0, self.datetime_format)
