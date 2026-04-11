@@ -53,16 +53,20 @@ class Clock(tkinter.Tk) :
           self.tz_comboBox.pack()
 
           #
-          self.dt_format_comboBox = tkinter.ttk.Combobox(self, width = 110, values = ["%A %B %d %Y %H:%M:%S", "%Y-%m-%d %H:%M:%S", "%d-%m-%Y %H:%M:%S", "%d/%m/%Y %H:%M:%S", "%m %d %Y %H:%M:%S"], state = "readonly")
+          #self.dt_format_comboBox = tkinter.ttk.Combobox(self, width = 110, values = ["%A %B %d %Y %H:%M:%S", "%Y-%m-%d %H:%M:%S", "%d-%m-%Y %H:%M:%S", "%d/%m/%Y %H:%M:%S", "%m %d %Y %H:%M:%S"], state = "readonly")
+          self.dt_format_entry = tkinter.Entry(self, width = 110,)
 
           #
-          self.dt_format_comboBox.set(self.datetime_format)
+          #self.dt_format_comboBox.set(self.datetime_format)
+          self.dt_format_entry.insert(0, self.datetime_format)
 
           #
-          self.dt_format_comboBox.bind('<<ComboboxSelected>>', self.get_Selected_Datetime_format)
+          #self.dt_format_comboBox.bind('<<ComboboxSelected>>', self.get_Selected_Datetime_format)
+          self.dt_format_entry.bind('<Return>', self.get_Selected_Datetime_format)
 
           #
-          self.dt_format_comboBox.pack()
+          #self.dt_format_comboBox.pack()
+          self.dt_format_entry.pack()
 
           #
           self.clock_label = tkinter.Label(self, font=('calibri', 40, 'bold'), background='blue', foreground='yellow')
@@ -116,7 +120,8 @@ class Clock(tkinter.Tk) :
      def get_Selected_Datetime_format(self, eventObject) :
 
           #
-          self.datetime_format = self.dt_format_comboBox.get()
+          #self.datetime_format = self.dt_format_comboBox.get()
+          self.datetime_format = self.dt_format_entry.get()
 
           #
           self.clock_time()
