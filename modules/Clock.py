@@ -42,8 +42,8 @@ class Clock(tkinter.Tk) :
           # Set the current datetime format as the initial one
           self.datetime_format = self.initial_datetime_format
 
-          # There is no window which is opened (class attribute 'openedWindow' as False)
-          self.openedWindow = False
+          # There is no window which is opened (class attribute 'littleWindow' as False)
+          self.littleWindow = False
 
           # Get all available timezones into the 'all_timezones' variable
           all_timezones = dt_management.get_all_timezones()
@@ -124,10 +124,16 @@ class Clock(tkinter.Tk) :
      def openWeatherWindow(self) :
 
           #
-          if self.openedWindow == False :
+          if self.littleWindow == False :
 
                #
-               self.openedWindow = True
+               self.littleWindow = tkinter.Tk()
+
+               #
+               self.littleWindow.wm_protocol("WM_DELETE_WINDOW", self.closeWindow)
+
+               #
+               self.littleWindow.mainloop()
                
                #
                print("Open window")
@@ -142,10 +148,16 @@ class Clock(tkinter.Tk) :
      def openDatetimeFormatWindow(self) :
 
           #
-          if self.openedWindow == False :
+          if self.littleWindow == False :
 
                #
-               self.openedWindow = True
+               self.littleWindow = tkinter.Tk()
+
+               #
+               self.littleWindow.wm_protocol("WM_DELETE_WINDOW", self.closeWindow)
+
+               #
+               self.littleWindow.mainloop()
                
                #
                print("Open window")
@@ -160,10 +172,16 @@ class Clock(tkinter.Tk) :
      def openUserGuideWindow(self) :
 
           #
-          if self.openedWindow == False :
+          if self.littleWindow == False :
 
                #
-               self.openedWindow = True
+               self.littleWindow = tkinter.Tk()
+
+               #
+               self.littleWindow.wm_protocol("WM_DELETE_WINDOW", self.closeWindow)
+
+               #
+               self.littleWindow.mainloop()
                
                #
                print("Open window")
@@ -173,6 +191,15 @@ class Clock(tkinter.Tk) :
 
                #
                raise OpenedWindowException.OpenedWindowException("Window already opened !", 400)
+
+     #
+     def closeWindow(self) :
+
+          #
+          self.littleWindow.destroy()
+
+          #
+          self.littleWindow = False
 
      #
      def get_Selected_Datetime_format(self, eventObject) :
