@@ -9,6 +9,11 @@ import platform
 import subprocess
 import os
 
+# import the windows as Python modules
+import little_Windows.WeatherWindow
+import little_Windows.DatetimeFormatWindow
+import little_Windows.UserGuideWindow
+
 # from the needed Python modules import needed components
 from tzlocal.windows_tz import win_tz
 
