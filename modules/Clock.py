@@ -1,6 +1,7 @@
 # import the needed Python modules
 import dt_management as dt_management
 import TimeZoneException as TimeZoneException
+import OpenedWindowException as OpenedWindowException
 import tkinter
 import tkinter.ttk
 import argparse
@@ -40,6 +41,9 @@ class Clock(tkinter.Tk) :
 
           # Set the current datetime format as the initial one
           self.datetime_format = self.initial_datetime_format
+
+          # There is no window which is opened (class attribute 'openedWindow' as False)
+          self.openedWindow = False
 
           # Get all available timezones into the 'all_timezones' variable
           all_timezones = dt_management.get_all_timezones()
@@ -101,7 +105,7 @@ class Clock(tkinter.Tk) :
           # Definition of the 'User guide' menu command to guide the user on the application features
           timezone_menu.add_command(
                label="User guide",
-               command=self.destroy
+               command=self.openUserGuideWindow
           )
 
           # Definition of the 'Exit' menu command to exit the application
@@ -115,6 +119,24 @@ class Clock(tkinter.Tk) :
                label="menu",
                menu=timezone_menu
           )
+
+     #
+     def openUserGuideWindow(self):
+
+          #
+          if self.openedWindow == False :
+
+               #
+               self.openedWindow = True
+               
+               #
+               print("Open window")
+
+          #
+          else :
+
+               #
+               raise OpenedWindowException.OpenedWindowException("Timezone unknown !", 400)
 
      #
      def get_Selected_Datetime_format(self, eventObject) :
