@@ -130,13 +130,13 @@ class Clock(tkinter.Tk) :
                self.littleWindow = tkinter.Tk()
 
                #
+               self.littleWindow.title("Weather")
+
+               #
                self.littleWindow.wm_protocol("WM_DELETE_WINDOW", self.closeWindow)
 
                #
                self.littleWindow.mainloop()
-               
-               #
-               print("Open window")
 
           #
           else :
@@ -154,13 +154,13 @@ class Clock(tkinter.Tk) :
                self.littleWindow = tkinter.Tk()
 
                #
+               self.littleWindow.title("Datetime format")
+
+               #
                self.littleWindow.wm_protocol("WM_DELETE_WINDOW", self.closeWindow)
 
                #
                self.littleWindow.mainloop()
-               
-               #
-               print("Open window")
 
           #
           else :
@@ -178,13 +178,13 @@ class Clock(tkinter.Tk) :
                self.littleWindow = tkinter.Tk()
 
                #
+               self.littleWindow.title("User Guide")
+
+               #
                self.littleWindow.wm_protocol("WM_DELETE_WINDOW", self.closeWindow)
 
                #
                self.littleWindow.mainloop()
-               
-               #
-               print("Open window")
 
           #
           else :
