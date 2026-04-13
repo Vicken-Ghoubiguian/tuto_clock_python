@@ -93,7 +93,7 @@ class Clock(tkinter.Tk) :
           # Definition of the 'Weather' menu command to display weather of the current timezone location
           timezone_menu.add_command(
                label="Weather",
-               command=self.destroy
+               command=self.openWeatherWindow
           )
 
           # Definition of the 'Datetime formats' menu command to inform the user about the datetime formats that could be use in the application
@@ -119,6 +119,24 @@ class Clock(tkinter.Tk) :
                label="menu",
                menu=timezone_menu
           )
+
+     #
+     def openWeatherWindow(self) :
+
+          #
+          if self.openedWindow == False :
+
+               #
+               self.openedWindow = True
+               
+               #
+               print("Open window")
+
+          #
+          else :
+
+               #
+               raise OpenedWindowException.OpenedWindowException("Window already opened !", 400)
 
      #
      def openDatetimeFormatWindow(self) :
