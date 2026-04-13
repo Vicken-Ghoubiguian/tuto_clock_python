@@ -99,7 +99,7 @@ class Clock(tkinter.Tk) :
           # Definition of the 'Datetime formats' menu command to inform the user about the datetime formats that could be use in the application
           timezone_menu.add_command(
                label="Datetime formats",
-               command=self.destroy
+               command=self.openDatetimeFormatWindow
           )
 
           # Definition of the 'User guide' menu command to guide the user on the application features
@@ -121,7 +121,7 @@ class Clock(tkinter.Tk) :
           )
 
      #
-     def openUserGuideWindow(self):
+     def openDatetimeFormatWindow(self) :
 
           #
           if self.openedWindow == False :
@@ -136,7 +136,25 @@ class Clock(tkinter.Tk) :
           else :
 
                #
-               raise OpenedWindowException.OpenedWindowException("Timezone unknown !", 400)
+               raise OpenedWindowException.OpenedWindowException("Window already opened !", 400)
+
+     #
+     def openUserGuideWindow(self) :
+
+          #
+          if self.openedWindow == False :
+
+               #
+               self.openedWindow = True
+               
+               #
+               print("Open window")
+
+          #
+          else :
+
+               #
+               raise OpenedWindowException.OpenedWindowException("Window already opened !", 400)
 
      #
      def get_Selected_Datetime_format(self, eventObject) :
