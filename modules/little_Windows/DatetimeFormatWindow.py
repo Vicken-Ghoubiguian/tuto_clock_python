@@ -1,6 +1,7 @@
 # import the needed Python modules
 import tkinter
 import tkinter.ttk
+import os
 
 # Definition of the 'DateTimeFormatWindow' class
 class DateTimeFormatWindow(tkinter.Tk) :
@@ -13,6 +14,9 @@ class DateTimeFormatWindow(tkinter.Tk) :
 
           # 
           self.title("Datetime format")
+
+          # Definition of the main GUI image
+          self.iconbitmap(os.path.join("..", "images", "clock.ico"))
 
           #
           self.resizable(False, False)
