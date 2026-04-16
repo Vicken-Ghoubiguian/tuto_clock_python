@@ -184,17 +184,8 @@ class Clock(tkinter.Tk) :
           #
           if self.littleWindow == False :
 
-               #
-               self.littleWindow = tkinter.Tk()
-
-               #
-               self.littleWindow.title("User Guide")
-
-               #
-               self.littleWindow.resizable(False, False)
-
-               #
-               self.littleWindow.geometry('300x300')
+               # Definition of the 'UserGuideWindow' window to inform the user about the clock features
+               self.littleWindow = little_Windows.UserGuideWindow.UserGuideWindow()
 
                #
                self.littleWindow.wm_protocol("WM_DELETE_WINDOW", self.closeWindow)
