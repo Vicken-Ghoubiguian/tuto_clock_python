@@ -163,17 +163,8 @@ class Clock(tkinter.Tk) :
           #
           if self.littleWindow == False :
 
-               #
-               self.littleWindow = tkinter.Tk()
-
-               #
-               self.littleWindow.title("Datetime format")
-
-               #
-               self.littleWindow.resizable(False, False)
-
-               #
-               self.littleWindow.geometry('300x300')
+               # Definition of the 'DateTimeFormatWindow' window to inform the user about the different available datetime formats
+               self.littleWindow = little_Windows.DatetimeFormatWindow.DateTimeFormatWindow()
 
                #
                self.littleWindow.wm_protocol("WM_DELETE_WINDOW", self.closeWindow)
