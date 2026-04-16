@@ -77,7 +77,7 @@ if __name__ == "__main__":
          iana_tz = win_tz.get("Romance Standard Time")
 
     #
-    elif platform.system() == "Linux" :
+    elif platform.system() == "Linux" or  platform.system() == "Darwin" :
 
          #
          iana_tz = subprocess.check_output("cat /etc/timezone", shell=True, text=True).replace("\n", "")
