@@ -3,8 +3,10 @@ import pytz
 import datetime
 import argparse
 import platform
-import custom_Exceptions.TimeZoneException as TimeZoneException
 import subprocess
+
+# import the custom exceptions as Python modules
+import custom_Exceptions.TimeZoneException as TimeZoneException
 
 # from the needed Python modules import needed components
 from tzlocal.windows_tz import win_tz

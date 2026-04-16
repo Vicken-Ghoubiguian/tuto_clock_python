@@ -1,7 +1,5 @@
 # import the needed Python modules
 import dt_management as dt_management
-import custom_Exceptions.TimeZoneException as TimeZoneException
-import custom_Exceptions.OpenedWindowException as OpenedWindowException
 import tkinter
 import tkinter.ttk
 import argparse
@@ -13,6 +11,10 @@ import os
 import little_Windows.WeatherWindow
 import little_Windows.DatetimeFormatWindow
 import little_Windows.UserGuideWindow
+
+# import the custom exceptions as Python modules
+import custom_Exceptions.TimeZoneException as TimeZoneException
+import custom_Exceptions.OpenedWindowException as OpenedWindowException
 
 # from the needed Python modules import needed components
 from tzlocal.windows_tz import win_tz
