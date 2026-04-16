@@ -1,7 +1,7 @@
 # import the needed Python modules
 import dt_management as dt_management
-import TimeZoneException as TimeZoneException
-import OpenedWindowException as OpenedWindowException
+import custom_Exceptions.TimeZoneException as TimeZoneException
+import custom_Exceptions.OpenedWindowException as OpenedWindowException
 import tkinter
 import tkinter.ttk
 import argparse

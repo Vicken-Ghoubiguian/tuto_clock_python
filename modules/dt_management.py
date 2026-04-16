@@ -3,7 +3,7 @@ import pytz
 import datetime
 import argparse
 import platform
-import TimeZoneException as TimeZoneException
+import custom_Exceptions.TimeZoneException as TimeZoneException
 import subprocess
 
 # from the needed Python modules import needed components
