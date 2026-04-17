@@ -4,6 +4,7 @@ import datetime
 import argparse
 import platform
 import subprocess
+import os
 import json
 
 # import the custom exceptions as Python modules
@@ -42,7 +43,7 @@ def get_countrycode_of_timezone(wished_timezone):
 def get_datas_from_particular_countrycode(countrycode) :
 
      #
-     with open("../resources/countries.json") as cj :
+     with open(os.path.join("..", "resources", "countries.json")) as cj :
 
           #
           countries_json = json.load(cj)
