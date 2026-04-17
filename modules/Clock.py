@@ -239,7 +239,7 @@ class Clock(tkinter.Tk) :
                     country = dt_management.get_datas_from_particular_countrycode(dt_management.get_countrycode_of_timezone(self.timezone))
 
                     #
-                    self.clock_label.config(text=dt_management.get_datetime_for_particular_timezone(self.timezone).strftime(self.timezone + " (" + country["flag"] + " " + country["name"] + ") : " + self.datetime_format))
+                    self.clock_label.config(text=dt_management.get_datetime_for_particular_timezone(self.timezone).strftime(self.timezone + " (" + country["name"] + ") : " + self.datetime_format))
 
                #
                except :
@@ -251,7 +251,7 @@ class Clock(tkinter.Tk) :
                     country = dt_management.get_datas_from_particular_countrycode(dt_management.get_countrycode_of_timezone(self.timezone))
 
                     #
-                    self.clock_label.config(text=dt_management.get_datetime_for_particular_timezone(self.timezone).strftime(self.timezone + " (" + country["flag"] + " " + country["name"] + ") : " + self.datetime_format))
+                    self.clock_label.config(text=dt_management.get_datetime_for_particular_timezone(self.timezone).strftime(self.timezone + " (" + country["name"] + ") : " + self.datetime_format))
 
           #
           else :
