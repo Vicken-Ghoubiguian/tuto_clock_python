@@ -137,9 +137,12 @@ if __name__ == "__main__":
          
          #
          if get_countrycode_of_timezone(args.timezone) != None :
+
+              #
+              country = get_datas_from_particular_countrycode(get_countrycode_of_timezone(args.timezone))
               
               #
-              print(args.timezone + " (" + get_countrycode_of_timezone(args.timezone) + ") : " + get_datetime_for_particular_timezone(args.timezone).strftime(args.dt_format))
+              print(args.timezone + " (" + country["flag"] + " " + country["name"] + ") : " + get_datetime_for_particular_timezone(args.timezone).strftime(args.dt_format))
          #
          else :
 
@@ -151,6 +154,3 @@ if __name__ == "__main__":
          
          #
          raise TimeZoneException.TimeZoneException("Timezone unknown !", 400)
-    
-    #
-    print(get_datas_from_particular_countrycode("FR"))
