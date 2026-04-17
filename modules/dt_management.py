@@ -4,6 +4,7 @@ import datetime
 import argparse
 import platform
 import subprocess
+import json
 
 # import the custom exceptions as Python modules
 import custom_Exceptions.TimeZoneException as TimeZoneException
@@ -36,6 +37,30 @@ def get_countrycode_of_timezone(wished_timezone):
                
      #
      return foundCountryCode
+
+#
+def get_datas_from_particular_countrycode(countrycode) :
+
+     #
+     with open("../resources/countries.json") as cj :
+
+          #
+          countries_json = json.load(cj)
+
+     #
+     countries = countries_json["countries"]
+
+     #
+     for element in countries :
+
+          #
+          for key in element.keys() :
+
+               #
+               if countrycode == key :
+
+                    #
+                    return element[key]
 
 # Definition of a function to get all timezones
 def get_all_timezones():
@@ -125,3 +150,6 @@ if __name__ == "__main__":
          
          #
          raise TimeZoneException.TimeZoneException("Timezone unknown !", 400)
+    
+    #
+    print(get_datas_from_particular_countrycode("FR"))
