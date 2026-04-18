@@ -278,10 +278,16 @@ if __name__ == "__main__" :
         iana_tz = win_tz.get("Romance Standard Time")
 
     #
-    elif platform.system() == "Linux" or  platform.system() == "Darwin" :
+    elif platform.system() == "Linux" :
          
          #
          iana_tz = subprocess.check_output("cat /etc/timezone", shell=True, text=True).replace("\n", "")
+
+    #
+    elif platform.system() == "Darwin" :
+
+         #
+         iana_tz = subprocess.check_output("readlink /etc/localtime | sed 's#/var/db/timezone/zoneinfo/##g'", shell=True, text=True).replace("\n", "") 
 
     #
     else :
