@@ -142,7 +142,10 @@ if __name__ == "__main__":
               country = get_datas_from_particular_countrycode(get_countrycode_of_timezone(args.timezone))
               
               #
-              print(args.timezone + " (" + country["flag"] + " " + country["name"] + ") : " + get_datetime_for_particular_timezone(args.timezone).strftime(args.dt_format))
+              unicode_country = country["flag"].encode('utf-8')
+
+              #
+              print(args.timezone + " (" + unicode_country.decode('unicode_escape') + " " + country["name"] + ") : " + get_datetime_for_particular_timezone(args.timezone).strftime(args.dt_format))
          #
          else :
 
