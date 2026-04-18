@@ -118,7 +118,7 @@ if __name__ == "__main__":
     else :
          
          #
-         iana_tz = "Europe/Paris"
+         iana_tz = "Etc/UTC"
 
     #
     parser = argparse.ArgumentParser(description="Simple app with timezones")
