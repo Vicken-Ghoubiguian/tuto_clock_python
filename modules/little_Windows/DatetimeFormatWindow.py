@@ -23,3 +23,15 @@ class DateTimeFormatWindow(tkinter.Tk) :
 
           #
           self.geometry('300x300')
+
+          #
+          self.datetime_format_label = tkinter.Label(self, font=('calibri', 40, 'bold'))
+
+          #
+          self.datetime_format_label.pack(anchor="center")
+
+          #
+          datetime_format_text = "test\ntest"
+
+          #
+          self.datetime_format_label.config(text=datetime_format_text)
