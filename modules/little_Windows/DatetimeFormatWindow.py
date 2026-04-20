@@ -25,13 +25,14 @@ class DateTimeFormatWindow(tkinter.Tk) :
           self.geometry('300x300')
 
           #
-          self.datetime_format_label = tkinter.Label(self, font=('calibri', 40, 'bold'))
+          self.datetime_format_label = tkinter.Label(self, font=('calibri', 10, 'bold'))
 
           #
-          self.datetime_format_label.pack(anchor="center")
+          self.datetime_format_label.pack(anchor="w")
 
           #
-          datetime_format_text = "test\ntest"
+          datetime_format_text = "%a : abbreviated weekday name.\n" \
+                                 "%A : full weekday name.\n"
 
           #
           self.datetime_format_label.config(text=datetime_format_text)
