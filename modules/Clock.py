@@ -166,6 +166,9 @@ class Clock(tkinter.Tk) :
                # Definition of the 'DateTimeFormatWindow' window to inform the user about the different available datetime formats
                self.littleWindow = little_Windows.DatetimeFormatWindow.DateTimeFormatWindow()
 
+               # Definition of the little window GUI image
+               self.littleWindow.iconbitmap(os.path.join("..", "images", "clock.ico"))
+
                #
                self.littleWindow.wm_protocol("WM_DELETE_WINDOW", self.closeWindow)
 
