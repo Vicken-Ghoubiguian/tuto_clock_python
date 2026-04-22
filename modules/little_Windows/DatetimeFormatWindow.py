@@ -19,7 +19,7 @@ class DateTimeFormatWindow(tkinter.Tk) :
           self.resizable(False, False)
 
           #
-          self.geometry('500x400')
+          self.geometry('500x500')
 
           #
           self.datetime_format_label = tkinter.Label(self, font=('calibri', 10, 'bold'))
