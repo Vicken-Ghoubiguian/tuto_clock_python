@@ -3,8 +3,6 @@ import dt_management as dt_management
 import tkinter
 import tkinter.ttk
 import argparse
-import platform
-import subprocess
 import os
 
 # import the windows as Python modules
@@ -275,28 +273,7 @@ class Clock(tkinter.Tk) :
 if __name__ == "__main__" :
     
     #
-    if platform.system() == "Windows" :
-    
-        #
-        iana_tz = win_tz.get("Romance Standard Time")
-
-    #
-    elif platform.system() == "Linux" :
-         
-         #
-         iana_tz = subprocess.check_output("cat /etc/timezone", shell=True, text=True).replace("\n", "")
-
-    #
-    elif platform.system() == "Darwin" :
-
-         #
-         iana_tz = subprocess.check_output("readlink /etc/localtime | sed 's#/var/db/timezone/zoneinfo/##g'", shell=True, text=True).replace("\n", "") 
-
-    #
-    else :
-         
-         #
-         iana_tz = "Etc/UTC"
+    iana_tz = dt_management.return_iana_timezone()
 
      #
     parser = argparse.ArgumentParser(description="Simple app with timezones")
