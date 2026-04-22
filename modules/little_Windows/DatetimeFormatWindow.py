@@ -25,7 +25,7 @@ class DateTimeFormatWindow(tkinter.Tk) :
           self.datetime_format_label = tkinter.Label(self, font=('calibri', 10, 'bold'))
 
           #
-          self.datetime_format_label.pack(pady=0, padx=0, anchor="w")
+          self.datetime_format_label.pack(pady=20, padx=0, anchor="w")
 
           #
           datetime_format_text = "%a : abbreviated weekday name.\n" \
