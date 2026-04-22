@@ -1,6 +1,5 @@
 # import the needed Python modules
 import tkinter
-import tkinter.ttk
 import os
 
 # Definition of the 'DateTimeFormatWindow' class
