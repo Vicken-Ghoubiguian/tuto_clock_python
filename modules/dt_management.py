@@ -94,31 +94,37 @@ def get_datetime_for_particular_timezone(destination_timezone):
          return None
     
 #
-if __name__ == "__main__":
-    
-    #
+def return_iana_timezone() :
+
+     #
     if platform.system() == "Windows" :
     
-         #
-         iana_tz = win_tz.get("Romance Standard Time")
+        #
+        return win_tz.get("Romance Standard Time")
 
     #
     elif platform.system() == "Linux" :
-
+         
          #
-         iana_tz = subprocess.check_output("cat /etc/timezone", shell=True, text=True).replace("\n", "")
+         return subprocess.check_output("cat /etc/timezone", shell=True, text=True).replace("\n", "")
 
     #
     elif platform.system() == "Darwin" :
 
          #
-         iana_tz = subprocess.check_output("readlink /etc/localtime | sed 's#/var/db/timezone/zoneinfo/##g'", shell=True, text=True).replace("\n", "") 
+         return subprocess.check_output("readlink /etc/localtime | sed 's#/var/db/timezone/zoneinfo/##g'", shell=True, text=True).replace("\n", "") 
 
     #
     else :
          
          #
-         iana_tz = "Etc/UTC"
+         return "Etc/UTC"
+    
+#
+if __name__ == "__main__":
+    
+    #
+    iana_tz = return_iana_timezone()
 
     #
     parser = argparse.ArgumentParser(description="Simple app with timezones")
