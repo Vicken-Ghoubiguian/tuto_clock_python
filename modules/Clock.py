@@ -33,10 +33,10 @@ class Clock(tkinter.Tk) :
           self.protocol('WM_DELETE_WINDOW', 'break')
 
           # Definition of the main GUI image
-          icon = tkinter.PhotoImage(file=os.path.join("..", "images", "clock.png"))
+          main_gui_image = tkinter.PhotoImage(file=os.path.join("..", "images", "clock.png"))
 
           # Implementation of the main GUI image
-          self.iconphoto(True, icon)
+          self.iconphoto(True, main_gui_image)
 
           # Definition of the window dimensions
           self.geometry('1500x500')
