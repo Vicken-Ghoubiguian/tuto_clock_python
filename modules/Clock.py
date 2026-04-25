@@ -35,6 +35,9 @@ class Clock(tkinter.Tk) :
           # Definition of the main GUI image
           self.iconbitmap(os.path.join("..", "images", "clock.ico"))
 
+          # Definition of the window dimensions
+          self.geometry('1500x500')
+
           # Set the window not resizable
           self.resizable(False, False)
 
