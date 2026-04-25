@@ -139,16 +139,7 @@ class Clock(tkinter.Tk) :
           if self.littleWindow == False :
 
                #
-               self.littleWindow = tkinter.Tk()
-
-               #
-               self.littleWindow.title("Weather")
-
-               #
-               self.littleWindow.resizable(False, False)
-
-               #
-               self.littleWindow.geometry('300x300')
+               self.littleWindow = little_Windows.WeatherWindow.WeatherWindow()
 
                #
                self.littleWindow.wm_protocol("WM_DELETE_WINDOW", self.closeWindow)
