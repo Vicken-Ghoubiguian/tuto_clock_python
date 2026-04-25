@@ -2,6 +2,9 @@
 import tkinter
 import os
 
+# from the needed Python modules import needed components
+from PIL import Image, ImageTk
+
 # Definition of the 'DateTimeFormatWindow' class
 class DateTimeFormatWindow(tkinter.Tk) :
 
@@ -62,7 +65,7 @@ if __name__ == "__main__" :
      datetime_format_window = DateTimeFormatWindow()
 
      # Definition of the datetime format GUI image
-     datetime_format_gui_image = tkinter.PhotoImage(file=os.path.join("..", "..", "images", "clock.png"))
+     datetime_format_gui_image = ImageTk.PhotoImage(Image.open(os.path.join("..", "..", "images", "clock.png")))
 
      # Implementation of the datetime format GUI image
      datetime_format_window.iconphoto(True, datetime_format_gui_image)

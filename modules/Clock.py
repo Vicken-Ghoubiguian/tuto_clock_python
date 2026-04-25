@@ -16,6 +16,7 @@ import custom_Exceptions.OpenedWindowException as OpenedWindowException
 
 # from the needed Python modules import needed components
 from tzlocal.windows_tz import win_tz
+from PIL import Image, ImageTk
 
 # Definition of the 'Clock' class
 class Clock(tkinter.Tk) :
@@ -33,10 +34,10 @@ class Clock(tkinter.Tk) :
           self.protocol('WM_DELETE_WINDOW', 'break')
 
           # Definition of the main GUI image
-          main_gui_image = tkinter.PhotoImage(file=os.path.join("..", "images", "clock.png"))
+          self.gui_image = ImageTk.PhotoImage(Image.open(os.path.join("..", "images", "clock.png")))
 
           # Implementation of the main GUI image
-          self.iconphoto(True, main_gui_image)
+          self.iconphoto(True, self.gui_image)
 
           # Definition of the window dimensions
           self.geometry('1500x500')
@@ -169,9 +170,6 @@ class Clock(tkinter.Tk) :
 
                # Definition of the 'DateTimeFormatWindow' window to inform the user about the different available datetime formats
                self.littleWindow = little_Windows.DatetimeFormatWindow.DateTimeFormatWindow()
-
-               # Definition of the little window GUI image
-               self.littleWindow.iconbitmap(os.path.join("..", "images", "clock.ico"))
 
                #
                self.littleWindow.wm_protocol("WM_DELETE_WINDOW", self.closeWindow)
