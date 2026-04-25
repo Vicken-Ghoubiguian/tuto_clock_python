@@ -61,8 +61,11 @@ if __name__ == "__main__" :
      #
      datetime_format_window = DateTimeFormatWindow()
 
-     # Definition of the main GUI image
-     datetime_format_window.iconbitmap(os.path.join("..", "..", "images", "clock.ico"))
+     # Definition of the datetime format GUI image
+     datetime_format_gui_image = tkinter.PhotoImage(file=os.path.join("..", "..", "images", "clock.png"))
+
+     # Implementation of the datetime format GUI image
+     datetime_format_window.iconphoto(True, datetime_format_gui_image)
 
      #
      datetime_format_window.mainloop()
