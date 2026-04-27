@@ -245,6 +245,12 @@ class Clock(tkinter.Tk) :
                          self.clock_label.config(text=dt_management.get_datetime_for_particular_timezone(self.timezone).strftime(self.timezone + " (" + unicode_country.decode('unicode_escape') + " " + country["name"].encode("latin1").decode("utf-8") + ") : " + self.datetime_format))
 
                     #
+                    elif platform.system() == "Windows" and country["name"] == "Ã...land Islands" :
+
+                         #
+                         self.clock_label.config(text=dt_management.get_datetime_for_particular_timezone(self.timezone).strftime(self.timezone + " (" + unicode_country.decode('unicode_escape') + " " + country["name"].decode("utf-8") + ") : " + self.datetime_format))
+
+                    #
                     else :
 
                          #
@@ -267,6 +273,11 @@ class Clock(tkinter.Tk) :
 
                          #
                          self.clock_label.config(text=dt_management.get_datetime_for_particular_timezone(self.timezone).strftime(self.timezone + " (" + unicode_country.decode('unicode_escape') + " " + country["name"].encode("latin1").decode("utf-8") + ") : " + self.datetime_format))
+                    #
+                    elif platform.system() == "Windows" and country["name"] == "Ã...land Islands" :
+
+                         #
+                         self.clock_label.config(text=dt_management.get_datetime_for_particular_timezone(self.timezone).strftime(self.timezone + " (" + unicode_country.decode('unicode_escape') + " " + country["name"].decode("utf-8") + ") : " + self.datetime_format))
 
                     #
                     else :
