@@ -6,6 +6,7 @@ import platform
 import subprocess
 import os
 import json
+import folium
 
 # import the custom exceptions as Python modules
 import custom_Exceptions.TimeZoneException as TimeZoneException
