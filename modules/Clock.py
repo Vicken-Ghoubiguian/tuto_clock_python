@@ -79,8 +79,8 @@ class Clock(tkinter.Tk) :
           #
           self.dt_format_entry.insert(0, self.datetime_format)
 
-          #
-          self.dt_format_entry.bind('<Return>', self.get_Selected_Datetime_format)
+          # Bind the Entry to key release events (user typing)
+          self.dt_format_entry.bind('<KeyRelease>', self.get_Selected_Datetime_format)
 
           #
           self.dt_format_entry.pack()
