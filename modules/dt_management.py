@@ -29,7 +29,7 @@ def map_generator_for_location(lat, lon, zoom, tooltip_name, location_name) :
      ).add_to(generated_map)
 
      #
-     generated_map.save("../resources/generated_map.html")
+     generated_map.save("../resources/generated_map_dt_management.html")
 
 #
 def get_countrycode_of_timezone(wished_timezone):
