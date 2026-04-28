@@ -94,10 +94,10 @@ class Clock(tkinter.Tk) :
           #
           self.clock_time()
 
-          #
+          # Definition of the 'menubar' menubar
           menubar = tkinter.Menu(self)
 
-          #
+          # Integration of the menubar in the GUI
           self.config(menu = menubar)
 
           #
