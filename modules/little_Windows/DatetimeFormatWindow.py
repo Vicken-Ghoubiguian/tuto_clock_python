@@ -1,6 +1,7 @@
 # import the needed Python modules
 import tkinter
 import os
+import folium
 
 # from the needed Python modules import needed components
 from PIL import Image, ImageTk

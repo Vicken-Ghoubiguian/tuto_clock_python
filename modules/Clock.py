@@ -5,6 +5,7 @@ import tkinter.ttk
 import argparse
 import os
 import platform
+import folium
 
 # import the windows as Python modules
 import little_Windows.WeatherWindow
