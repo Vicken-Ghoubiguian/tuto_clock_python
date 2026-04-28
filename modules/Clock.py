@@ -223,22 +223,22 @@ class Clock(tkinter.Tk) :
           #
           self.clock_time()
 
-     #
+     # Definition of the 'clock_time' function which displays the current datetime of the current timezone
      def clock_time(self) :
 
-          #
+          # In the case where there is a country code, so...
           if dt_management.get_countrycode_of_timezone(self.timezone) != None :
                
                #
                try :
 
-                    #
+                    # ...you get all datas from the particular country code
                     country = dt_management.get_datas_from_particular_countrycode(dt_management.get_countrycode_of_timezone(self.timezone))
 
                     #
                     unicode_country = country["flag"].encode('utf-8')
 
-                    #
+                    # Check if the platform is Windows and if the country name is "RÃ©union"
                     if platform.system() == "Windows" and country["name"] == "RÃ©union" :
 
                          #
