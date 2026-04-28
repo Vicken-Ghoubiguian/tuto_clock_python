@@ -1,3 +1,6 @@
+# HTML files in the resources folder
+resources/*.html
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
