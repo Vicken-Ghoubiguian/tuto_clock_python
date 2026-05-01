@@ -24,7 +24,7 @@ from PIL import Image, ImageTk
 class Clock(tkinter.Tk) :
 
      # Definition of the 'Clock' class constructor
-     def __init__(self, timezone, dt_format):
+     def __init__(self, timezone, dt_format, zoom_map):
           
           # Definition of the main GUI
           tkinter.Tk.__init__(self)
@@ -320,7 +320,7 @@ if __name__ == "__main__" :
     if dt_management.get_datetime_for_particular_timezone(args.timezone) != None :
 
          #
-         clock = Clock(args.timezone, args.dt_format)
+         clock = Clock(args.timezone, args.dt_format, args.zoom_map)
 
     #
     else :
