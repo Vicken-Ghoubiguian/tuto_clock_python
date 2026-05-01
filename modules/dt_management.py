@@ -15,7 +15,7 @@ import custom_Exceptions.TimeZoneException as TimeZoneException
 from tzlocal.windows_tz import win_tz
 
 #
-def map_generator_for_location(lat, lon, zoom, tooltip_name, location_name) :
+def map_generator_for_location(lat, lon, zoom, tooltip_name, location_name, map_name) :
 
      #
      generated_map = folium.Map([lat,lon], zoom_start=zoom)
@@ -29,7 +29,7 @@ def map_generator_for_location(lat, lon, zoom, tooltip_name, location_name) :
      ).add_to(generated_map)
 
      #
-     generated_map.save("../resources/generated_map_dt_management.html")
+     generated_map.save("../resources/" + map_name)
 
 #
 def get_countrycode_of_timezone(wished_timezone):
@@ -189,4 +189,4 @@ if __name__ == "__main__":
          raise TimeZoneException.TimeZoneException("Timezone unknown !", 400)
     
     #
-    map_generator_for_location(48.8566, 2.3522, 12, "Paris location", "Paris")
+    map_generator_for_location(48.8566, 2.3522, 12, "Paris location", "Paris", "generated_map_dt_management.html")
