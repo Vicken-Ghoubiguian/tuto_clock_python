@@ -14,7 +14,7 @@ pip install -r requirements.txt
 To test all of the files, you have to go to the 'modules' folder.
 
 ```bash
-python dt_management.py --timezone="<timezone>" --dt_format="<datetime_format>"
+python dt_management.py --timezone="<timezone>" --dt_format="<datetime_format>" --zoom_map="<zoom_map>"
 ```
 ```bash
 python clock.py --timezone="<timezone>" --dt_format="<datetime_format>"
