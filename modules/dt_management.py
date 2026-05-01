@@ -152,6 +152,9 @@ if __name__ == "__main__":
 
     #
     parser.add_argument('--dt_format', action="store", dest='dt_format', default='%Y-%m-%d %H:%M:%S')
+
+    #
+    parser.add_argument('--zoom', action="store", dest='zoom', default=12)
     
     #
     args = parser.parse_args()
@@ -189,4 +192,4 @@ if __name__ == "__main__":
          raise TimeZoneException.TimeZoneException("Timezone unknown !", 400)
     
     #
-    map_generator_for_location(48.8566, 2.3522, 12, "Paris location", "Paris", "generated_map_dt_management.html")
+    map_generator_for_location(48.8566, 2.3522, args.zoom, "Paris location", "Paris", "generated_map_dt_management.html")
