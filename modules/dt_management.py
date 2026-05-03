@@ -18,18 +18,30 @@ from tzlocal.windows_tz import win_tz
 def map_generator_for_location(lat, lon, zoom, tooltip_name, location_name, map_name) :
 
      #
-     generated_map = folium.Map([lat,lon], zoom_start=zoom)
+     try :
+
+          #
+          generated_map = folium.Map([lat,lon], zoom_start=zoom)
+
+          #
+          folium.Marker(
+               location=[lat, lon],
+               tooltip=tooltip_name,
+               popup=location_name,
+               icon=folium.Icon(color="red"),
+          ).add_to(generated_map)
+
+          #
+          generated_map.save("../resources/" + map_name)
+
+          #
+          print("\033[92mMap generated successfully !\033[0m")
 
      #
-     folium.Marker(
-          location=[lat, lon],
-          tooltip=tooltip_name,
-          popup=location_name,
-          icon=folium.Icon(color="red"),
-     ).add_to(generated_map)
+     except Exception as exception:
 
-     #
-     generated_map.save("../resources/" + map_name)
+          #
+          print("\033[93mException : " + exception + "\033[0m")
 
 #
 def get_countrycode_of_timezone(wished_timezone):
