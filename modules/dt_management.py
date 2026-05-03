@@ -37,11 +37,17 @@ def map_generator_for_location(lat, lon, zoom, tooltip_name, location_name, map_
           #
           print("\033[92mMap generated successfully !\033[0m")
 
+          #
+          return 1
+
      #
      except Exception as exception:
 
           #
           print("\033[93mException : " + exception + "\033[0m")
+
+          #
+          return -1
 
 #
 def get_countrycode_of_timezone(wished_timezone):
