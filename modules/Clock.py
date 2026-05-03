@@ -243,19 +243,19 @@ class Clock(tkinter.Tk) :
                     if platform.system() == "Windows" and country["name"] == "RÃ©union" :
 
                          #
-                         self.clock_label.config(text=dt_management.get_datetime_for_particular_timezone(self.timezone).strftime(self.timezone + " (" + unicode_country.decode('unicode_escape') + " " + country["name"].encode("latin1").decode("utf-8") + ") : " + self.datetime_format))
+                         self.clock_label.config(text=dt_management.get_datetime_for_particular_timezone(self.timezone).strftime("".join([self.timezone," (",unicode_country.decode('unicode_escape')," ",country["name"].encode("latin1").decode("utf-8"),") : ",self.datetime_format])))
 
                     #
                     elif platform.system() == "Windows" and country["name"] == "Ã...land Islands" :
 
                          #
-                         self.clock_label.config(text=dt_management.get_datetime_for_particular_timezone(self.timezone).strftime(self.timezone + " (" + unicode_country.decode('unicode_escape') + " " + country["name"].decode("utf-8") + ") : " + self.datetime_format))
+                         self.clock_label.config(text=dt_management.get_datetime_for_particular_timezone(self.timezone).strftime("".join([self.timezone," (",unicode_country.decode('unicode_escape')," ",country["name"].decode("utf-8"),") : ",self.datetime_format])))
 
                     #
                     else :
 
                          #
-                         self.clock_label.config(text=dt_management.get_datetime_for_particular_timezone(self.timezone).strftime(self.timezone + " (" + unicode_country.decode('unicode_escape') + " " + country["name"] + ") : " + self.datetime_format))
+                         self.clock_label.config(text=dt_management.get_datetime_for_particular_timezone(self.timezone).strftime("".join([self.timezone," (",unicode_country.decode('unicode_escape')," ",country["name"],") : ",self.datetime_format])))
 
                #
                except :
@@ -273,24 +273,24 @@ class Clock(tkinter.Tk) :
                     if platform.system() == "Windows" and country["name"] == "RÃ©union" :
 
                          #
-                         self.clock_label.config(text=dt_management.get_datetime_for_particular_timezone(self.timezone).strftime(self.timezone + " (" + unicode_country.decode('unicode_escape') + " " + country["name"].encode("latin1").decode("utf-8") + ") : " + self.datetime_format))
+                         self.clock_label.config(text=dt_management.get_datetime_for_particular_timezone(self.timezone).strftime("".join([self.timezone," (",unicode_country.decode('unicode_escape')," ",country["name"].encode("latin1").decode("utf-8"),") : ",self.datetime_format])))
                     #
                     elif platform.system() == "Windows" and country["name"] == "Ã...land Islands" :
 
                          #
-                         self.clock_label.config(text=dt_management.get_datetime_for_particular_timezone(self.timezone).strftime(self.timezone + " (" + unicode_country.decode('unicode_escape') + " " + country["name"].decode("utf-8") + ") : " + self.datetime_format))
+                         self.clock_label.config(text=dt_management.get_datetime_for_particular_timezone(self.timezone).strftime("".join([self.timezone," (",unicode_country.decode('unicode_escape')," ",country["name"].decode("utf-8"),") : ",self.datetime_format])))
 
                     #
                     else :
 
                          #
-                         self.clock_label.config(text=dt_management.get_datetime_for_particular_timezone(self.timezone).strftime(self.timezone + " (" + unicode_country.decode('unicode_escape') + " " + country["name"] + ") : " + self.datetime_format))
+                         self.clock_label.config(text=dt_management.get_datetime_for_particular_timezone(self.timezone).strftime("".join([self.timezone," (",unicode_country.decode('unicode_escape')," ",country["name"],") : ",self.datetime_format])))
 
           #
           else :
 
                #
-               self.clock_label.config(text=dt_management.get_datetime_for_particular_timezone(self.timezone).strftime(self.timezone + " : " + self.datetime_format))
+               self.clock_label.config(text=dt_management.get_datetime_for_particular_timezone(self.timezone).strftime("".join([self.timezone," : ",self.datetime_format])))
 
           #
           self.clock_label.after(1000, self.clock_time)
