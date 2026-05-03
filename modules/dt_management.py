@@ -211,4 +211,10 @@ if __name__ == "__main__":
          raise TimeZoneException.TimeZoneException("Timezone unknown !", 400)
     
     #
-    map_generator_for_location(48.8566, 2.3522, args.zoom_map, "Paris location", "Paris", "generated_map_dt_management.html")
+    map_generation_result = map_generator_for_location(48.8566, 2.3522, args.zoom_map, "Paris location", "Paris", "generated_map_dt_management.html")
+
+    #
+    if map_generation_result == 1 :
+         
+         #
+         print(color.BLUE + "Map available at " + os.path.abspath("resources/generated_map_dt_management.html") + color.END)
