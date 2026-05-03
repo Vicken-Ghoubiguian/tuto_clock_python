@@ -35,11 +35,11 @@ def map_generator_for_location(lat, lon, zoom, tooltip_name, location_name, map_
           ).add_to(generated_map)
 
           #
-          generated_map.save("../resources/" + map_name)
+          generated_map.save("".join(["../resources/",map_name]))
 
           #
-          print(colors.GREEN + "Map generated successfully !" + colors.END)
-          print(colors.BLUE + "Map available at " + os.path.abspath("resources/" + map_name) + colors.END)
+          print("".join([colors.GREEN,"Map generated successfully !",colors.END]))
+          print("".join([colors.BLUE,"Map available at ",os.path.abspath("".join(["resources/", map_name])),colors.END]))
 
           #
           return 1
@@ -48,7 +48,7 @@ def map_generator_for_location(lat, lon, zoom, tooltip_name, location_name, map_
      except Exception as exception:
 
           #
-          print(colors.RED + "Exception : " + exception + colors.END)
+          print("".join([colors.RED,"Exception : ",exception,colors.END]))
 
           #
           return -1
@@ -200,12 +200,12 @@ if __name__ == "__main__":
               unicode_country = country["flag"].encode('utf-8')
 
               #
-              print(args.timezone + " (" + unicode_country.decode('unicode_escape') + " " + country["name"] + ") : " + get_datetime_for_particular_timezone(args.timezone).strftime(args.dt_format))
+              print("".join([args.timezone," (",unicode_country.decode('unicode_escape')," ",country["name"],") : ",get_datetime_for_particular_timezone(args.timezone).strftime(args.dt_format)]))
          #
          else :
 
               #
-              print(args.timezone + " : " + get_datetime_for_particular_timezone(args.timezone).strftime(args.dt_format))
+              print("".join([args.timezone," : ",get_datetime_for_particular_timezone(args.timezone).strftime(args.dt_format)]))
 
     #
     else :
