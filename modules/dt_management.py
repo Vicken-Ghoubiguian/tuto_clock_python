@@ -11,7 +11,6 @@ import folium
 # import the custom exceptions as Python modules
 import custom_Exceptions.TimeZoneException as TimeZoneException
 import colors.colors_on_unix as colors_on_unix
-import colors.colors_on_windows as colors_on_windows
 
 # from the needed Python modules import needed components
 from tzlocal.windows_tz import win_tz
@@ -37,25 +36,8 @@ def map_generator_for_location(lat, lon, zoom, tooltip_name, location_name, map_
           generated_map.save("../resources/" + map_name)
 
           #
-          if platform.system() == "Windows" :
-
-               #
-               print(colors_on_windows.GREEN + "Map generated successfully !" + colors_on_windows.END)
-               print(colors_on_windows.BLUE + "Map available at " + os.path.abspath("resources/" + map_name) + colors_on_windows.END)
-
-          #
-          elif platform.system() == "Linux" or platform.system() == "Darwin" :
-
-               #
-               print(colors_on_unix.GREEN + "Map generated successfully !" + colors_on_unix.END)
-               print(colors_on_unix.BLUE + "Map available at " + os.path.abspath("resources/" + map_name) + colors_on_unix.END)
-
-          #
-          else :
-
-               #
-               print("Map generated successfully !")
-               print("Map available at " + os.path.abspath("resources/" + map_name))
+          print(colors_on_unix.GREEN + "Map generated successfully !" + colors_on_unix.END)
+          print(colors_on_unix.BLUE + "Map available at " + os.path.abspath("resources/" + map_name) + colors_on_unix.END)
 
           #
           return 1
@@ -64,22 +46,7 @@ def map_generator_for_location(lat, lon, zoom, tooltip_name, location_name, map_
      except Exception as exception:
 
           #
-          if platform.system() == "Windows" :
-
-               #
-               print("")
-
-          #
-          elif platform.system() == "Linux" or platform.system() == "Darwin" :
-
-               #
-               print(colors_on_unix.RED + "Exception : " + exception + colors_on_unix.END)
-          
-          #
-          else :
-          
-               #
-               print("Exception : " + exception)
+          print(colors_on_unix.RED + "Exception : " + exception + colors_on_unix.END)
 
           #
           return -1
