@@ -40,8 +40,8 @@ def map_generator_for_location(lat, lon, zoom, tooltip_name, location_name, map_
           if platform.system() == "Windows" :
 
                #
-               print("")
-               print("")
+               print(colors_on_windows.GREEN + "Map generated successfully !" + colors_on_windows.END)
+               print(colors_on_windows.BLUE + "Map available at " + os.path.abspath("resources/generated_map_dt_management.html") + colors_on_windows.END)
 
           #
           elif platform.system() == "Linux" or platform.system() == "Darwin" :
