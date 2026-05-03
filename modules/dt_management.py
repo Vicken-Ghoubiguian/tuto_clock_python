@@ -10,6 +10,7 @@ import folium
 
 # import the custom exceptions as Python modules
 import custom_Exceptions.TimeZoneException as TimeZoneException
+import color as color
 
 # from the needed Python modules import needed components
 from tzlocal.windows_tz import win_tz
@@ -35,7 +36,7 @@ def map_generator_for_location(lat, lon, zoom, tooltip_name, location_name, map_
           generated_map.save("../resources/" + map_name)
 
           #
-          print("\033[92mMap generated successfully !\033[0m")
+          print(color.GREEN + "Map generated successfully !" + color.END)
 
           #
           return 1
@@ -44,7 +45,7 @@ def map_generator_for_location(lat, lon, zoom, tooltip_name, location_name, map_
      except Exception as exception:
 
           #
-          print("\033[93mException : " + exception + "\033[0m")
+          print(color.RED + "Exception : " + exception + color.END)
 
           #
           return -1
