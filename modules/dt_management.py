@@ -10,7 +10,8 @@ import folium
 
 # import the custom exceptions as Python modules
 import custom_Exceptions.TimeZoneException as TimeZoneException
-import color_on_unix as color_on_unix
+import colors.colors_on_unix as colors_on_unix
+import colors.colors_on_windows as colors_on_windows
 
 # from the needed Python modules import needed components
 from tzlocal.windows_tz import win_tz
@@ -36,7 +37,25 @@ def map_generator_for_location(lat, lon, zoom, tooltip_name, location_name, map_
           generated_map.save("../resources/" + map_name)
 
           #
-          print(color_on_unix.GREEN + "Map generated successfully !" + color_on_unix.END)
+          if platform.system() == "Windows" :
+
+               #
+               print("")
+               print("")
+
+          #
+          elif platform.system() == "Linux" or platform.system() == "Darwin" :
+
+               #
+               print(colors_on_unix.GREEN + "Map generated successfully !" + colors_on_unix.END)
+               print(colors_on_unix.BLUE + "Map available at " + os.path.abspath("resources/generated_map_dt_management.html") + colors_on_unix.END)
+
+          #
+          else :
+
+               #
+               print("Map generated successfully !")
+               print("Map available at " + os.path.abspath("resources/generated_map_dt_management.html"))
 
           #
           return 1
@@ -45,7 +64,7 @@ def map_generator_for_location(lat, lon, zoom, tooltip_name, location_name, map_
      except Exception as exception:
 
           #
-          print(color_on_unix.RED + "Exception : " + exception + color_on_unix.END)
+          print(colors_on_unix.RED + "Exception : " + exception + colors_on_unix.END)
 
           #
           return -1
@@ -212,9 +231,3 @@ if __name__ == "__main__":
     
     #
     map_generation_result = map_generator_for_location(48.8566, 2.3522, args.zoom_map, "Paris location", "Paris", "generated_map_dt_management.html")
-
-    #
-    if map_generation_result == 1 :
-         
-         #
-         print(color_on_unix.BLUE + "Map available at " + os.path.abspath("resources/generated_map_dt_management.html") + color_on_unix.END)
