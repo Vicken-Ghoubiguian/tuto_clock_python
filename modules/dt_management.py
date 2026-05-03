@@ -8,9 +8,11 @@ import os
 import json
 import folium
 
-# import the custom exceptions as Python modules
+# import the custom exceptions as a Python module
 import custom_Exceptions.TimeZoneException as TimeZoneException
-import colors.colors_on_unix as colors_on_unix
+
+# import the colors as a Python module
+import colors as colors
 
 # from the needed Python modules import needed components
 from tzlocal.windows_tz import win_tz
@@ -36,8 +38,8 @@ def map_generator_for_location(lat, lon, zoom, tooltip_name, location_name, map_
           generated_map.save("../resources/" + map_name)
 
           #
-          print(colors_on_unix.GREEN + "Map generated successfully !" + colors_on_unix.END)
-          print(colors_on_unix.BLUE + "Map available at " + os.path.abspath("resources/" + map_name) + colors_on_unix.END)
+          print(colors.GREEN + "Map generated successfully !" + colors.END)
+          print(colors.BLUE + "Map available at " + os.path.abspath("resources/" + map_name) + colors.END)
 
           #
           return 1
@@ -46,7 +48,7 @@ def map_generator_for_location(lat, lon, zoom, tooltip_name, location_name, map_
      except Exception as exception:
 
           #
-          print(colors_on_unix.RED + "Exception : " + exception + colors_on_unix.END)
+          print(colors.RED + "Exception : " + exception + colors.END)
 
           #
           return -1
