@@ -64,7 +64,22 @@ def map_generator_for_location(lat, lon, zoom, tooltip_name, location_name, map_
      except Exception as exception:
 
           #
-          print(colors_on_unix.RED + "Exception : " + exception + colors_on_unix.END)
+          if platform.system() == "Windows" :
+
+               #
+               print("")
+
+          #
+          elif platform.system() == "Linux" or platform.system() == "Darwin" :
+
+               #
+               print(colors_on_unix.RED + "Exception : " + exception + colors_on_unix.END)
+          
+          #
+          else :
+          
+               #
+               print("Exception : " + exception)
 
           #
           return -1
