@@ -221,4 +221,4 @@ if __name__ == "__main__":
     if generated_map != -1 :
          
          #
-         webbrowser.open("C:\\Users\\Vicken\\tuto_clock_python\\resources\\generated_map_dt_management.html")
+         webbrowser.open(generated_map)
