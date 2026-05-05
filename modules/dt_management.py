@@ -19,6 +19,30 @@ import colors as colors
 from tzlocal.windows_tz import win_tz
 
 #
+def geographical_coordinates_from_timezone(timezone) :
+
+    #
+    with open(os.path.join("..", "resources", "geographical_coordinates.json")) as gc :
+
+          #
+          geographical_coordinates_json = json.load(gc)
+
+    #
+    geographical_coordinates = geographical_coordinates_json["geographical_coordinates"]
+
+    #
+    for element in geographical_coordinates :
+
+          #
+          for key in element.keys() :
+
+               #
+               if timezone == key :
+
+                    #
+                    return element[key]
+
+#
 def map_generator_for_location(lat, lon, zoom, tooltip_name, location_name, map_name) :
 
      #
@@ -215,7 +239,10 @@ if __name__ == "__main__":
          raise TimeZoneException.TimeZoneException("Timezone unknown !", 400)
     
     #
-    generated_map = map_generation_result = map_generator_for_location(48.8566, 2.3522, args.zoom_map, "Paris location", "Paris", "generated_map_dt_management.html")
+    gc = geographical_coordinates_from_timezone("Europe/Paris")
+    
+    #
+    generated_map = map_generator_for_location(gc["latitude"], gc["longitude"], args.zoom_map, "Paris location", gc["location"], "generated_map_dt_management.html")
 
     #
     if generated_map != -1 :
