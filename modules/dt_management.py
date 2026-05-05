@@ -7,7 +7,7 @@ import subprocess
 import os
 import json
 import folium
-import webbrowser
+import webview
 
 # import the custom exceptions as a Python module
 import custom_Exceptions.TimeZoneException as TimeZoneException
@@ -221,4 +221,10 @@ if __name__ == "__main__":
     if generated_map != -1 :
          
          #
-         webbrowser.open(generated_map)
+         webview.create_window(
+               "Generated map",
+               generated_map
+          )
+         
+         #
+         webview.start()
