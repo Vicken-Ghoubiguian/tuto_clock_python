@@ -7,6 +7,7 @@ import subprocess
 import os
 import json
 import folium
+import webbrowser
 
 # import the custom exceptions as a Python module
 import custom_Exceptions.TimeZoneException as TimeZoneException
@@ -39,10 +40,10 @@ def map_generator_for_location(lat, lon, zoom, tooltip_name, location_name, map_
 
           #
           print("".join([colors.GREEN,"Map generated successfully !",colors.END]))
-          print("".join([colors.BLUE,"Map available at ",os.path.abspath("".join(["resources/", map_name])),colors.END]))
+          print("".join([colors.BLUE,"Map available at ",os.path.abspath("".join(["../resources/",map_name])),colors.END]))
 
           #
-          return 1
+          return os.path.abspath("".join(["../resources/",map_name]))
 
      #
      except Exception as exception:
@@ -214,4 +215,10 @@ if __name__ == "__main__":
          raise TimeZoneException.TimeZoneException("Timezone unknown !", 400)
     
     #
-    map_generation_result = map_generator_for_location(48.8566, 2.3522, args.zoom_map, "Paris location", "Paris", "generated_map_dt_management.html")
+    generated_map = map_generation_result = map_generator_for_location(48.8566, 2.3522, args.zoom_map, "Paris location", "Paris", "generated_map_dt_management.html")
+
+    #
+    if generated_map != -1 :
+         
+         #
+         webbrowser.open("C:\\Users\\Vicken\\tuto_clock_python\\resources\\generated_map_dt_management.html")
