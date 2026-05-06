@@ -1,7 +1,9 @@
 {
     "geographical_coordinates" : [
-        {"Europe/Paris" : {"location" : "Paris", "latitude" : 48.8566, "longitude" : 2.3522}},
-        {},
+        {"Europe/Paris" : {"location" : "Paris", "latitude" : 48.864716, "longitude" : 2.349014}},
+        {"Pacific/Fiji" : {"location" : "Fiji", "latitude" : -17.713371, "longitude" : 178.065033}},
+        {"Pacific/Nauru" : {"location" : "Nauru", "latitude" : -0.5302741954451051, "longitude" : 166.93055297323932}},
+        {"Pacific/Honolulu" : {"location" : "Honolulu", "latitude" : 21.315603, "longitude" : -157.858093}},
         {}
     ]
 }
