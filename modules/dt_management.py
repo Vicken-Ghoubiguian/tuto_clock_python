@@ -87,6 +87,7 @@ def get_countrycode_of_timezone(wished_timezone):
      #
      for countrycode in pytz.country_timezones:
 
+          #
           timezones = pytz.country_timezones[countrycode]
 
           #
@@ -108,6 +109,9 @@ def get_countrycode_of_timezone(wished_timezone):
 def get_datas_from_particular_countrycode(countrycode) :
 
      #
+     datas = None
+
+     #
      with open(os.path.join("..", "resources", "countries.json")) as cj :
 
           #
@@ -120,13 +124,16 @@ def get_datas_from_particular_countrycode(countrycode) :
      for element in countries :
 
           #
-          for key in element.keys() :
+          if countrycode in element :
 
                #
-               if countrycode == key :
+               datas = element[countrycode]
 
-                    #
-                    return element[key]
+               #
+               break
+
+     #
+     return datas
 
 # Definition of a function to get all timezones
 def get_all_timezones():
