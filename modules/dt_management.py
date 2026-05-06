@@ -252,7 +252,7 @@ if __name__ == "__main__":
          raise TimeZoneException.TimeZoneException("Timezone unknown !", 400)
     
     #
-    gc = geographical_coordinates_from_timezone("Europe/Paris")
+    gc = geographical_coordinates_from_timezone(args.timezone)
 
     #
     if gc is not None :
