@@ -82,7 +82,7 @@ def map_generator_for_location(lat, lon, zoom, tooltip_name, location_name, map_
           print("".join([colors.RED,"Exception : ",exception,colors.END]))
 
           #
-          return -1
+          return None
 
 #
 def get_countrycode_of_timezone(wished_timezone):
@@ -261,7 +261,7 @@ if __name__ == "__main__":
           generated_map = map_generator_for_location(gc["latitude"], gc["longitude"], args.zoom_map, "".join([gc["location"]," location"]), gc["location"], "generated_map_dt_management.html")
 
           #
-          if generated_map != -1 :
+          if generated_map is not None :
          
                #
                webview.create_window(
