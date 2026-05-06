@@ -214,7 +214,7 @@ if __name__ == "__main__":
     parser.add_argument('--dt_format', action="store", dest='dt_format', default='%Y-%m-%d %H:%M:%S')
 
     #
-    parser.add_argument('--zoom_map', action="store", dest='zoom_map', default=12)
+    parser.add_argument('--zoom_map', action="store", dest='zoom_map', default=5)
     
     #
     args = parser.parse_args()
