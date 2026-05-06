@@ -86,30 +86,18 @@ def map_generator_for_location(lat, lon, zoom, tooltip_name, location_name, map_
 
 #
 def get_countrycode_of_timezone(wished_timezone):
-
-     #
-     foundCountryCode = None
-
-     #
-     for countrycode in pytz.country_timezones:
-
-          #
-          timezones = pytz.country_timezones[countrycode]
-
-          #
-          for timezone in timezones:
- 
-               #
-               if timezone == wished_timezone :
-
-                    #
-                    foundCountryCode = countrycode
-
-                    #
-                    break
-               
-     #
-     return foundCountryCode
+    
+    #
+    for countrycode, timezones in pytz.country_timezones.items():
+        
+        #
+        if wished_timezone in timezones:
+            
+            #
+            return countrycode
+     
+    #
+    return None
 
 #
 def get_datas_from_particular_countrycode(countrycode) :
