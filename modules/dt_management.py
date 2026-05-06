@@ -20,6 +20,9 @@ from tzlocal.windows_tz import win_tz
 
 #
 def geographical_coordinates_from_timezone(timezone) :
+    
+    #
+    datas = None
 
     #
     with open(os.path.join("..", "resources", "geographical_coordinates.json")) as gc :
@@ -34,13 +37,16 @@ def geographical_coordinates_from_timezone(timezone) :
     for element in geographical_coordinates :
 
           #
-          for key in element.keys() :
+          if timezone in element :
 
                #
-               if timezone == key :
+               datas = element[timezone]
 
-                    #
-                    return element[key]
+               #
+               break
+     
+    #   
+    return datas
 
 #
 def map_generator_for_location(lat, lon, zoom, tooltip_name, location_name, map_name) :
