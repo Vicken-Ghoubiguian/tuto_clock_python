@@ -253,18 +253,21 @@ if __name__ == "__main__":
     
     #
     gc = geographical_coordinates_from_timezone("Europe/Paris")
-    
-    #
-    generated_map = map_generator_for_location(gc["latitude"], gc["longitude"], args.zoom_map, "".join([gc["location"]," location"]), gc["location"], "generated_map_dt_management.html")
 
     #
-    if generated_map != -1 :
+    if gc is not None :
+    
+          #
+          generated_map = map_generator_for_location(gc["latitude"], gc["longitude"], args.zoom_map, "".join([gc["location"]," location"]), gc["location"], "generated_map_dt_management.html")
+
+          #
+          if generated_map != -1 :
          
-         #
-         webview.create_window(
-               "Generated map",
-               generated_map
-          )
+               #
+               webview.create_window(
+                    "Generated map",
+                    generated_map
+                )
          
-         #
-         webview.start()
+               #
+               webview.start()
