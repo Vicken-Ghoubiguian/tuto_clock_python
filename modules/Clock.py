@@ -301,7 +301,7 @@ if __name__ == "__main__" :
     #
     iana_tz = dt_management.return_iana_timezone()
 
-     #
+    #
     parser = argparse.ArgumentParser(description="Simple app with timezones")
 
     #
