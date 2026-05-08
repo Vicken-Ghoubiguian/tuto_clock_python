@@ -7,7 +7,7 @@ from time import sleep
 # CONFIG
 # =========================
 
-OUTPUT_FILE = "timezones_coordinates.json"
+OUTPUT_FILE = "geographical_coordinates.json"
 
 # =========================
 # CACHE
