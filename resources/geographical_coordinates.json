@@ -1564,22 +1564,22 @@
         {
             "Antarctica/Casey": {
                 "location": "Casey",
-                "latitude": 37.2911032,
-                "longitude": -84.9146294
+                "latitude": -66.275665564,
+                "longitude": 110.521331248
             }
         },
         {
             "Antarctica/Davis": {
                 "location": "Davis",
-                "latitude": 40.7474784,
-                "longitude": -92.3965311
+                "latitude": -68.57249771,
+                "longitude": 77.967996128
             }
         },
         {
             "Antarctica/DumontDUrville": {
                 "location": "Dumont d'Urville",
-                "latitude": -66.66517,
-                "longitude": 140.00220
+                "latitude": -66.666664,
+                "longitude": 140.0166666
             }
         },
         {
@@ -1592,29 +1592,29 @@
         {
             "Antarctica/Mawson": {
                 "location": "Mawson",
-                "latitude": -35.3633679,
-                "longitude": 149.0988944
+                "latitude": -67.5999976,
+                "longitude": 62.8666632
             }
         },
         {
             "Antarctica/McMurdo": {
                 "location": "McMurdo",
-                "latitude": 51.1438645,
-                "longitude": -116.7735976
+                "latitude": -77.8499966,
+                "longitude": 166.666664
             }
         },
         {
             "Antarctica/Palmer": {
                 "location": "Palmer",
-                "latitude": 61.5995703,
-                "longitude": -149.11109
+                "latitude": -64.774167,
+                "longitude": -64.053056
             }
         },
         {
             "Antarctica/Rothera": {
                 "location": "Rothera",
-                "latitude": -67.5677836,
-                "longitude": -68.127636
+                "latitude": -67.5666644,
+                "longitude": -68.1333328
             }
         },
         {
@@ -1627,22 +1627,22 @@
         {
             "Antarctica/Syowa": {
                 "location": "Syowa",
-                "latitude": -69.0042444,
-                "longitude": 39.5820278
+                "latitude": -69.0,
+                "longitude": 39.583331
             }
         },
         {
             "Antarctica/Troll": {
                 "location": "Troll",
-                "latitude": 50.799444,
-                "longitude": 14.226444
+                "latitude": -72.0166666,
+                "longitude": 2.5333312
             }
         },
         {
             "Antarctica/Vostok": {
                 "location": "Vostok",
-                "latitude": 46.4481609,
-                "longitude": 135.8298609
+                "latitude": -78.4586514987,
+                "longitude": 106.835726657
             }
         },
         {
