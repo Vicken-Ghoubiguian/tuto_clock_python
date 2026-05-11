@@ -31,9 +31,10 @@ class CartographyWindow():
         #
         webview.start()
 
+# 
 if __name__ == "__main__":
 
-    #
+    # Get the system's (platform's) timezone
     iana_tz = dt_management.return_iana_timezone()
 
     #
