@@ -10,7 +10,7 @@ import folium
 import webview
 
 # import the custom exceptions as a Python module
-import custom_Exceptions.TimeZoneException as TimeZoneException
+import TimeZoneException as TimeZoneException
 
 # import the colors as a Python module
 import colors as colors

@@ -5,16 +5,15 @@ import tkinter.ttk
 import argparse
 import os
 import platform
-import folium
 
 # import the windows as Python modules
-import little_Windows.WeatherWindow
-import little_Windows.DatetimeFormatWindow
-import little_Windows.UserGuideWindow
+import WeatherWindow
+import DatetimeFormatWindow
+import UserGuideWindow
 
 # import the custom exceptions as Python modules
-import custom_Exceptions.TimeZoneException as TimeZoneException
-import custom_Exceptions.OpenedWindowException as OpenedWindowException
+import TimeZoneException as TimeZoneException
+import OpenedWindowException as OpenedWindowException
 
 # from the needed Python modules import needed components
 from tzlocal.windows_tz import win_tz
@@ -104,6 +103,12 @@ class Clock(tkinter.Tk) :
           #
           timezone_menu = tkinter.Menu(menubar)
 
+          # Definition of the 'cartography' menu command to display the current timezone location on a map
+          timezone_menu.add_command(
+               label="Cartography",
+               command=self.destroy
+          )
+
           # Definition of the 'Weather' menu command to display weather of the current timezone location
           timezone_menu.add_command(
                label="Weather",
@@ -141,7 +146,7 @@ class Clock(tkinter.Tk) :
           if self.littleWindow == False :
 
                #
-               self.littleWindow = little_Windows.WeatherWindow.WeatherWindow()
+               self.littleWindow = WeatherWindow.WeatherWindow()
 
                #
                self.littleWindow.wm_protocol("WM_DELETE_WINDOW", self.closeWindow)
@@ -162,7 +167,7 @@ class Clock(tkinter.Tk) :
           if self.littleWindow == False :
 
                # Definition of the 'DateTimeFormatWindow' window to inform the user about the different available datetime formats
-               self.littleWindow = little_Windows.DatetimeFormatWindow.DateTimeFormatWindow()
+               self.littleWindow = DatetimeFormatWindow.DateTimeFormatWindow()
 
                #
                self.littleWindow.wm_protocol("WM_DELETE_WINDOW", self.closeWindow)
@@ -183,7 +188,7 @@ class Clock(tkinter.Tk) :
           if self.littleWindow == False :
 
                # Definition of the 'UserGuideWindow' window to inform the user about the clock features
-               self.littleWindow = little_Windows.UserGuideWindow.UserGuideWindow()
+               self.littleWindow = UserGuideWindow.UserGuideWindow()
 
                #
                self.littleWindow.wm_protocol("WM_DELETE_WINDOW", self.closeWindow)
