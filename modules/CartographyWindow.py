@@ -22,7 +22,8 @@ class CartographyWindow():
             title=title,
             url=generated_map,
             width=int(width),
-            height=int(height)
+            height=int(height),
+            resizable=False
         )
 
     #
