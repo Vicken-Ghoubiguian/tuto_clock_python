@@ -1,5 +1,6 @@
 # import the needed Python modules
 import webview
+import argparse
 
 #
 import dt_management as dt_management
@@ -32,6 +33,26 @@ class CartographyWindow():
 
 if __name__ == "__main__":
 
-    cw = CartographyWindow("Europe/Paris", "test", 15)
+    #
+    iana_tz = dt_management.return_iana_timezone()
 
+    #
+    parser = argparse.ArgumentParser(description="Simple app with timezones")
+
+    #
+    parser.add_argument('--timezone', action="store", dest='timezone', default=iana_tz)
+
+    #
+    parser.add_argument('--title', action="store", dest='title', default='World\'s map')
+
+    #
+    parser.add_argument('--zoom_map', action="store", dest='zoom_map', default=5)
+
+    #
+    args = parser.parse_args()
+
+    #
+    cw = CartographyWindow(args.timezone, args.title, args.zoom_map)
+
+    #
     cw.start()
