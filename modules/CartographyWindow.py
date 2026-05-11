@@ -5,6 +5,9 @@ import argparse
 #
 import dt_management as dt_management
 
+# import the custom exceptions as Python modules
+import TimeZoneException as TimeZoneException
+
 # Definition of the 'CartographyWindow' class
 class CartographyWindow():
 
@@ -15,16 +18,25 @@ class CartographyWindow():
         location = dt_management.geographical_coordinates_from_timezone(timezone)
 
         #
-        generated_map = dt_management.map_generator_for_location(location["latitude"], location["longitude"], zoom, "".join([location["location"]," location"]), location["location"], "generated_map_cartography_window.html")
+        if location != None :
+
+            #
+            generated_map = dt_management.map_generator_for_location(location["latitude"], location["longitude"], zoom, "".join([location["location"]," location"]), location["location"], "generated_map_cartography_window.html")
+
+            #
+            self.window = webview.create_window(
+                title=title,
+                url=generated_map,
+                width=int(width),
+                height=int(height),
+                resizable=False
+            )
 
         #
-        self.window = webview.create_window(
-            title=title,
-            url=generated_map,
-            width=int(width),
-            height=int(height),
-            resizable=False
-        )
+        else :
+
+            #
+            raise TimeZoneException.TimeZoneException("Timezone unknown !", 400)
 
     #
     def start(self):
