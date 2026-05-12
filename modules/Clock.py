@@ -23,13 +23,13 @@ from PIL import Image, ImageTk
 class Clock(tkinter.Tk) :
 
      # Definition of the 'Clock' class constructor
-     def __init__(self, timezone, dt_format, zoom_map):
+     def __init__(self, timezone, dt_format, zoom_map, title):
           
           # Definition of the main GUI
           tkinter.Tk.__init__(self)
 
           # Definition of the main GUI title
-          self.title("Clock")
+          self.title(title)
 
           # Instruction that disables the ‘X’ (close) button in the top-right corner of the window.
           self.protocol('WM_DELETE_WINDOW', 'break')
@@ -316,7 +316,10 @@ if __name__ == "__main__" :
     parser.add_argument('--dt_format', action="store", dest='dt_format', default='%Y-%m-%d %H:%M:%S')
 
     #
-    parser.add_argument('--zoom_map', action="store", dest='zoom_map', default=12)
+    parser.add_argument('--zoom_map', action="store", dest='zoom_map', default=5)
+
+    #
+    parser.add_argument('--title', action="store", dest='title', default='Clock')
     
     #
     args = parser.parse_args()
@@ -325,7 +328,7 @@ if __name__ == "__main__" :
     if dt_management.get_datetime_for_particular_timezone(args.timezone) != None :
 
          #
-         clock = Clock(args.timezone, args.dt_format, args.zoom_map)
+         clock = Clock(args.timezone, args.dt_format, args.zoom_map, args.title)
 
     #
     else :
