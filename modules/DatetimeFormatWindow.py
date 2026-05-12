@@ -1,5 +1,6 @@
 # import the needed Python modules
 import tkinter
+import argparse
 import os
 
 # from the needed Python modules import needed components
@@ -9,19 +10,19 @@ from PIL import Image, ImageTk
 class DateTimeFormatWindow(tkinter.Tk) :
 
      # Definition of the 'DateTimeFormatWindow' class constructor
-     def __init__(self):
+     def __init__(self, width, height, title):
           
           # Definition of the main GUI
           tkinter.Tk.__init__(self)
 
           # 
-          self.title("Datetime format")
+          self.title(title)
 
           #
           self.resizable(False, False)
 
           #
-          self.geometry('500x500')
+          self.geometry("x".join([str(width), str(height)]))
 
           #
           self.datetime_format_label = tkinter.Label(self, font=('calibri', 10, 'bold'))
@@ -62,10 +63,25 @@ class DateTimeFormatWindow(tkinter.Tk) :
 if __name__ == "__main__" :
 
      #
-     datetime_format_window = DateTimeFormatWindow()
+     parser = argparse.ArgumentParser(description="Simple app with timezones")
+
+     #
+     parser.add_argument('--width', action="store", dest='width', default=500)
+
+     #
+     parser.add_argument('--height', action="store", dest='height', default=500)
+
+     #
+     parser.add_argument('--title', action="store", dest='title', default="Datetime format")
+
+     #
+     args = parser.parse_args()
+
+     #
+     datetime_format_window = DateTimeFormatWindow(args.width, args.height, args.title)
 
      # Definition of the datetime format GUI image
-     datetime_format_gui_image = ImageTk.PhotoImage(Image.open(os.path.join("..", "..", "images", "clock.png")))
+     datetime_format_gui_image = ImageTk.PhotoImage(Image.open(os.path.join("..", "images", "clock.png")))
 
      # Implementation of the datetime format GUI image
      datetime_format_window.iconphoto(True, datetime_format_gui_image)
