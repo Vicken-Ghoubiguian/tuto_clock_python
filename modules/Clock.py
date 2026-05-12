@@ -23,7 +23,7 @@ from PIL import Image, ImageTk
 class Clock(tkinter.Tk) :
 
      # Definition of the 'Clock' class constructor
-     def __init__(self, timezone, dt_format, zoom_map, title):
+     def __init__(self, timezone, dt_format, zoom_map, title, width, height):
           
           # Definition of the main GUI
           tkinter.Tk.__init__(self)
@@ -41,7 +41,7 @@ class Clock(tkinter.Tk) :
           self.iconphoto(True, self.gui_image)
 
           # Definition of the window dimensions
-          self.geometry('1500x500')
+          self.geometry("x".join([str(width), str(height)]))
 
           # Set the window not resizable
           self.resizable(False, False)
@@ -319,6 +319,12 @@ if __name__ == "__main__" :
     parser.add_argument('--zoom_map', action="store", dest='zoom_map', default=5)
 
     #
+    parser.add_argument('--width', action="store", dest='width', default=1500)
+
+    #
+    parser.add_argument('--height', action="store", dest='height', default=500)
+
+    #
     parser.add_argument('--title', action="store", dest='title', default='Clock')
     
     #
@@ -328,7 +334,7 @@ if __name__ == "__main__" :
     if dt_management.get_datetime_for_particular_timezone(args.timezone) != None :
 
          #
-         clock = Clock(args.timezone, args.dt_format, args.zoom_map, args.title)
+         clock = Clock(args.timezone, args.dt_format, args.zoom_map, args.title, args.width, args.height)
 
     #
     else :
