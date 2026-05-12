@@ -1,6 +1,7 @@
-# import the needed Python modules
+#
 try :
 
+     # import the dt_management module as a Python module
      import dt_management as dt_management
 
      # import the windows as Python modules
@@ -15,11 +16,15 @@ try :
 #
 except ImportError:
 
-     #
+     # import the dt_management module as a Python module
      from . import dt_management as dt_management
+
+     # import the windows as Python modules
      from . import WeatherWindow as WeatherWindow
      from . import DatetimeFormatWindow as DatetimeFormatWindow
      from . import UserGuideWindow as UserGuideWindow
+
+     # import the custom exceptions as Python modules
      from . import TimeZoneException as TimeZoneException
      from . import OpenedWindowException as OpenedWindowException
 
@@ -317,7 +322,7 @@ class Clock(tkinter.Tk) :
 #
 if __name__ == "__main__" :
     
-    #
+    # Get the current timezone of the system
     iana_tz = dt_management.return_iana_timezone()
 
     #

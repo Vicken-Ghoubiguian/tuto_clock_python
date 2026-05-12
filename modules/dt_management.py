@@ -196,7 +196,7 @@ def return_iana_timezone() :
 #
 if __name__ == "__main__":
     
-    #
+    #  Get the current timezone of the system
     iana_tz = return_iana_timezone()
 
     #
