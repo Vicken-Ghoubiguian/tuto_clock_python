@@ -1,21 +1,35 @@
 # import the needed Python modules
-import dt_management as dt_management
+try :
+
+     import dt_management as dt_management
+
+     # import the windows as Python modules
+     import WeatherWindow as WeatherWindow
+     import DatetimeFormatWindow as DatetimeFormatWindow
+     import UserGuideWindow as UserGuideWindow
+
+     # import the custom exceptions as Python modules
+     import TimeZoneException as TimeZoneException
+     import OpenedWindowException as OpenedWindowException
+
+#
+except ImportError:
+
+     #
+     from . import dt_management as dt_management
+     from . import WeatherWindow as WeatherWindow
+     from . import DatetimeFormatWindow as DatetimeFormatWindow
+     from . import UserGuideWindow as UserGuideWindow
+     from . import TimeZoneException as TimeZoneException
+     from . import OpenedWindowException as OpenedWindowException
+
+# from the needed Python modules import needed components
 import tkinter
 import tkinter.ttk
 import argparse
 import os
 import platform
 
-# import the windows as Python modules
-import WeatherWindow
-import DatetimeFormatWindow
-import UserGuideWindow
-
-# import the custom exceptions as Python modules
-import TimeZoneException as TimeZoneException
-import OpenedWindowException as OpenedWindowException
-
-# from the needed Python modules import needed components
 from tzlocal.windows_tz import win_tz
 from PIL import Image, ImageTk
 
@@ -34,8 +48,8 @@ class Clock(tkinter.Tk) :
           # Instruction that disables the ‘X’ (close) button in the top-right corner of the window.
           self.protocol('WM_DELETE_WINDOW', 'break')
 
-          # Definition of the main GUI image
-          self.gui_image = ImageTk.PhotoImage(Image.open(os.path.join("..", "images", "clock.png")))
+          #
+          self.gui_image = ImageTk.PhotoImage(Image.open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "images", "clock.png")))
 
           # Implementation of the main GUI image
           self.iconphoto(True, self.gui_image)

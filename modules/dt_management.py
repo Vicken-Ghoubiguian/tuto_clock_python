@@ -9,11 +9,18 @@ import json
 import folium
 import webview
 
-# import the custom exceptions as a Python module
-import TimeZoneException as TimeZoneException
+#
+try :
 
-# import the colors as a Python module
-import colors as colors
+     import TimeZoneException as TimeZoneException
+     import colors as colors
+
+#
+except ImportError:
+
+     #
+     from . import TimeZoneException as TimeZoneException
+     from . import colors as colors
 
 # from the needed Python modules import needed components
 from tzlocal.windows_tz import win_tz
@@ -25,7 +32,7 @@ def geographical_coordinates_from_timezone(timezone) :
     datas = None
 
     #
-    with open(os.path.join("..", "resources", "geographical_coordinates.json")) as gc :
+    with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "resources", "geographical_coordinates.json")) as gc :
 
           #
           geographical_coordinates_json = json.load(gc)
@@ -106,7 +113,7 @@ def get_datas_from_particular_countrycode(countrycode) :
      datas = None
 
      #
-     with open(os.path.join("..", "resources", "countries.json")) as cj :
+     with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "resources", "countries.json")) as cj :
 
           #
           countries_json = json.load(cj)

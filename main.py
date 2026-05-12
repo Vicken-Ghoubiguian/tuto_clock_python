@@ -25,13 +25,22 @@ parser.add_argument('--dt_format', action="store", dest='dt_format', default='%Y
 parser.add_argument('--zoom_map', action="store", dest='zoom_map', default=12)
 
 #
-args = parser.parse_args('--title', action="store", dest='title', default='Clock')
+parser.add_argument('--width', action="store", dest='width', default=1500)
+
+#
+parser.add_argument('--height', action="store", dest='height', default=500)
+
+#
+parser.add_argument('--title', action="store", dest='title', default='Clock')
+
+#
+args = parser.parse_args()
 
 #
 if dt_management.get_datetime_for_particular_timezone(args.timezone) != None :
 
     #
-    clock = Clock(args.timezone, args.dt_format, args.zoom_map, args.title)
+    clock = Clock.Clock(args.timezone, args.dt_format, args.zoom_map, args.title, args.width, args.height)
 
 #
 else :
