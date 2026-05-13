@@ -5,6 +5,7 @@ try :
      import dt_management as dt_management
 
      # import the windows as Python modules
+     import CartographyWindow as CartographyWindow
      import WeatherWindow as WeatherWindow
      import DatetimeFormatWindow as DatetimeFormatWindow
      import UserGuideWindow as UserGuideWindow
@@ -20,6 +21,7 @@ except ImportError:
      from . import dt_management as dt_management
 
      # import the windows as Python modules
+     from . import CartographyWindow as CartographyWindow
      from . import WeatherWindow as WeatherWindow
      from . import DatetimeFormatWindow as DatetimeFormatWindow
      from . import UserGuideWindow as UserGuideWindow
@@ -77,6 +79,9 @@ class Clock(tkinter.Tk) :
           # There is no window which is opened (class attribute 'littleWindow' as False)
           self.littleWindow = False
 
+          # 
+          self.littleWindowType = False
+
           # Get all available timezones into the 'all_timezones' variable
           all_timezones = dt_management.get_all_timezones()
 
@@ -125,7 +130,7 @@ class Clock(tkinter.Tk) :
           # Definition of the 'cartography' menu command to display the current timezone location on a map
           timezone_menu.add_command(
                label="Cartography",
-               command=self.destroy
+               command=self.openCartographyWindow
           )
 
           # Definition of the 'Weather' menu command to display weather of the current timezone location
@@ -157,6 +162,27 @@ class Clock(tkinter.Tk) :
                label="menu",
                menu=timezone_menu
           )
+
+     #
+     def openCartographyWindow(self) :
+
+          #
+          if self.littleWindow == False :
+
+               #
+               self.littleWindow = CartographyWindow.CartographyWindow(self.timezone, "World's map", 5, 1200, 800)
+
+               #
+               self.littleWindow.window.events.closed += self.closeWindowCartography
+
+               #
+               self.littleWindow.start()
+          
+          #
+          else :
+
+               #
+               raise OpenedWindowException.OpenedWindowException("Window already opened !", 400)
 
      #
      def openWeatherWindow(self) :
@@ -220,6 +246,12 @@ class Clock(tkinter.Tk) :
 
                #
                raise OpenedWindowException.OpenedWindowException("Window already opened !", 400)
+
+     #
+     def closeWindowCartography(self) :
+
+          #
+          self.littleWindow = False
 
      #
      def closeWindow(self) :
