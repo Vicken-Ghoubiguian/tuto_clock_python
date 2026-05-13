@@ -3153,8 +3153,8 @@
         {
             "Pacific/Chatham": {
                 "location": "Chatham",
-                "latitude": 31.9668887,
-                "longitude": -81.0626008
+                "latitude": -43.892329764,
+                "longitude": -176.523997904
             }
         },
         {
@@ -3209,8 +3209,8 @@
         {
             "Pacific/Galapagos": {
                 "location": "Galapagos",
-                "latitude": 40.6965656,
-                "longitude": -3.3379649
+                "latitude": -0.666664,
+                "longitude": -90.5499978
             }
         },
         {
