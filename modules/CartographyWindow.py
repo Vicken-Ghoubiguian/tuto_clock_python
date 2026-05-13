@@ -24,7 +24,7 @@ except ImportError:
 class CartographyWindow():
 
     #
-    def __init__(self, timezone, title, zoom, width, height):
+    def __init__(self, timezone, title, zoom, width, height, file):
 
         #
         location = dt_management.geographical_coordinates_from_timezone(timezone)
@@ -33,7 +33,7 @@ class CartographyWindow():
         if location != None :
 
             #
-            generated_map = dt_management.map_generator_for_location(location["latitude"], location["longitude"], zoom, "".join([location["location"]," location"]), location["location"], "generated_map_cartography_window.html")
+            generated_map = dt_management.map_generator_for_location(location["latitude"], location["longitude"], zoom, "".join([location["location"]," location"]), location["location"], file)
 
             #
             self.window = webview.create_window(
@@ -81,10 +81,13 @@ if __name__ == "__main__":
     parser.add_argument('--height', action="store", dest='height', default=800)
 
     #
+    parser.add_argument('--file', action="store", dest='file', default='generated_map_cartography_window.html')
+
+    #
     args = parser.parse_args()
 
     #
-    cw = CartographyWindow(args.timezone, args.title, args.zoom_map, args.width, args.height)
+    cw = CartographyWindow(args.timezone, args.title, args.zoom_map, args.width, args.height, args.file)
 
     #
     cw.start()
