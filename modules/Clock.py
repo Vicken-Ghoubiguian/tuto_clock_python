@@ -167,7 +167,7 @@ class Clock(tkinter.Tk) :
      def openCartographyWindow(self) :
 
           #
-          if self.littleWindow == False :
+          if self.littleWindowType == False :
 
                #
                self.littleWindowType = "webview"
@@ -191,7 +191,7 @@ class Clock(tkinter.Tk) :
      def openWeatherWindow(self) :
 
           #
-          if self.littleWindow == False :
+          if self.littleWindowType == False :
 
                #
                self.littleWindowType = "tkinter"
@@ -215,7 +215,7 @@ class Clock(tkinter.Tk) :
      def openDatetimeFormatWindow(self) :
 
           #
-          if self.littleWindow == False :
+          if self.littleWindowType == False :
 
                #
                self.littleWindowType = "tkinter"
@@ -239,7 +239,7 @@ class Clock(tkinter.Tk) :
      def openUserGuideWindow(self) :
 
           #
-          if self.littleWindow == False :
+          if self.littleWindowType == False :
 
                #
                self.littleWindowType = "tkinter"
