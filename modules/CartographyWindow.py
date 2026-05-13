@@ -3,10 +3,22 @@ import webview
 import argparse
 
 #
-import dt_management as dt_management
+try :
 
-# import the custom exceptions as Python modules
-import TimeZoneException as TimeZoneException
+    #
+    import dt_management as dt_management
+
+    # import the custom exceptions as Python modules
+    import TimeZoneException as TimeZoneException
+
+#
+except ImportError:
+
+    #
+    from . import dt_management as dt_management
+
+    # import the custom exceptions as Python modules
+    from . import TimeZoneException as TimeZoneException
 
 # Definition of the 'CartographyWindow' class
 class CartographyWindow():
