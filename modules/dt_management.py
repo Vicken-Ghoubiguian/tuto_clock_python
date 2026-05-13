@@ -86,7 +86,7 @@ def map_generator_for_location(lat, lon, zoom, tooltip_name, location_name, map_
      except Exception as exception:
 
           #
-          print("".join([colors.RED,"Exception : ",exception,colors.END]))
+          print("".join([colors.RED,"Exception : ",str(exception),colors.END]))
 
           #
           return None
