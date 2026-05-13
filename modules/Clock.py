@@ -170,10 +170,13 @@ class Clock(tkinter.Tk) :
           if self.littleWindow == False :
 
                #
+               self.littleWindowType = "webview"
+
+               #
                self.littleWindow = CartographyWindow.CartographyWindow(self.timezone, "World's map", 5, 1200, 800, "generated_map_clock.html")
 
                #
-               self.littleWindow.window.events.closed += self.closeWindowCartography
+               self.littleWindow.window.events.closed += self.closeWindow
 
                #
                self.littleWindow.start()
@@ -189,6 +192,9 @@ class Clock(tkinter.Tk) :
 
           #
           if self.littleWindow == False :
+
+               #
+               self.littleWindowType = "tkinter"
 
                #
                self.littleWindow = WeatherWindow.WeatherWindow()
@@ -211,6 +217,9 @@ class Clock(tkinter.Tk) :
           #
           if self.littleWindow == False :
 
+               #
+               self.littleWindowType = "tkinter"
+
                # Definition of the 'DateTimeFormatWindow' window to inform the user about the different available datetime formats
                self.littleWindow = DatetimeFormatWindow.DateTimeFormatWindow(500, 500, "Datetime format")
 
@@ -232,6 +241,9 @@ class Clock(tkinter.Tk) :
           #
           if self.littleWindow == False :
 
+               #
+               self.littleWindowType = "tkinter"
+
                # Definition of the 'UserGuideWindow' window to inform the user about the clock features
                self.littleWindow = UserGuideWindow.UserGuideWindow()
 
@@ -248,16 +260,16 @@ class Clock(tkinter.Tk) :
                raise OpenedWindowException.OpenedWindowException("Window already opened !", 400)
 
      #
-     def closeWindowCartography(self) :
-
-          #
-          self.littleWindow = False
-
-     #
      def closeWindow(self) :
 
           #
-          self.littleWindow.destroy()
+          if self.littleWindowType == "tkinter" :
+
+               #
+               self.littleWindow.destroy()
+
+          #
+          self.littleWindowType = False
 
           #
           self.littleWindow = False
