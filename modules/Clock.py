@@ -170,7 +170,7 @@ class Clock(tkinter.Tk) :
           if self.littleWindow == False :
 
                #
-               self.littleWindow = CartographyWindow.CartographyWindow(self.timezone, "World's map", 5, 1200, 800)
+               self.littleWindow = CartographyWindow.CartographyWindow(self.timezone, "World's map", 5, 1200, 800, "generated_map_clock.html")
 
                #
                self.littleWindow.window.events.closed += self.closeWindowCartography
