@@ -1,5 +1,5 @@
 # HTML files in the resources folder
-resources/*.html
+tuto_clock_python/resources/*.html
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
