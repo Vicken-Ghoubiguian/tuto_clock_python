@@ -2,11 +2,11 @@
 import argparse
 
 # import the custom modules as Python modules
-import modules.Clock as Clock
-import modules.dt_management as dt_management
+import tuto_clock_python.Clock as Clock
+import tuto_clock_python.dt_management as dt_management
 
 # import the custom exceptions as Python modules
-import modules.TimeZoneException as TimeZoneException
+import tuto_clock_python.TimeZoneException as TimeZoneException
 
 
 #  Get the current timezone of the system
