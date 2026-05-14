@@ -31,7 +31,7 @@ if __name__ == "__main__" :
      user_guide_window = UserGuideWindow()
 
      # Definition of the datetime format GUI image
-     user_guide_gui_image = ImageTk.PhotoImage(Image.open(os.path.join("..", "..", "images", "clock.png")))
+     user_guide_gui_image = ImageTk.PhotoImage(Image.open(os.path.join("images", "clock.png")))
 
      # Implementation of the user guide GUI image
      user_guide_window.iconphoto(True, user_guide_gui_image)

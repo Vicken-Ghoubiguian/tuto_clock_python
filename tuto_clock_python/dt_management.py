@@ -32,7 +32,7 @@ def geographical_coordinates_from_timezone(timezone) :
     datas = None
 
     #
-    with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "resources", "geographical_coordinates.json")) as gc :
+    with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "resources", "geographical_coordinates.json")) as gc :
 
           #
           geographical_coordinates_json = json.load(gc)
@@ -73,14 +73,14 @@ def map_generator_for_location(lat, lon, zoom, tooltip_name, location_name, map_
           ).add_to(generated_map)
 
           #
-          generated_map.save(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "resources", map_name))
+          generated_map.save(os.path.join(os.path.dirname(os.path.abspath(__file__)), "resources", map_name))
 
           #
           print("".join([colors.GREEN,"Map generated successfully !",colors.END]))
-          print("".join([colors.BLUE,"Map available at ",os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "resources", map_name)),colors.END]))
+          print("".join([colors.BLUE,"Map available at ",os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "resources", map_name)),colors.END]))
 
           #
-          return os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "resources", map_name))
+          return os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "resources", map_name))
 
      #
      except Exception as exception:
@@ -113,7 +113,7 @@ def get_datas_from_particular_countrycode(countrycode) :
      datas = None
 
      #
-     with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "resources", "countries.json")) as cj :
+     with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "resources", "countries.json")) as cj :
 
           #
           countries_json = json.load(cj)

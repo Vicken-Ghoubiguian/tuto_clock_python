@@ -56,7 +56,7 @@ class Clock(tkinter.Tk) :
           self.protocol('WM_DELETE_WINDOW', 'break')
 
           #
-          self.gui_image = ImageTk.PhotoImage(Image.open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "images", "clock.png")))
+          self.gui_image = ImageTk.PhotoImage(Image.open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "images", "clock.png")))
 
           # Implementation of the main GUI image
           self.iconphoto(True, self.gui_image)

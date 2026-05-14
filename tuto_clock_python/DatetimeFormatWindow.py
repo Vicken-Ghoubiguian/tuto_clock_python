@@ -81,7 +81,7 @@ if __name__ == "__main__" :
      datetime_format_window = DateTimeFormatWindow(args.width, args.height, args.title)
 
      # Definition of the datetime format GUI image
-     datetime_format_gui_image = ImageTk.PhotoImage(Image.open(os.path.join("..", "images", "clock.png")))
+     datetime_format_gui_image = ImageTk.PhotoImage(Image.open(os.path.join("images", "clock.png")))
 
      # Implementation of the datetime format GUI image
      datetime_format_window.iconphoto(True, datetime_format_gui_image)

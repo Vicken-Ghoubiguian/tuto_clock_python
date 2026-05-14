@@ -31,7 +31,7 @@ if __name__ == "__main__" :
      weather_window = WeatherWindow()
 
      # Definition of the weather GUI image
-     weather_window_gui_image = ImageTk.PhotoImage(Image.open(os.path.join("..", "..", "images", "clock.png")))
+     weather_window_gui_image = ImageTk.PhotoImage(Image.open(os.path.join("..", "images", "clock.png")))
 
      # Implementation of the user guide GUI image
      weather_window.iconphoto(True, weather_window_gui_image)
