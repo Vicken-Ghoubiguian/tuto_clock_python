@@ -142,7 +142,7 @@ class Clock(tkinter.Tk) :
           # Definition of the 'Datetime formats' menu command to inform the user about the datetime formats that could be use in the application
           timezone_menu.add_command(
                label="Datetime formats",
-               command=self.openDatetimeFormatWindow
+               command=self.destroy
           )
 
           # Definition of the 'User guide' menu command to guide the user on the application features

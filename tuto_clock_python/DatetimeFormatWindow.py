@@ -1,34 +1,41 @@
 # import the needed Python modules
-import tkinter
+import sys
 import argparse
 import os
 
-# from the needed Python modules import needed components
-from PIL import Image, ImageTk
+#
+from PySide6.QtWidgets import QApplication, QMainWindow, QLabel
+from PySide6.QtGui import QFont, QIcon
+
 
 # Definition of the 'DateTimeFormatWindow' class
-class DateTimeFormatWindow(tkinter.Tk) :
+class DateTimeFormatWindow(QMainWindow) :
 
      # Definition of the 'DateTimeFormatWindow' class constructor
      def __init__(self, width, height, title):
           
           # Definition of the main GUI
-          tkinter.Tk.__init__(self)
+          super().__init__()
 
           # 
-          self.title(title)
+          self.setWindowTitle(title)
 
           #
-          self.resizable(False, False)
+          self.setWindowIcon(QIcon(os.path.join(os.path.dirname(os.path.abspath(__file__)), "images", "clock.png")))
 
           #
-          self.geometry("x".join([str(width), str(height)]))
+          self.setFixedSize(int(width), int(height))
 
           #
-          self.datetime_format_label = tkinter.Label(self, font=('calibri', 10, 'bold'))
+          self.datetime_format_label = QLabel(self)
 
           #
-          self.datetime_format_label.pack(pady=20, padx=0, anchor="w")
+          self.datetime_format_label.setFont(
+               QFont("Calibri", 10, QFont.Bold)
+          )
+
+          #
+          self.datetime_format_label.setGeometry(20, 20, width - 40, height - 40)
 
           #
           datetime_format_text = "%a : abbreviated weekday name.\n" \
@@ -57,7 +64,10 @@ class DateTimeFormatWindow(tkinter.Tk) :
                                  "%% : A literal '%' character."
 
           #
-          self.datetime_format_label.config(text=datetime_format_text)
+          self.datetime_format_label.setText(datetime_format_text)
+
+          #
+          self.datetime_format_label.setWordWrap(True)
 
 #
 if __name__ == "__main__" :
@@ -78,13 +88,13 @@ if __name__ == "__main__" :
      args = parser.parse_args()
 
      #
+     app = QApplication(sys.argv)
+
+     #
      datetime_format_window = DateTimeFormatWindow(args.width, args.height, args.title)
 
      # Definition of the datetime format GUI image
-     datetime_format_gui_image = ImageTk.PhotoImage(Image.open(os.path.join("images", "clock.png")))
-
-     # Implementation of the datetime format GUI image
-     datetime_format_window.iconphoto(True, datetime_format_gui_image)
+     datetime_format_window.show()
 
      #
-     datetime_format_window.mainloop()
+     sys.exit(app.exec())
