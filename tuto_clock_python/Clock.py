@@ -171,14 +171,33 @@ class Clock(QApplication):
     # CLOCK UPDATE
     def clock_time(self):
 
+        #
         dt = dt_management.get_datetime_for_particular_timezone(self.timezone)
 
+        #
+        country = dt_management.get_datas_from_particular_countrycode(dt_management.get_countrycode_of_timezone(self.timezone))
+
+        #
         if dt is None:
+
+            #   
             return
 
-        self.clock_label.setText(
-            f"{self.timezone} : {dt.strftime(self.datetime_format)}"
-        )
+        #
+        if country is not None :
+
+          # Display the timezone with its datetime and the country
+          self.clock_label.setText(
+               f"{self.timezone} ({country["name"]}) : {dt.strftime(self.datetime_format)}"
+          )
+
+        #
+        else :
+          
+          #
+          self.clock_label.setText(
+               f"{self.timezone} : {dt.strftime(self.datetime_format)}"
+          )
 
     def run(self):
 
