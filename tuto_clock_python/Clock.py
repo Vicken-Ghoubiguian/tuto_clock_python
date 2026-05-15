@@ -106,15 +106,13 @@ class Clock(QApplication):
 
         if not self.littleWindowType:
 
-            self.littleWindowType = "webview"
-
             self.littleWindow = CartographyWindow.CartographyWindow(
                     self.timezone, "World's map", 5, 1200, 800,
                     "generated_map_clock.html"
                )
             
             self.littleWindow.on_close_callback = self.closeWindow
-
+            self.littleWindowType = "qt"
             self.littleWindow.start()
 
         else:
@@ -124,9 +122,9 @@ class Clock(QApplication):
 
         if not self.littleWindowType:
 
-            self.littleWindowType = "qt"
             self.littleWindow = WeatherWindow.WeatherWindow()
             self.littleWindow.on_close_callback = self.closeWindow
+            self.littleWindowType = "qt"
             self.littleWindow.show()
 
         else:
@@ -136,9 +134,9 @@ class Clock(QApplication):
 
         if not self.littleWindowType:
 
-            self.littleWindowType = "qt"
             self.littleWindow = DatetimeFormatWindow.DateTimeFormatWindow(500, 500, "Datetime format")
             self.littleWindow.on_close_callback = self.closeWindow
+            self.littleWindowType = "qt"
             self.littleWindow.show()
 
         else:
@@ -148,9 +146,9 @@ class Clock(QApplication):
 
         if not self.littleWindowType:
 
-            self.littleWindowType = "qt"
             self.littleWindow = UserGuideWindow.UserGuideWindow()
             self.littleWindow.on_close_callback = self.closeWindow
+            self.littleWindowType = "qt"
             self.littleWindow.show()
 
         else:
