@@ -130,7 +130,7 @@ class Clock(tkinter.Tk) :
           # Definition of the 'cartography' menu command to display the current timezone location on a map
           timezone_menu.add_command(
                label="Cartography",
-               command=self.openCartographyWindow
+               command=self.destroy
           )
 
           # Definition of the 'Weather' menu command to display weather of the current timezone location

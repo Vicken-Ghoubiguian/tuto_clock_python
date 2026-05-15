@@ -7,7 +7,13 @@ import subprocess
 import os
 import json
 import folium
-import webview
+import sys
+
+#
+from PySide6.QtWidgets import QApplication
+from PySide6.QtWebEngineWidgets import QWebEngineView
+from PySide6.QtWebEngineCore import QWebEngineSettings
+from PySide6.QtCore import QUrl
 
 #
 try :
@@ -259,10 +265,34 @@ if __name__ == "__main__":
           if generated_map is not None :
          
                #
-               webview.create_window(
-                    "Generated map",
-                    generated_map
-                )
-         
+               app = QApplication(sys.argv)
+
                #
-               webview.start()
+               window = QWebEngineView()
+
+               #
+               window.settings().setAttribute(
+                    QWebEngineSettings.LocalContentCanAccessRemoteUrls,
+                    True
+               )
+
+               #
+               window.settings().setAttribute(
+                    QWebEngineSettings.LocalContentCanAccessFileUrls,
+                    True
+               )
+
+               #
+               window.setWindowTitle("Generated map")
+
+               #
+               file_path = os.path.abspath(generated_map)
+
+               #
+               window.load(QUrl.fromLocalFile(file_path))
+
+               #
+               window.show()
+
+               #
+               sys.exit(app.exec())

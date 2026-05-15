@@ -1,7 +1,13 @@
+#
+import sys
+
 # import the custom modules as Python modules
 import tuto_clock_python.CartographyWindow as CartographyWindow
 import tuto_clock_python.dt_management as dt_management
 import tuto_clock_python.TimeZoneException as TimeZoneException
+
+#
+from PySide6.QtWidgets import QApplication
 
 #
 timezone = input("Entrez une timezone (ex: Europe/Paris, America/New_York) : ")
@@ -40,9 +46,15 @@ gc = dt_management.geographical_coordinates_from_timezone(timezone)
 
 #
 if gc is not None :
+
+    #
+    app = QApplication(sys.argv)
     
     #
     viewMap = CartographyWindow.CartographyWindow(timezone, "World's map", 5, 1200, 800, "generated_map_test_2.html")
          
     #
     viewMap.start()
+
+    #
+    sys.exit(app.exec())

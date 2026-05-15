@@ -1,6 +1,14 @@
 # import the needed Python modules
-import webview
 import argparse
+import os
+import sys
+
+#
+from PySide6.QtGui import QIcon
+from PySide6.QtWidgets import QApplication
+from PySide6.QtWebEngineWidgets import QWebEngineView
+from PySide6.QtWebEngineCore import QWebEngineSettings
+from PySide6.QtCore import QUrl
 
 #
 try :
@@ -21,10 +29,28 @@ except ImportError:
     from . import TimeZoneException as TimeZoneException
 
 # Definition of the 'CartographyWindow' class
-class CartographyWindow():
+class CartographyWindow(QWebEngineView):
 
     #
     def __init__(self, timezone, title, zoom, width, height, file):
+
+        #
+        super().__init__()
+
+        #
+        self.settings().setAttribute(
+            QWebEngineSettings.LocalContentCanAccessRemoteUrls,
+            True
+        )
+
+        #
+        self.settings().setAttribute(
+            QWebEngineSettings.LocalContentCanAccessFileUrls,
+            True
+        )
+
+        #
+        self.setWindowIcon(QIcon(os.path.join(os.path.dirname(os.path.abspath(__file__)), "images", "clock.png")))
 
         #
         location = dt_management.geographical_coordinates_from_timezone(timezone)
@@ -36,13 +62,13 @@ class CartographyWindow():
             generated_map = dt_management.map_generator_for_location(location["latitude"], location["longitude"], zoom, "".join([location["location"]," location"]), location["location"], file)
 
             #
-            self.window = webview.create_window(
-                title=title,
-                url=generated_map,
-                width=int(width),
-                height=int(height),
-                resizable=False
-            )
+            self.setWindowTitle(title)
+
+            #
+            self.setFixedSize(int(width), int(height))
+
+            #
+            self.load(QUrl.fromLocalFile(generated_map))
 
         #
         else :
@@ -54,10 +80,13 @@ class CartographyWindow():
     def start(self):
 
         #
-        webview.start()
+        self.show()
 
 # 
 if __name__ == "__main__":
+
+    #
+    app = QApplication(sys.argv)
 
     # Get the system's (platform's) timezone
     iana_tz = dt_management.return_iana_timezone()
@@ -91,3 +120,6 @@ if __name__ == "__main__":
 
     #
     cw.start()
+
+    #
+    sys.exit(app.exec())

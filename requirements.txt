@@ -2,4 +2,4 @@ pytz
 tzlocal
 Pillow
 folium
-pywebview
+PySide6
