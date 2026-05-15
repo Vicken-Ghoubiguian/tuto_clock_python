@@ -1,40 +1,51 @@
 # import the needed Python modules
-import tkinter
-import tkinter.ttk
+import sys
 import os
 
 # from the needed Python modules import needed components
-from PIL import Image, ImageTk
+from PySide6.QtWidgets import QMainWindow, QApplication, QLabel
+from PySide6.QtGui import QIcon
+from PySide6.QtCore import Qt
 
 # Definition of the 'WeatherWindow' class
-class WeatherWindow(tkinter.Tk) :
+class WeatherWindow(QMainWindow) :
 
      # Definition of the 'WeatherWindow' class constructor
      def __init__(self):
           
           # Definition of the main GUI
-          tkinter.Tk.__init__(self)
+          super().__init__()
 
           # 
-          self.title("Weather")
+          self.setWindowTitle("Weather window")
 
           #
-          self.resizable(False, False)
+          self.setFixedSize(300, 300)
+
+          # Implementation of the user guide GUI image
+          self.setWindowIcon(QIcon(os.path.join(os.path.dirname(os.path.abspath(__file__)), "images", "clock.png")))
 
           #
-          self.geometry('300x300')
+          self.label = QLabel("Weather window", self)
+
+          #
+          self.label.setAlignment(Qt.AlignCenter)
+
+          #
+          self.setCentralWidget(self.label)
+
 
           #
 if __name__ == "__main__" :
 
      #
-     weather_window = WeatherWindow()
-
-     # Definition of the weather GUI image
-     weather_window_gui_image = ImageTk.PhotoImage(Image.open(os.path.join("..", "images", "clock.png")))
-
-     # Implementation of the user guide GUI image
-     weather_window.iconphoto(True, weather_window_gui_image)
+     app = QApplication(sys.argv)
 
      #
-     weather_window.mainloop()
+     weather_window = WeatherWindow()
+
+     #
+     weather_window.show()
+
+     #
+     sys.exit(app.exec())
