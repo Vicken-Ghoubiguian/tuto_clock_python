@@ -24,6 +24,9 @@ class DateTimeFormatWindow(QMainWindow) :
           self.setWindowIcon(QIcon(os.path.join(os.path.dirname(os.path.abspath(__file__)), "images", "clock.png")))
 
           #
+          self.on_close_callback = None
+
+          #
           self.setFixedSize(int(width), int(height))
 
           #
@@ -68,6 +71,18 @@ class DateTimeFormatWindow(QMainWindow) :
 
           #
           self.datetime_format_label.setWordWrap(True)
+
+     #
+     def closeEvent(self, event):
+
+        #
+        if self.on_close_callback :
+
+            #
+            self.on_close_callback()
+
+        #
+        event.accept()
 
 #
 if __name__ == "__main__" :

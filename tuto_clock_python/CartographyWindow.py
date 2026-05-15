@@ -50,6 +50,9 @@ class CartographyWindow(QWebEngineView):
         )
 
         #
+        self.on_close_callback = None
+
+        #
         self.setWindowIcon(QIcon(os.path.join(os.path.dirname(os.path.abspath(__file__)), "images", "clock.png")))
 
         #
@@ -81,6 +84,18 @@ class CartographyWindow(QWebEngineView):
 
         #
         self.show()
+
+    #
+    def closeEvent(self, event):
+
+        #
+        if self.on_close_callback :
+
+            #
+            self.on_close_callback()
+
+        #
+        event.accept()
 
 # 
 if __name__ == "__main__":

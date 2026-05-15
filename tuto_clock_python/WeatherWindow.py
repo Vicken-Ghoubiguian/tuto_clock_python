@@ -20,6 +20,9 @@ class WeatherWindow(QMainWindow) :
           self.setWindowTitle("Weather window")
 
           #
+          self.on_close_callback = None
+
+          #
           self.setFixedSize(300, 300)
 
           # Implementation of the user guide GUI image
@@ -34,6 +37,17 @@ class WeatherWindow(QMainWindow) :
           #
           self.setCentralWidget(self.label)
 
+     #
+     def closeEvent(self, event):
+
+        #
+        if self.on_close_callback :
+
+            #
+            self.on_close_callback()
+
+        #
+        event.accept()
 
           #
 if __name__ == "__main__" :

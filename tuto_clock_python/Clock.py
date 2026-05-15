@@ -76,6 +76,10 @@ class Clock(QApplication):
         self.clock_label = QLabel(self.window)
         self.clock_label.setGeometry(10, 100, 1480, 200)
         self.clock_label.setFont(QFont("Calibri", 40, QFont.Bold))
+        self.clock_label.setStyleSheet("""
+               color: gold;
+               background-color: blue;
+          """)
 
         # MENU
         menubar = QMenuBar(self.window)
@@ -105,9 +109,11 @@ class Clock(QApplication):
             self.littleWindowType = "webview"
 
             self.littleWindow = CartographyWindow.CartographyWindow(
-                self.timezone, "World's map", 5, 1200, 800,
-                "generated_map_clock.html"
-            )
+                    self.timezone, "World's map", 5, 1200, 800,
+                    "generated_map_clock.html"
+               )
+            
+            self.littleWindow.on_close_callback = self.closeWindow
 
             self.littleWindow.start()
 
@@ -120,6 +126,7 @@ class Clock(QApplication):
 
             self.littleWindowType = "qt"
             self.littleWindow = WeatherWindow.WeatherWindow()
+            self.littleWindow.on_close_callback = self.closeWindow
             self.littleWindow.show()
 
         else:
@@ -131,6 +138,7 @@ class Clock(QApplication):
 
             self.littleWindowType = "qt"
             self.littleWindow = DatetimeFormatWindow.DateTimeFormatWindow(500, 500, "Datetime format")
+            self.littleWindow.on_close_callback = self.closeWindow
             self.littleWindow.show()
 
         else:
@@ -142,6 +150,7 @@ class Clock(QApplication):
 
             self.littleWindowType = "qt"
             self.littleWindow = UserGuideWindow.UserGuideWindow()
+            self.littleWindow.on_close_callback = self.closeWindow
             self.littleWindow.show()
 
         else:

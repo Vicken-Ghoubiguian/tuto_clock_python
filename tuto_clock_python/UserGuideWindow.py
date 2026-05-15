@@ -22,6 +22,9 @@ class UserGuideWindow(QMainWindow) :
           #
           self.setFixedSize(300, 300)
 
+          #
+          self.on_close_callback = None
+
           # Implementation of the user guide GUI image
           self.setWindowIcon(QIcon(os.path.join(os.path.dirname(os.path.abspath(__file__)), "images", "clock.png")))
 
@@ -35,6 +38,19 @@ class UserGuideWindow(QMainWindow) :
           self.setCentralWidget(self.label)
 
           #
+
+     #
+     def closeEvent(self, event):
+
+        #
+        if self.on_close_callback :
+
+            #
+            self.on_close_callback()
+
+        #
+        event.accept()
+
 if __name__ == "__main__" :
 
      #
