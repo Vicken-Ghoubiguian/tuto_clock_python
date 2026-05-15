@@ -221,7 +221,7 @@ if __name__ == "__main__":
     if dt_management.get_datetime_for_particular_timezone(args.timezone) is None:
         raise TimeZoneException.TimeZoneException("Timezone unknown !", 400)
 
-    app = Clock(
+    clock = Clock(
         args.timezone,
         args.dt_format,
         args.zoom_map,
@@ -230,4 +230,4 @@ if __name__ == "__main__":
         args.height
     )
 
-    app.run()
+    clock.run()

@@ -49,5 +49,5 @@ else :
     raise TimeZoneException.TimeZoneException("Timezone unknown !", 400)
 
 #
-clock.mainloop()
+clock.run()
 
