@@ -1,40 +1,50 @@
 # import the needed Python modules
-import tkinter
-import tkinter.ttk
+import sys
 import os
 
 # from the needed Python modules import needed components
-from PIL import Image, ImageTk
+from PySide6.QtWidgets import QMainWindow, QApplication, QLabel
+from PySide6.QtGui import QIcon
+from PySide6.QtCore import Qt
 
 # Definition of the 'UserGuideWindow' class
-class UserGuideWindow(tkinter.Tk) :
+class UserGuideWindow(QMainWindow) :
 
      # Definition of the 'UserGuideWindow' class constructor
      def __init__(self):
           
           # Definition of the main GUI
-          tkinter.Tk.__init__(self)
+          super().__init__()
 
           # 
-          self.title("User Guide")
+          self.setWindowTitle("User Guide")
 
           #
-          self.resizable(False, False)
+          self.setFixedSize(300, 300)
+
+          # Implementation of the user guide GUI image
+          self.setWindowIcon(QIcon(os.path.join(os.path.dirname(os.path.abspath(__file__)), "images", "clock.png")))
 
           #
-          self.geometry('300x300')
+          self.label = QLabel("User Guide", self)
+
+          #
+          self.label.setAlignment(Qt.AlignCenter)
+
+          #
+          self.setCentralWidget(self.label)
 
           #
 if __name__ == "__main__" :
 
      #
-     user_guide_window = UserGuideWindow()
-
-     # Definition of the datetime format GUI image
-     user_guide_gui_image = ImageTk.PhotoImage(Image.open(os.path.join("images", "clock.png")))
-
-     # Implementation of the user guide GUI image
-     user_guide_window.iconphoto(True, user_guide_gui_image)
+     app = QApplication(sys.argv)
 
      #
-     user_guide_window.mainloop()
+     user_guide_window = UserGuideWindow()
+
+     #
+     user_guide_window.show()
+
+     #
+     sys.exit(app.exec())
