@@ -148,7 +148,7 @@ class Clock(tkinter.Tk) :
           # Definition of the 'User guide' menu command to guide the user on the application features
           timezone_menu.add_command(
                label="User guide",
-               command=self.openUserGuideWindow
+               command=self.destroy
           )
 
           # Definition of the 'Exit' menu command to exit the application
