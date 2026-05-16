@@ -91,13 +91,13 @@ if __name__ == "__main__" :
      parser = argparse.ArgumentParser(description="Simple app with timezones")
 
      #
+     parser.add_argument('--title', action="store", dest='title', default="Datetime format")
+
+     #
      parser.add_argument('--width', action="store", dest='width', default=500)
 
      #
      parser.add_argument('--height', action="store", dest='height', default=500)
-
-     #
-     parser.add_argument('--title', action="store", dest='title', default="Datetime format")
 
      #
      args = parser.parse_args()
@@ -106,7 +106,7 @@ if __name__ == "__main__" :
      app = QApplication(sys.argv)
 
      #
-     datetime_format_window = DateTimeFormatWindow(args.width, args.height, args.title)
+     datetime_format_window = DateTimeFormatWindow(args.title, args.width, args.height)
 
      # Definition of the datetime format GUI image
      datetime_format_window.show()

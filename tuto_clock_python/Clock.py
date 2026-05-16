@@ -131,7 +131,7 @@ class Clock(QApplication):
 
         if not self.littleWindowOpened:
 
-            self.littleWindow = DatetimeFormatWindow.DateTimeFormatWindow(500, 500, "Datetime format")
+            self.littleWindow = DatetimeFormatWindow.DateTimeFormatWindow("Datetime format", 500, 500)
             self.littleWindow.on_close_callback = self.closeWindow
             self.littleWindowOpened = True
             self.littleWindow.show()
