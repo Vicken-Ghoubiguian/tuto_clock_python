@@ -50,7 +50,7 @@ class Clock(QApplication):
         self.initial_datetime_format = dt_format
 
         self.littleWindow = False
-        self.littleWindowType = False
+        self.littleWindowOpened = False
 
         # MAIN WINDOW
         self.window = QMainWindow()
@@ -104,15 +104,12 @@ class Clock(QApplication):
     # OPEN WINDOWS
     def openCartographyWindow(self):
 
-        if not self.littleWindowType:
+        if not self.littleWindowOpened:
 
-            self.littleWindow = CartographyWindow.CartographyWindow(
-                    self.timezone, "World's map", 5, 1200, 800,
-                    "generated_map_clock.html"
-               )
+            self.littleWindow = CartographyWindow.CartographyWindow(self.timezone, "World's map", 5, 1200, 800, "generated_map_clock.html")
             
             self.littleWindow.on_close_callback = self.closeWindow
-            self.littleWindowType = "qt"
+            self.littleWindowOpened = True
             self.littleWindow.start()
 
         else:
@@ -120,11 +117,11 @@ class Clock(QApplication):
 
     def openWeatherWindow(self):
 
-        if not self.littleWindowType:
+        if not self.littleWindowOpened:
 
             self.littleWindow = WeatherWindow.WeatherWindow()
             self.littleWindow.on_close_callback = self.closeWindow
-            self.littleWindowType = "qt"
+            self.littleWindowOpened = True
             self.littleWindow.show()
 
         else:
@@ -132,11 +129,11 @@ class Clock(QApplication):
 
     def openDatetimeFormatWindow(self):
 
-        if not self.littleWindowType:
+        if not self.littleWindowOpened:
 
             self.littleWindow = DatetimeFormatWindow.DateTimeFormatWindow(500, 500, "Datetime format")
             self.littleWindow.on_close_callback = self.closeWindow
-            self.littleWindowType = "qt"
+            self.littleWindowOpened = True
             self.littleWindow.show()
 
         else:
@@ -144,11 +141,11 @@ class Clock(QApplication):
 
     def openUserGuideWindow(self):
 
-        if not self.littleWindowType:
+        if not self.littleWindowOpened:
 
             self.littleWindow = UserGuideWindow.UserGuideWindow()
             self.littleWindow.on_close_callback = self.closeWindow
-            self.littleWindowType = "qt"
+            self.littleWindowOpened = True
             self.littleWindow.show()
 
         else:
@@ -156,7 +153,7 @@ class Clock(QApplication):
 
     def closeWindow(self):
 
-        self.littleWindowType = False
+        self.littleWindowOpened = False
         self.littleWindow = False
 
     # EVENTS
