@@ -186,7 +186,7 @@ class Clock(QApplication):
 
           # Display the timezone with its datetime and the country
           self.clock_label.setText(
-               f"{self.timezone} ({country["name"]}) : {dt.strftime(self.datetime_format)}"
+               f"{country["flag"].encode('utf-8').decode('unicode_escape')} {self.timezone} ({country["name"]}) : {dt.strftime(self.datetime_format)}"
           )
 
         #
