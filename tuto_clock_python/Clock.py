@@ -143,7 +143,7 @@ class Clock(QApplication):
 
         if not self.littleWindowOpened:
 
-            self.littleWindow = UserGuideWindow.UserGuideWindow()
+            self.littleWindow = UserGuideWindow.UserGuideWindow("User Guide", 300, 300)
             self.littleWindow.on_close_callback = self.closeWindow
             self.littleWindowOpened = True
             self.littleWindow.show()
