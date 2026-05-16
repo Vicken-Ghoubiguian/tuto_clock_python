@@ -58,10 +58,7 @@ class Clock(QApplication):
         self.window.setFixedSize(int(width), int(height))
         self.window.setWindowIcon(QIcon(os.path.join(os.path.dirname(os.path.abspath(__file__)), "images", "clock.png")))
 
-        self.window.setWindowFlags(
-            Qt.Window |
-            Qt.WindowTitleHint
-        )
+        self.window.setWindowFlags(Qt.FramelessWindowHint)
 
         # COMBOBOX timezone
         self.tz_comboBox = QComboBox(self.window)
