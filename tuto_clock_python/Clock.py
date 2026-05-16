@@ -33,7 +33,7 @@ except ImportError:
 # from the needed Python modules import needed components
 from PySide6.QtWidgets import QApplication, QMainWindow, QLabel, QComboBox, QLineEdit, QMenuBar, QMenu
 from PySide6.QtGui import QIcon, QFont
-from PySide6.QtCore import QTimer
+from PySide6.QtCore import QTimer, Qt
 
 import argparse
 import os
@@ -57,6 +57,11 @@ class Clock(QApplication):
         self.window.setWindowTitle(title)
         self.window.setFixedSize(int(width), int(height))
         self.window.setWindowIcon(QIcon(os.path.join(os.path.dirname(os.path.abspath(__file__)), "images", "clock.png")))
+
+        self.window.setWindowFlags(
+            Qt.Window |
+            Qt.WindowTitleHint
+        )
 
         # COMBOBOX timezone
         self.tz_comboBox = QComboBox(self.window)
