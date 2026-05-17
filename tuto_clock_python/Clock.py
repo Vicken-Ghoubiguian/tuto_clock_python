@@ -115,6 +115,8 @@ class Clock(QApplication):
             
             self.littleWindow.on_close_callback = self.closeWindow
             self.littleWindowOpened = True
+            self.tz_comboBox.setEnabled(False)
+            self.dt_format_entry.setEnabled(False)
             self.littleWindow.start()
 
         else:
@@ -127,6 +129,8 @@ class Clock(QApplication):
             self.littleWindow = WeatherWindow.WeatherWindow()
             self.littleWindow.on_close_callback = self.closeWindow
             self.littleWindowOpened = True
+            self.tz_comboBox.setEnabled(False)
+            self.dt_format_entry.setEnabled(False)
             self.littleWindow.show()
 
         else:
@@ -139,6 +143,8 @@ class Clock(QApplication):
             self.littleWindow = DatetimeFormatWindow.DateTimeFormatWindow("Datetime format", 500, 500)
             self.littleWindow.on_close_callback = self.closeWindow
             self.littleWindowOpened = True
+            self.tz_comboBox.setEnabled(False)
+            self.dt_format_entry.setEnabled(False)
             self.littleWindow.show()
 
         else:
@@ -151,6 +157,8 @@ class Clock(QApplication):
             self.littleWindow = UserGuideWindow.UserGuideWindow("User Guide", 300, 300)
             self.littleWindow.on_close_callback = self.closeWindow
             self.littleWindowOpened = True
+            self.tz_comboBox.setEnabled(False)
+            self.dt_format_entry.setEnabled(False)
             self.littleWindow.show()
 
         else:
@@ -160,6 +168,8 @@ class Clock(QApplication):
 
         self.littleWindowOpened = False
         self.littleWindow = False
+        self.tz_comboBox.setEnabled(True)
+        self.dt_format_entry.setEnabled(True)
 
     # EVENTS
     def get_Selected_Datetime_format(self):
