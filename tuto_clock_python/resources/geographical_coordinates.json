@@ -906,22 +906,22 @@
         {
             "America/Indiana/Knox": {
                 "location": "Knox",
-                "latitude": 33.5871385,
-                "longitude": -99.7073621
+                "latitude": 41.289832174,
+                "longitude": -86.620164186
             }
         },
         {
             "America/Indiana/Marengo": {
                 "location": "Marengo",
-                "latitude": 32.201002,
-                "longitude": -87.7569365
+                "latitude": 38.368998524,
+                "longitude": -86.339331976
             }
         },
         {
             "America/Indiana/Petersburg": {
                 "location": "Petersburg",
-                "latitude": 37.227928,
-                "longitude": -77.4019268
+                "latitude": 38.48833138,
+                "longitude": -87.274832234
             }
         },
         {
@@ -941,8 +941,8 @@
         {
             "America/Indiana/Vincennes": {
                 "location": "Vincennes",
-                "latitude": 48.8474508,
-                "longitude": 2.4396714
+                "latitude": 38.67727,
+                "longitude": -87.52863
             }
         },
         {
