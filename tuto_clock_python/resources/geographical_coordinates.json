@@ -423,8 +423,8 @@
         {
             "America/Argentina/Catamarca": {
                 "location": "Catamarca",
-                "latitude": -27.7758659,
-                "longitude": -67.171292
+                "latitude": -28.4666648,
+                "longitude": -65.7833302
             }
         },
         {
@@ -437,29 +437,29 @@
         {
             "America/Argentina/Cordoba": {
                 "location": "Cordoba",
-                "latitude": 37.8845813,
-                "longitude": -4.7760138
+                "latitude": -31.4135,
+                "longitude": -64.18105
             }
         },
         {
             "America/Argentina/Jujuy": {
                 "location": "Jujuy",
-                "latitude": -23.1546219,
-                "longitude": -66.1110913
+                "latitude": -23.749997,
+                "longitude": -65.499998
             }
         },
         {
             "America/Argentina/La_Rioja": {
                 "location": "La Rioja",
-                "latitude": 42.3285528,
-                "longitude": -2.4674917
+                "latitude": -29.41105,
+                "longitude": -66.85067
             }
         },
         {
             "America/Argentina/Mendoza": {
                 "location": "Mendoza",
-                "latitude": -34.5970325,
-                "longitude": -68.7304797
+                "latitude": -32.89084,
+                "longitude": -68.82717
             }
         },
         {
@@ -472,22 +472,22 @@
         {
             "America/Argentina/Salta": {
                 "location": "Salta",
-                "latitude": -25.2269908,
-                "longitude": -64.5911956
+                "latitude": -24.7859,
+                "longitude": -65.41166
             }
         },
         {
             "America/Argentina/San_Juan": {
                 "location": "San Juan",
-                "latitude": 18.3842391,
-                "longitude": -66.05344
+                "latitude": -31.5375,
+                "longitude": -68.53639
             }
         },
         {
             "America/Argentina/San_Luis": {
                 "location": "San Luis",
-                "latitude": 38.6254063,
-                "longitude": -90.190009
+                "latitude": -33.29501,
+                "longitude": -66.33563
             }
         },
         {
@@ -647,8 +647,8 @@
         {
             "America/Cayman": {
                 "location": "Cayman",
-                "latitude": 19.7031822,
-                "longitude": -79.9174627
+                "latitude": 19.3298586,
+                "longitude": -81.2523601
             }
         },
         {
@@ -661,8 +661,8 @@
         {
             "America/Chihuahua": {
                 "location": "Chihuahua",
-                "latitude": 28.5000001,
-                "longitude": -106.0000001
+                "latitude": 28.63528,
+                "longitude": -106.08889
             }
         },
         {
@@ -731,8 +731,8 @@
         {
             "America/Dawson": {
                 "location": "Dawson",
-                "latitude": 32.7410762,
-                "longitude": -101.9576048
+                "latitude": 64.060066,
+                "longitude": -139.432037
             }
         },
         {
