@@ -12,7 +12,7 @@ from PySide6.QtGui import QFont, QIcon
 class DateTimeFormatWindow(QMainWindow) :
 
      # Definition of the 'DateTimeFormatWindow' class constructor
-     def __init__(self, width, height, title):
+     def __init__(self, title, width, height):
           
           # Definition of the main GUI
           super().__init__()
