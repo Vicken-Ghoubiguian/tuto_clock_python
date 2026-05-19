@@ -96,11 +96,15 @@ class Clock(QApplication):
         menubar = QMenuBar(self.window)
         menu = QMenu("Menu", self.window)
 
-        menu.addAction("Cartography", self.openCartographyWindow)
+        cartographyAction = menu.addAction("Cartography", self.openCartographyWindow)
         menu.addAction("Weather", self.openWeatherWindow)
         menu.addAction("Datetime formats", self.openDatetimeFormatWindow)
         menu.addAction("User guide", self.openUserGuideWindow)
         menu.addAction("Exit", self.window.close)
+
+        openCartographyWindowCallback = lambda: self.openCartographyWindow(LittleWindowTypeEnum.LittleWindowTypeEnum.CARTOGRAPHY)
+
+        cartographyAction.triggered.connect(openCartographyWindowCallback)
 
         menubar.addMenu(menu)
         #self.window.setMenuBar(menubar)
@@ -113,7 +117,9 @@ class Clock(QApplication):
         self.clock_time()
 
     # OPEN WINDOWS
-    def openCartographyWindow(self):
+    def openCartographyWindow(self, littleWindowTypeEnum):
+
+        print(littleWindowTypeEnum)
 
         if not self.littleWindowOpened:
 
