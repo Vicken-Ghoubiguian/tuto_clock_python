@@ -38,7 +38,11 @@ class UserGuideWindow(QMainWindow) :
           #
           self.setCentralWidget(self.label)
 
-          #
+     #
+     def start(self):
+
+        #
+        self.show()
 
      #
      def closeEvent(self, event):

@@ -96,16 +96,27 @@ class Clock(QApplication):
         menubar = QMenuBar(self.window)
         menu = QMenu("Menu", self.window)
 
-        cartographyAction = menu.addAction("Cartography", self.openCartographyWindow)
-        menu.addAction("Weather", self.openWeatherWindow)
-        menu.addAction("Datetime formats", self.openDatetimeFormatWindow)
-        menu.addAction("User guide", self.openUserGuideWindow)
+        #
+        cartographyAction = menu.addAction("Cartography")
+        weatherAction = menu.addAction("Weather")
+        dateTimeFormatsAction = menu.addAction("Datetime formats")
+        userGuideAction = menu.addAction("User guide")
+
+        #
         menu.addAction("Exit", self.window.close)
 
-        openCartographyWindowCallback = lambda: self.openCartographyWindow(LittleWindowTypeEnum.LittleWindowTypeEnum.CARTOGRAPHY)
+        openCartographyWindowCallback = lambda: self.openWindow(LittleWindowTypeEnum.LittleWindowTypeEnum.CARTOGRAPHY)
+        openWeatherWindowCallback = lambda: self.openWindow(LittleWindowTypeEnum.LittleWindowTypeEnum.WEATHER)
+        openDateTimeFormatsWindowCallback = lambda: self.openWindow(LittleWindowTypeEnum.LittleWindowTypeEnum.DATETIMEFORMATS)
+        openUserGuideWindowCallback = lambda: self.openWindow(LittleWindowTypeEnum.LittleWindowTypeEnum.USERGUIDE)
 
+        #
         cartographyAction.triggered.connect(openCartographyWindowCallback)
+        weatherAction.triggered.connect(openWeatherWindowCallback)
+        dateTimeFormatsAction.triggered.connect(openDateTimeFormatsWindowCallback)
+        userGuideAction.triggered.connect(openUserGuideWindowCallback)
 
+        #
         menubar.addMenu(menu)
         #self.window.setMenuBar(menubar)
 
@@ -117,61 +128,41 @@ class Clock(QApplication):
         self.clock_time()
 
     # OPEN WINDOWS
-    def openCartographyWindow(self, littleWindowTypeEnum):
+    def openWindow(self, littleWindowTypeEnum):
 
-        print(littleWindowTypeEnum)
-
+        #
         if not self.littleWindowOpened:
 
-            self.littleWindow = CartographyWindow.CartographyWindow(self.timezone, "World's map", 5, 1200, 800, "generated_map_clock.html")
-            
+            #
+            if littleWindowTypeEnum == LittleWindowTypeEnum.LittleWindowTypeEnum.CARTOGRAPHY :
+
+                #
+                self.littleWindow = CartographyWindow.CartographyWindow(self.timezone, "World's map", 5, 1200, 800, "generated_map_clock.html")
+
+            #
+            elif littleWindowTypeEnum == LittleWindowTypeEnum.LittleWindowTypeEnum.WEATHER :
+
+                #
+                self.littleWindow = WeatherWindow.WeatherWindow()
+
+            #
+            elif littleWindowTypeEnum == LittleWindowTypeEnum.LittleWindowTypeEnum.DATETIMEFORMATS :
+
+                #
+                self.littleWindow = DatetimeFormatWindow.DateTimeFormatWindow("Datetime format", 500, 500)
+
+            #
+            elif littleWindowTypeEnum == LittleWindowTypeEnum.LittleWindowTypeEnum.USERGUIDE :
+
+                #
+                self.littleWindow = UserGuideWindow.UserGuideWindow("User Guide", 300, 300)
+
+            #
             self.littleWindow.on_close_callback = self.closeWindow
             self.littleWindowOpened = True
             self.tz_comboBox.setEnabled(False)
             self.dt_format_entry.setEnabled(False)
             self.littleWindow.start()
-
-        else:
-            raise OpenedWindowException.OpenedWindowException("Window already opened !", 400)
-
-    def openWeatherWindow(self):
-
-        if not self.littleWindowOpened:
-
-            self.littleWindow = WeatherWindow.WeatherWindow()
-            self.littleWindow.on_close_callback = self.closeWindow
-            self.littleWindowOpened = True
-            self.tz_comboBox.setEnabled(False)
-            self.dt_format_entry.setEnabled(False)
-            self.littleWindow.show()
-
-        else:
-            raise OpenedWindowException.OpenedWindowException("Window already opened !", 400)
-
-    def openDatetimeFormatWindow(self):
-
-        if not self.littleWindowOpened:
-
-            self.littleWindow = DatetimeFormatWindow.DateTimeFormatWindow("Datetime format", 500, 500)
-            self.littleWindow.on_close_callback = self.closeWindow
-            self.littleWindowOpened = True
-            self.tz_comboBox.setEnabled(False)
-            self.dt_format_entry.setEnabled(False)
-            self.littleWindow.show()
-
-        else:
-            raise OpenedWindowException.OpenedWindowException("Window already opened !", 400)
-
-    def openUserGuideWindow(self):
-
-        if not self.littleWindowOpened:
-
-            self.littleWindow = UserGuideWindow.UserGuideWindow("User Guide", 300, 300)
-            self.littleWindow.on_close_callback = self.closeWindow
-            self.littleWindowOpened = True
-            self.tz_comboBox.setEnabled(False)
-            self.dt_format_entry.setEnabled(False)
-            self.littleWindow.show()
 
         else:
             raise OpenedWindowException.OpenedWindowException("Window already opened !", 400)

@@ -73,6 +73,12 @@ class DateTimeFormatWindow(QMainWindow) :
           self.datetime_format_label.setWordWrap(True)
 
      #
+     def start(self):
+
+        #
+        self.show()
+
+     #
      def closeEvent(self, event):
 
         #
