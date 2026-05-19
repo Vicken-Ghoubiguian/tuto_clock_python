@@ -14,6 +14,9 @@ try :
      import TimeZoneException as TimeZoneException
      import OpenedWindowException as OpenedWindowException
 
+     # import the LittleWindowTypeEnum enum as Python module
+     import LittleWindowTypeEnum as LittleWindowTypeEnum
+
 #
 except ImportError:
 
@@ -29,6 +32,9 @@ except ImportError:
      # import the custom exceptions as Python modules
      from . import TimeZoneException as TimeZoneException
      from . import OpenedWindowException as OpenedWindowException
+
+     # import the LittleWindowTypeEnum enum as Python module
+     from . import LittleWindowTypeEnum as LittleWindowTypeEnum
 
 # from the needed Python modules import needed components
 from PySide6.QtWidgets import QApplication, QMainWindow, QLabel, QComboBox, QLineEdit, QMenuBar, QMenu
