@@ -1228,15 +1228,15 @@
         {
             "America/North_Dakota/Center": {
                 "location": "Center",
-                "latitude": 31.7952814,
-                "longitude": -94.1803576
+                "latitude":	47.116386,
+                "longitude": -101.299591
             }
         },
         {
             "America/North_Dakota/New_Salem": {
                 "location": "New Salem",
-                "latitude": 39.7075473,
-                "longitude": -90.8476304
+                "latitude": 46.83916331,
+                "longitude": -101.407165038
             }
         },
         {
