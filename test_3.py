@@ -1,0 +1,29 @@
+#
+import sys
+
+#
+import tuto_clock_python.DatetimeFormatWindow as DatetimeFormatWindow
+
+#
+from PySide6.QtWidgets import QApplication
+
+#
+title = input("Entrez le titre que vous voulez pour afficher la fenêtre : ")
+
+#
+width = input("Entrez la largeur de la fenêtre : ")
+
+#
+height = input("Entrez la hauteur de la fenêtre : ")
+
+#
+app = QApplication(sys.argv)
+
+#
+datetime_format_window = DatetimeFormatWindow.DateTimeFormatWindow(title, int(width), int(height))
+
+# Definition of the datetime format GUI image
+datetime_format_window.show()
+
+#
+sys.exit(app.exec())
