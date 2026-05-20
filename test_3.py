@@ -1,10 +1,10 @@
 #
 import sys
 
-#
+# import the custom modules as Python modules
 import tuto_clock_python.DatetimeFormatWindow as DatetimeFormatWindow
 
-#
+# import the QApplication widget from PySide
 from PySide6.QtWidgets import QApplication
 
 #

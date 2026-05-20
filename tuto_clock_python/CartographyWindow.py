@@ -3,7 +3,7 @@ import argparse
 import os
 import sys
 
-#
+# from the needed Python modules import needed components
 from PySide6.QtGui import QIcon
 from PySide6.QtWidgets import QApplication
 from PySide6.QtWebEngineWidgets import QWebEngineView

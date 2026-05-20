@@ -6,7 +6,7 @@ import tuto_clock_python.CartographyWindow as CartographyWindow
 import tuto_clock_python.dt_management as dt_management
 import tuto_clock_python.TimeZoneException as TimeZoneException
 
-#
+# import the QApplication widget from PySide
 from PySide6.QtWidgets import QApplication
 
 #
