@@ -8,13 +8,13 @@ import tuto_clock_python.DatetimeFormatWindow as DatetimeFormatWindow
 from PySide6.QtWidgets import QApplication
 
 #
-title = input("Entrez le titre que vous voulez pour afficher la fenêtre : ")
+title = input("Entrez le titre que vous voulez pour afficher la fenêtre (ex: 'Datetime format') : ") or "Datetime format"
 
 #
-width = input("Entrez la largeur de la fenêtre : ")
+width = input("Entrez la largeur de la fenêtre (ex: 500) : ") or "500"
 
 #
-height = input("Entrez la hauteur de la fenêtre : ")
+height = input("Entrez la hauteur de la fenêtre (ex: 500) : ") or "500"
 
 #
 app = QApplication(sys.argv)
