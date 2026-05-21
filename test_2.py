@@ -13,22 +13,22 @@ from PySide6.QtWidgets import QApplication
 iana_tz = dt_management.return_iana_timezone()
 
 #
-timezone = input("Entrez une timezone (ex: " + iana_tz + ") : ") or iana_tz
+timezone = input("Entrez une timezone (valeur par défaut: " + iana_tz + ") : ") or iana_tz
 
 #
-title = input("Entrez le titre que vous voulez pour afficher la fenêtre (ex: 'World's map') : ") or "World's map"
+title = input("Entrez le titre que vous voulez pour afficher la fenêtre (valeur par défaut: 'World's map') : ") or "World's map"
 
 #
-dt_format = input("Entrez un format de temps et de date (ex: %Y-%m-%d %H:%M:%S) : ") or " %Y-%m-%d %H:%M:%S"
+dt_format = input("Entrez un format de temps et de date (valeur par défaut: %Y-%m-%d %H:%M:%S) : ") or " %Y-%m-%d %H:%M:%S"
 
 #
-zoom_map = input("Entrez la valeur du zoom sur la carte (ex: 5) : ") or "5"
+zoom_map = input("Entrez la valeur du zoom sur la carte (valeur par défaut: 5) : ") or "5"
 
 #
-width = input("Entrez la largeur de la fenêtre (ex: 1200) : ") or "1200"
+width = input("Entrez la largeur de la fenêtre (valeur par défaut: 1200) : ") or "1200"
 
 #
-height = input("Entrez la hauteur de la fenêtre (ex: 800) : ") or "800"
+height = input("Entrez la hauteur de la fenêtre (valeur par défaut: 800) : ") or "800"
 
 #
 if dt_management.get_datetime_for_particular_timezone(timezone) != None :
