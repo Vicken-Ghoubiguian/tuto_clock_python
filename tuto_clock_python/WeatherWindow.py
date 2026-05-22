@@ -29,7 +29,7 @@ class WeatherWindow(QMainWindow) :
           self.setWindowIcon(QIcon(os.path.join(os.path.dirname(os.path.abspath(__file__)), "images", "clock.png")))
 
           #
-          self.label = QLabel("https://api.openweathermap.org/data/2.5/weather?lat=LATITUDE&lon=LONGITUDE&appid=API_KEY", self)
+          self.label = QLabel("https://api.weatherbit.io/v2.0/current?lat=-22.5776104&lon=17.0772739&key=API_KEY https://www.weatherbit.io/static/img/icons/ICON.png", self)
 
           #
           self.label.setAlignment(Qt.AlignCenter)
