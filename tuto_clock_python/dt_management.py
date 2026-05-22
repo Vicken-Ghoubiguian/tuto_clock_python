@@ -8,6 +8,8 @@ import os
 import json
 import folium
 import sys
+import urllib.request
+import json
 
 #
 from PySide6.QtWidgets import QApplication
@@ -60,6 +62,37 @@ def geographical_coordinates_from_timezone(timezone) :
      
     #   
     return datas
+
+#
+def get_Weather_from_Weather_bit(location, weatherbit_api_key) :
+
+     #
+     try :
+
+          #
+          weatherUrl = "https://api.weatherbit.io/v2.0/current?lat=" + str(location["latitude"]) + "&lon=" + str(location["longitude"]) + "&key=" + weatherbit_api_key
+
+          #
+          with urllib.request.urlopen(weatherUrl) as url:
+                    
+               #
+               weatherDatas = json.loads(url.read().decode())
+
+          #
+          print("".join([colors.GREEN,"Weather returned successfully !",colors.END]))
+          print("".join([colors.BLUE, "Weather available in the Weather Window !",colors.END]))
+
+          #
+          return weatherDatas
+     
+     #
+     except Exception as exception:
+
+          #
+          print("".join([colors.RED,"Exception : ",str(exception),colors.END]))
+
+          #
+          return None
 
 #
 def map_generator_for_location(lat, lon, zoom, tooltip_name, location_name, map_name) :

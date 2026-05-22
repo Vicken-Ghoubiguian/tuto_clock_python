@@ -2,6 +2,26 @@
 import sys
 import os
 
+#
+try :
+
+    #
+    import dt_management as dt_management
+
+    # import the custom exceptions as Python modules
+    import TimeZoneException as TimeZoneException
+    #import WeatherAPIException as WeatherAPIException
+
+#
+except ImportError:
+
+    #
+    from . import dt_management as dt_management
+
+    # import the custom exceptions as Python modules
+    from . import TimeZoneException as TimeZoneException
+    #from . import WeatherAPIException as WeatherAPIException
+
 # from the needed Python modules import needed components
 from PySide6.QtWidgets import QMainWindow, QApplication, QLabel
 from PySide6.QtGui import QIcon
@@ -11,31 +31,60 @@ from PySide6.QtCore import Qt
 class WeatherWindow(QMainWindow) :
 
      # Definition of the 'WeatherWindow' class constructor
-     def __init__(self, title, width, height, weatherbit_api_key):
+     def __init__(self, timezone, title, width, height, weatherbit_api_key):
           
           # Definition of the main GUI
           super().__init__()
 
-          # 
-          self.setWindowTitle(title)
+          #
+          location = dt_management.geographical_coordinates_from_timezone(timezone)
 
           #
-          self.on_close_callback = None
+          if location != None :
+
+               #
+               weatherDatas = dt_management.get_Weather_from_Weather_bit(location, weatherbit_api_key)
+
+               #
+               if weatherDatas != None :
+
+                    #
+                    print(weatherDatas)
+
+                    # 
+                    self.setWindowTitle(title)
+
+                    #
+                    self.on_close_callback = None
+
+                    #
+                    self.setFixedSize(int(width), int(height))
+
+                    # Implementation of the user guide GUI image
+                    self.setWindowIcon(QIcon(os.path.join(os.path.dirname(os.path.abspath(__file__)), "images", "clock.png")))
+
+                    #
+                    self.label = QLabel("https://www.weatherbit.io/static/img/icons/ICON.png", self)
+
+                    #
+                    self.label.setAlignment(Qt.AlignCenter)
+
+                    #
+                    self.setCentralWidget(self.label)
+
+                    #
+
+               #
+               else :
+
+                    #
+                    raise TimeZoneException.TimeZoneException("Timezone unknown !", 400)
 
           #
-          self.setFixedSize(int(width), int(height))
-
-          # Implementation of the user guide GUI image
-          self.setWindowIcon(QIcon(os.path.join(os.path.dirname(os.path.abspath(__file__)), "images", "clock.png")))
-
-          #
-          self.label = QLabel("https://api.weatherbit.io/v2.0/current?lat=-22.5776104&lon=17.0772739&key=API_KEY https://www.weatherbit.io/static/img/icons/ICON.png", self)
-
-          #
-          self.label.setAlignment(Qt.AlignCenter)
-
-          #
-          self.setCentralWidget(self.label)
+          else :
+              
+              #
+              raise TimeZoneException.TimeZoneException("Timezone unknown !", 400)
 
      #
      def start(self):
