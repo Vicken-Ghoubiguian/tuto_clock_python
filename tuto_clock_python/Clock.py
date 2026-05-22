@@ -47,13 +47,15 @@ import sys
 
 class Clock(QApplication):
 
-    def __init__(self, timezone, dt_format, zoom_map, title, width, height):
+    def __init__(self, timezone, dt_format, zoom_map, title, width, height, weatherbit_api_key):
 
         super().__init__(sys.argv)
 
         self.timezone = timezone
         self.datetime_format = dt_format
         self.initial_datetime_format = dt_format
+        self.zoom_map = zoom_map
+        self.weatherbit_api_key = weatherbit_api_key
 
         self.littleWindow = False
         self.littleWindowOpened = False
@@ -137,13 +139,13 @@ class Clock(QApplication):
             if littleWindowTypeEnum == LittleWindowTypeEnum.LittleWindowTypeEnum.CARTOGRAPHY :
 
                 #
-                self.littleWindow = CartographyWindow.CartographyWindow(self.timezone, "World's map", 5, 1200, 800, "generated_map_clock.html")
+                self.littleWindow = CartographyWindow.CartographyWindow(self.timezone, "World's map", self.zoom_map, 1200, 800, "generated_map_clock.html")
 
             #
             elif littleWindowTypeEnum == LittleWindowTypeEnum.LittleWindowTypeEnum.WEATHER :
 
                 #
-                self.littleWindow = WeatherWindow.WeatherWindow("Weather window", 500, 500)
+                self.littleWindow = WeatherWindow.WeatherWindow("Weather window", 500, 500, self.weatherbit_api_key)
 
             #
             elif littleWindowTypeEnum == LittleWindowTypeEnum.LittleWindowTypeEnum.DATETIMEFORMATS :
@@ -230,6 +232,7 @@ if __name__ == "__main__":
     parser.add_argument('--width', default=1500)
     parser.add_argument('--height', default=500)
     parser.add_argument('--title', default='Clock')
+    parser.add_argument('--weatherbit_api_key', default='')
 
     args = parser.parse_args()
 
@@ -242,7 +245,8 @@ if __name__ == "__main__":
         args.zoom_map,
         args.title,
         args.width,
-        args.height
+        args.height,
+        args.weatherbit_api_key
     )
 
     clock.run()

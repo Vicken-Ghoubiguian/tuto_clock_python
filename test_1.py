@@ -28,10 +28,13 @@ height = input("Entrez la hauteur de la fenêtre (valeur par défaut: 500) : ") 
 title = input("Entrez le titre que vous voulez pour afficher la fenêtre (valeur par défaut: 'Clock') : ") or "Clock"
 
 #
+weatherbit_api_key = input("Entrez la clé API de Weatherbit (valeur par défaut: '') : ") or ""
+
+#
 if dt_management.get_datetime_for_particular_timezone(timezone) != None :
 
     #
-    clock = Clock.Clock(timezone, dt_format, int(zoom_map), title, int(width), int(height))
+    clock = Clock.Clock(timezone, dt_format, int(zoom_map), title, int(width), int(height), weatherbit_api_key)
 
 #
 else :

@@ -11,7 +11,7 @@ from PySide6.QtCore import Qt
 class WeatherWindow(QMainWindow) :
 
      # Definition of the 'WeatherWindow' class constructor
-     def __init__(self, title, width, height):
+     def __init__(self, title, width, height, weatherbit_api_key):
           
           # Definition of the main GUI
           super().__init__()
