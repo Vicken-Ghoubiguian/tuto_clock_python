@@ -48,9 +48,6 @@ class WeatherWindow(QMainWindow) :
                #
                if weatherDatas != None :
 
-                    #
-                    print(weatherDatas)
-
                     # 
                     self.setWindowTitle(title)
 
