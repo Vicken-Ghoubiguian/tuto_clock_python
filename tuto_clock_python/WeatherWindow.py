@@ -11,19 +11,19 @@ from PySide6.QtCore import Qt
 class WeatherWindow(QMainWindow) :
 
      # Definition of the 'WeatherWindow' class constructor
-     def __init__(self):
+     def __init__(self, title, width, height):
           
           # Definition of the main GUI
           super().__init__()
 
           # 
-          self.setWindowTitle("Weather window")
+          self.setWindowTitle(title)
 
           #
           self.on_close_callback = None
 
           #
-          self.setFixedSize(300, 300)
+          self.setFixedSize(int(width), int(height))
 
           # Implementation of the user guide GUI image
           self.setWindowIcon(QIcon(os.path.join(os.path.dirname(os.path.abspath(__file__)), "images", "clock.png")))

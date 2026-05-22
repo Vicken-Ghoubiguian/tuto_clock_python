@@ -143,7 +143,7 @@ class Clock(QApplication):
             elif littleWindowTypeEnum == LittleWindowTypeEnum.LittleWindowTypeEnum.WEATHER :
 
                 #
-                self.littleWindow = WeatherWindow.WeatherWindow()
+                self.littleWindow = WeatherWindow.WeatherWindow("Weather window", 500, 500)
 
             #
             elif littleWindowTypeEnum == LittleWindowTypeEnum.LittleWindowTypeEnum.DATETIMEFORMATS :
