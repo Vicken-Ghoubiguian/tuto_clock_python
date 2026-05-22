@@ -10,7 +10,7 @@ try :
 
     # import the custom exceptions as Python modules
     import TimeZoneException as TimeZoneException
-    #import WeatherAPIException as WeatherAPIException
+    import WeatherAPIException as WeatherAPIException
 
 #
 except ImportError:
@@ -20,7 +20,7 @@ except ImportError:
 
     # import the custom exceptions as Python modules
     from . import TimeZoneException as TimeZoneException
-    #from . import WeatherAPIException as WeatherAPIException
+    from . import WeatherAPIException as WeatherAPIException
 
 # from the needed Python modules import needed components
 from PySide6.QtWidgets import QMainWindow, QApplication, QLabel
@@ -78,7 +78,7 @@ class WeatherWindow(QMainWindow) :
                else :
 
                     #
-                    raise TimeZoneException.TimeZoneException("Timezone unknown !", 400)
+                    raise WeatherAPIException.WeatherAPIException("Weather not available !", 400)
 
           #
           else :
