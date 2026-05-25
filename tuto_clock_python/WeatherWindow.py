@@ -24,7 +24,7 @@ except ImportError:
 
 # from the needed Python modules import needed components
 from PySide6.QtWidgets import QMainWindow, QApplication, QLabel
-from PySide6.QtGui import QIcon
+from PySide6.QtGui import QIcon, QFont
 from PySide6.QtCore import Qt
 
 # Definition of the 'WeatherWindow' class
@@ -47,6 +47,23 @@ class WeatherWindow(QMainWindow) :
 
                #
                if weatherDatas != None :
+                    
+                    #
+                    datetime_format_text =  "Description : " + weatherDatas["data"][0]["weather"]["description"] + "\n" \
+                                            "Clouds : " + str(weatherDatas["data"][0]["clouds"]) + "\n" \
+                                            "Visibility (in km) : " + str(weatherDatas["data"][0]["vis"]) + "\n" \
+                                            "Temperature (in °C) : " + str(weatherDatas["data"][0]["temp"]) + "\n" \
+                                            "Apparent temperature (in °C) : " + str(weatherDatas["data"][0]["app_temp"]) + "\n" \
+                                            "Dew point (in °C) : " + str(weatherDatas["data"][0]["dewpt"]) + "\n" \
+                                            "Precipitation (in mm/h) : " + str(weatherDatas["data"][0]["precip"]) + "\n" \
+                                            "Snow (in mm/h) : " + str(weatherDatas["data"][0]["snow"]) + "\n" \
+                                            "Wind direction : " + weatherDatas["data"][0]["wind_cdir"] + "\n" \
+                                            "Complete wind direction : " + weatherDatas["data"][0]["wind_cdir_full"] + "\n" \
+                                            "" + "\n" \
+                                            ""
+
+                    #
+                    print(weatherDatas["data"][0]["weather"])
 
                     # 
                     self.setWindowTitle(title)
@@ -61,15 +78,21 @@ class WeatherWindow(QMainWindow) :
                     self.setWindowIcon(QIcon(os.path.join(os.path.dirname(os.path.abspath(__file__)), "images", "clock.png")))
 
                     #
-                    self.label = QLabel("https://www.weatherbit.io/static/img/icons/ICON.png", self)
+                    self.label = QLabel(datetime_format_text, self)
 
                     #
-                    self.label.setAlignment(Qt.AlignCenter)
+                    self.label.setGeometry(20, 20, width - 40, height - 40)
+
+                    #
+                    self.label.setFont(
+                        QFont("Calibri", 10, QFont.Bold)
+                    )
+
+                    #
+                    self.label.setWordWrap(True)
 
                     #
                     self.setCentralWidget(self.label)
-
-                    #
 
                #
                else :
