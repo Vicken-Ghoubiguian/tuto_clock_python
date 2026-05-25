@@ -24,7 +24,7 @@ except ImportError:
     from . import WeatherAPIException as WeatherAPIException
 
 # from the needed Python modules import needed components
-from PySide6.QtWidgets import QMainWindow, QApplication, QLabel
+from PySide6.QtWidgets import QMainWindow, QApplication, QLabel, QWidget, QVBoxLayout
 from PySide6.QtGui import QIcon, QFont, QPixmap
 from PySide6.QtCore import Qt
 
@@ -108,10 +108,20 @@ class WeatherWindow(QMainWindow) :
                     self.text_label.setWordWrap(True)
 
                     #
-                    self.setCentralWidget(self.image_label)
+                    central_widget = QWidget()
 
                     #
-                    self.setCentralWidget(self.text_label)
+                    vertical_layout = QVBoxLayout()
+
+                    #
+                    vertical_layout.addWidget(self.image_label)
+                    vertical_layout.addWidget(self.text_label)
+
+                    #
+                    central_widget.setLayout(vertical_layout)
+
+                    #
+                    self.setCentralWidget(central_widget)
 
                #
                else :
