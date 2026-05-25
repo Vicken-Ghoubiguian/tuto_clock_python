@@ -1,6 +1,7 @@
 # import the needed Python modules
 import sys
 import os
+import requests
 
 #
 try :
@@ -24,7 +25,7 @@ except ImportError:
 
 # from the needed Python modules import needed components
 from PySide6.QtWidgets import QMainWindow, QApplication, QLabel
-from PySide6.QtGui import QIcon, QFont
+from PySide6.QtGui import QIcon, QFont, QPixmap
 from PySide6.QtCore import Qt
 
 # Definition of the 'WeatherWindow' class
@@ -48,6 +49,12 @@ class WeatherWindow(QMainWindow) :
                #
                if weatherDatas != None :
                     
+                    #
+                    weather_image = QPixmap()
+
+                    #
+                    weather_image.loadFromData(requests.get("https://www.weatherbit.io/static/img/icons/" + weatherDatas["data"][0]["weather"]["icon"] + ".png").content)
+
                     #
                     datetime_format_text =  "Description : " + weatherDatas["data"][0]["weather"]["description"] + "\n" \
                                             "Clouds : " + str(weatherDatas["data"][0]["clouds"]) + "\n" \
@@ -78,21 +85,33 @@ class WeatherWindow(QMainWindow) :
                     self.setWindowIcon(QIcon(os.path.join(os.path.dirname(os.path.abspath(__file__)), "images", "clock.png")))
 
                     #
-                    self.label = QLabel(datetime_format_text, self)
+                    self.image_label = QLabel(self)
 
                     #
-                    self.label.setGeometry(20, 20, width - 40, height - 40)
+                    self.image_label.setPixmap(weather_image)
 
                     #
-                    self.label.setFont(
+                    self.text_label = QLabel(self)
+
+                    #
+                    self.text_label.setText(datetime_format_text)
+
+                    #
+                    self.text_label.setGeometry(20, 20, width - 40, height - 40)
+
+                    #
+                    self.text_label.setFont(
                         QFont("Calibri", 10, QFont.Bold)
                     )
 
                     #
-                    self.label.setWordWrap(True)
+                    self.text_label.setWordWrap(True)
 
                     #
-                    self.setCentralWidget(self.label)
+                    self.setCentralWidget(self.image_label)
+
+                    #
+                    self.setCentralWidget(self.text_label)
 
                #
                else :
