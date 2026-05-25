@@ -63,7 +63,7 @@ class WeatherWindow(QMainWindow) :
                                             ""
 
                     #
-                    print(weatherDatas["data"][0]["weather"])
+                    print(weatherDatas)
 
                     # 
                     self.setWindowTitle(title)
