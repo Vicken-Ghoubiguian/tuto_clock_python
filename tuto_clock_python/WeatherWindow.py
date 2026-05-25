@@ -56,7 +56,9 @@ class WeatherWindow(QMainWindow) :
                     weather_image.loadFromData(requests.get("https://www.weatherbit.io/static/img/icons/" + weatherDatas["data"][0]["weather"]["icon"] + ".png").content)
 
                     #
-                    datetime_format_text =  "Description : " + weatherDatas["data"][0]["weather"]["description"] + "\n" \
+                    datetime_format_text =  "City : " + weatherDatas["data"][0]["city_name"] + "\n" \
+                                            "Timezone : " + weatherDatas["data"][0]["timezone"] + "\n" \
+                                            "Description : " + weatherDatas["data"][0]["weather"]["description"] + "\n" \
                                             "Clouds : " + str(weatherDatas["data"][0]["clouds"]) + "\n" \
                                             "Visibility (in km) : " + str(weatherDatas["data"][0]["vis"]) + "\n" \
                                             "Temperature (in °C) : " + str(weatherDatas["data"][0]["temp"]) + "\n" \
@@ -66,7 +68,8 @@ class WeatherWindow(QMainWindow) :
                                             "Snow (in mm/h) : " + str(weatherDatas["data"][0]["snow"]) + "\n" \
                                             "Wind direction : " + weatherDatas["data"][0]["wind_cdir"] + "\n" \
                                             "Complete wind direction : " + weatherDatas["data"][0]["wind_cdir_full"] + "\n" \
-                                            "" + "\n" \
+                                            "Sunrise (UTC) : " + weatherDatas["data"][0]["sunrise"] + "\n" \
+                                            "Sunset (UTC) : " + weatherDatas["data"][0]["sunset"] + "\n" \
                                             ""
 
                     #
