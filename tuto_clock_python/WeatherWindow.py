@@ -68,7 +68,7 @@ class WeatherWindow(QMainWindow) :
                                             "Snow (in mm/h) : " + str(weatherDatas["data"][0]["snow"]) + "\n" \
                                             "Wind direction : " + weatherDatas["data"][0]["wind_cdir"] + "\n" \
                                             "Complete wind direction : " + weatherDatas["data"][0]["wind_cdir_full"] + "\n" \
-                                            "Wind gust (in m/s) : " + weatherDatas["data"][0]["gust"] + "\n" \
+                                            "Wind gust (in m/s) : " + str(weatherDatas["data"][0]["gust"]) + "\n" \
                                             "Sunrise (UTC) : " + weatherDatas["data"][0]["sunrise"] + "\n" \
                                             "Sunset (UTC) : " + weatherDatas["data"][0]["sunset"] + "\n" \
                                             "UV : " + str(weatherDatas["data"][0]["uv"]) + "\n" \
