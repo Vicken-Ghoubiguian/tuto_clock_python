@@ -78,9 +78,6 @@ class WeatherWindow(QMainWindow) :
                                             "Atmospheric pressure (in hPa) : " + str(weatherDatas["data"][0]["pres"]) + "\n" \
                                             ""
 
-                    #
-                    print(weatherDatas)
-
                     # 
                     self.setWindowTitle(title)
 
