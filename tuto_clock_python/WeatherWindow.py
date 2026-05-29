@@ -57,7 +57,11 @@ class WeatherWindow(QMainWindow) :
                     weather_image.loadFromData(requests.get("https://www.weatherbit.io/static/img/icons/" + weatherDatas["data"][0]["weather"]["icon"] + ".png").content)
 
                     #
+                    country = dt_management.get_datas_from_particular_countrycode(weatherDatas["data"][0]["country_code"])
+
+                    #
                     datetime_format_text =  "City : " + weatherDatas["data"][0]["city_name"] + "\n" \
+                                            "Country : " + country["flag"].encode('utf-8').decode('unicode_escape') + " " + country["name"] + "\n" \
                                             "Timezone : " + weatherDatas["data"][0]["timezone"] + "\n" \
                                             "Description : " + weatherDatas["data"][0]["weather"]["description"] + "\n" \
                                             "Clouds : " + str(weatherDatas["data"][0]["clouds"]) + "\n" \
