@@ -191,7 +191,7 @@ if __name__ == "__main__" :
      app = QApplication(sys.argv)
 
      #
-     weather_window = WeatherWindow(args.timezone, args.title, args.width, args.height, args.weatherbit_api_key)
+     weather_window = WeatherWindow(args.timezone, args.title, int(args.width), int(args.height), args.weatherbit_api_key)
 
      #
      weather_window.show()
