@@ -34,6 +34,12 @@ To test each module and class, you have to go to the ['tuto_clock_python'](https
 
 Note : all parameters have default values.
 
+For the CartographyWindow class (in the [CartographyWindow.py](https://github.com/Vicken-Ghoubiguian/tuto_clock_python/blob/main/tuto_clock_python/CartographyWindow.py) file) :
+
+```bash
+python CartographyWindow.py --timezone="<timezone>" --title="<title>" --zoom_map="<zoom_map>" --width="<width>" --height="<height>" --file="<file>"
+```
+
 For the DatetimeFormatWindow class (in the [DatetimeFormatWindow.py](https://github.com/Vicken-Ghoubiguian/tuto_clock_python/blob/main/tuto_clock_python/DatetimeFormatWindow.py) file) :
 
 ```bash
