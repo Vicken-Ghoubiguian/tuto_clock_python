@@ -57,3 +57,9 @@ For the Clock class (in the [clock.py](https://github.com/Vicken-Ghoubiguian/tut
 ```bash
 python clock.py --timezone="<timezone>" --dt_format="<datetime_format>" --zoom_map="<zoom_map>" --width="<width>" --height="<height>" --title="<title>" --weatherbit_api_key="<weatherbit_api_key>"
 ```
+
+For the WeatherWindow class (in the [WeatherWindow.py](https://github.com/Vicken-Ghoubiguian/tuto_clock_python/blob/main/tuto_clock_python/WeatherWindow.py) file) :
+
+```bash
+python WeatherWindow.py --timezone="<timezone>"  --title="<title>" --width="<width>" --height="<height>" --weatherbit_api_key="<weatherbit_api_key>"
+```
