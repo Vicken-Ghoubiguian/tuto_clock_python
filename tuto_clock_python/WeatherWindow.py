@@ -2,6 +2,7 @@
 import sys
 import os
 import requests
+import argparse
 
 #
 try :
@@ -161,12 +162,36 @@ class WeatherWindow(QMainWindow) :
 
           #
 if __name__ == "__main__" :
+     
+     # Get the system's (platform's) timezone
+     iana_tz = dt_management.return_iana_timezone()
+     
+     #
+     parser = argparse.ArgumentParser(description="Simple app with timezones")
+
+     #
+     parser.add_argument('--timezone', action="store", dest='timezone', default=iana_tz)
+
+     #
+     parser.add_argument('--title', action="store", dest='title', default='World\'s map')
+
+     #
+     parser.add_argument('--width', action="store", dest='width', default=500)
+
+     #
+     parser.add_argument('--height', action="store", dest='height', default=500)
+
+     #
+     parser.add_argument('--weatherbit_api_key', action="store", dest='weatherbit_api_key', default='')
+
+     #
+     args = parser.parse_args()
 
      #
      app = QApplication(sys.argv)
 
      #
-     weather_window = WeatherWindow()
+     weather_window = WeatherWindow(args.timezone, args.title, args.width, args.height, args.weatherbit_api_key)
 
      #
      weather_window.show()
