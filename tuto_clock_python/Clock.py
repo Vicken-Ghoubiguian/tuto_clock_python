@@ -157,7 +157,7 @@ class Clock(QApplication):
             elif littleWindowTypeEnum == LittleWindowTypeEnum.LittleWindowTypeEnum.USERGUIDE :
 
                 #
-                self.littleWindow = UserGuideWindow.UserGuideWindow("User Guide", 300, 300)
+                self.littleWindow = UserGuideWindow.UserGuideWindow("User Guide", 500, 500)
 
             #
             self.littleWindow.on_close_callback = self.closeWindow
