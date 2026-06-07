@@ -17,7 +17,7 @@ iana_tz = dt_management.return_iana_timezone()
 timezone = input("Entrez une timezone (valeur par défaut: " + iana_tz + ") : ") or iana_tz
 
 #
-width = input("Entrez la largeur de la fenêtre (valeur par défaut: 1500) : ") or "1500"
+width = input("Entrez la largeur de la fenêtre (valeur par défaut: 500) : ") or "500"
 
 #
 height = input("Entrez la hauteur de la fenêtre (valeur par défaut: 500) : ") or "500"
